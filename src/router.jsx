@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route} from "react-router-dom"
 
 import Landing from './pages/landing';
-import Cadastro from './pages/cadastro';
+import Login from './pages/login';
 
 export default function Navegacao() {
 
@@ -11,7 +11,7 @@ export default function Navegacao() {
             <Routes>
 
                 <Route path='/' element={<Landing />}> </Route>
-                <Route path='/Cadastro' element={<Cadastro />}> </Route>
+                <Route path='/Login' element={<Login />}> </Route>
             
             </Routes>
         </BrowserRouter>

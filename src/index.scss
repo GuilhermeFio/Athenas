@@ -14,15 +14,16 @@
 
         display: flex;
         flex-direction: row;
-        padding: 30px;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 35px;
         gap: 20px;
         background-color: #fff;
         box-shadow: 1px 1px 2px #000;
 
          .logo{
 
-         width: 130px ;
-         margin-left: 25px;
+         width: 80px ;
 
          }
 
@@ -32,10 +33,9 @@
         display: flex;
         flex-direction: row;
         gap: 170px;
-        justify-content: space-around;
-        margin-left: 400px;
-        margin-top: 40px;
+        justify-content: space-evenly;
         font-family: 'Kanit';
+        margin-left: 450px;
 
         .login{
 
@@ -93,7 +93,7 @@ button{
 
     border-radius: 20px;
     background-color: #fff;
-    max-width: 85px;
+    min-width: 285px;
     padding: 12px;
     margin-left: 260px;
     margin-top: 11px;
