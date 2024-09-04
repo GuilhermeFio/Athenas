@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import './index.scss'
 
 
 export default function Login() {
@@ -9,7 +10,10 @@ export default function Login() {
   
      <main>
   <section className="secao1 secao" >
-     <img className='fundo' src='/assets/images/portrait-young-sportive-girl-training-with-dumbbells-isolated-blue-background-neon.jpg'/>
+
+  <Link to={'/'}><i id='voltar' className="fa-solid fa-arrow-left"> </i> </Link>  
+  
+     <img className='fundo' src='/assets/images/fundoLogin.jpg'/>
   
      <div className='login'>
   <h1> Acesse sua área de trabalho abaixo: </h1>

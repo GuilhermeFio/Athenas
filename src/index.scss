@@ -91,7 +91,7 @@ flex-direction: column;
 
 button{
 
-    border-radius: 20px;
+    border-radius: 8px;
     background-color: #fff;
     min-width: 285px;
     padding: 12px;
@@ -104,8 +104,10 @@ button{
 
     input{
 
-    border-radius: 15px;
+    border-radius: 8px;
     border: none;
     outline: none;
-    max-width: 50px;
+    width: 490px;
+    padding: 22px;
+    font: 400 20px "Roboto";
     }

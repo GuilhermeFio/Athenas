@@ -1,5 +1,6 @@
 import './index.scss';
 import { Link } from 'react-router-dom'
+import Footer from '../../components/Footer';
 
 function Landing() {
   return (
@@ -59,7 +60,7 @@ function Landing() {
 
 
           <div className='infoPersonal'>
-            <img className='ImgPersonal' src='assets/images/young-sporty-woman-taking-selfie-with-mobile-phone-gym.jpg' />
+            <img className='ImgPersonal' src='assets/images/Autonomo.jpg' />
             <h2> Nome completo </h2>
             <h2> Atuando desde 2011</h2>
 
@@ -100,17 +101,22 @@ function Landing() {
 
         </section>
 
+
+
         <section className='secao4 secao'>
 
+          <div className='container'>
+
           <h1> Sobre o Athenas </h1>
-          <p> Dê uma olhada no que podemos oferecer para você antes de embarcar nessa aventura conosco!</p>
+          <p className='olhada'> Dê uma olhada no que podemos oferecer para você antes de embarcar nessa aventura conosco!</p>
+
 
           <div className='tasks'>
 
-            <div className='Planejamento'>
+          <div className='Planejamento'>
               <div className='titulo1'>   <i class="fa-solid fa-pen"></i> <h2> Planejamento de treinos</h2> </div>
               
-              <i class="fa-regular fa-clock"></i>
+              <i id='relogio' class="fa-regular fa-clock"></i>
 
               <p> Ferramentas próprias para a organização de seus treinos. </p>
             </div>
@@ -119,7 +125,7 @@ function Landing() {
             <div className='Suporte'>
               <div className='titulo2'> <i class="fa-solid fa-check"></i> <h2> Suporte para avaliação física </h2> </div>
               
-              <i class="fa-regular fa-clipboard"></i>
+              <i id='prencheta' class="fa-regular fa-clipboard"></i>
 
               <p> Análise dos atributos físicos do cliente para melhor auxílio aos objetivos dele. </p>
             </div>
@@ -128,13 +134,18 @@ function Landing() {
             <div className='Segurança'>
               <div className='titulo3'> <i class="fa-regular fa-thumbs-up"></i> <h2> Segurança de dados dedicada </h2> </div>
               
-              <i class="fa-solid fa-shield"></i>
+              <i id='escudo' class="fa-solid fa-shield"></i>
 
               <p> Proteção assegurada para seus dados e informações de seus clientes. </p>
             </div>
+          </div>
+           
 
 
           </div>
+
+
+
 
         </section>
 
@@ -175,11 +186,7 @@ function Landing() {
         </section>
     </main>
 
-      <footer>
-
-      <i class="fa-brands fa-facebook"></i>
-
-      </footer>
+      <Footer />
 
     </div>
   );
