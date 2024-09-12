@@ -1,4 +1,4 @@
-        /*importar od Controller prontos*/
+        /*importar os Controller prontos*/
 
 export default function AdicionarRotas(servidor){
 
