@@ -2,7 +2,7 @@ import con from "./connection.js";
 
 
 
-export async function adicionarAvaliacao(usuario){
+export async function adicionarAvaliacao(info){
 
     const comando=  `
 
@@ -11,7 +11,7 @@ insert into db_athenas.tb_avaliacaoFisica (ds_peso, ds_massa_livre_gordura, ds_i
 values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
            `
 
- let resposta= await con.query(comando, [usuario.peso, usuario.massaLivreGordura, usuario.imc, usuario.massaMuscular, usuario.frequenciaCardiaca, usuario.massaMuscularEsqueletica, usuario.indiceCoracao, usuario.massaOssea, usuario.taxaMuscular, usuario.gorduraCorporal, usuario.idadeMetabolica, usuario.gorduraSubcutanea, usuario.taxaMetabolicaBassal, usuario.gorduraVisceral, usuario.proteina, usuario.aguaCorporal]);
+ let resposta= await con.query(comando, [info.peso, info.massaLivreGordura, info.imc, info.massaMuscular, info.frequenciaCardiaca, info.massaMuscularEsqueletica, info.indiceCoracao, info.massaOssea, info.taxaMuscular, info.gorduraCorporal, info.idadeMetabolica, info.gorduraSubcutanea, info.taxaMetabolicaBassal, info.gorduraVisceral, info.proteina, info.aguaCorporal]);
 
  let registros= resposta[0];
  return registros.insertId;
@@ -20,7 +20,7 @@ values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
 
 
 
-export async function atualizarAvaliacao(id,usuario){
+export async function atualizarAvaliacao(id,info){
 
     const comando=  `
 
@@ -46,7 +46,7 @@ export async function atualizarAvaliacao(id,usuario){
 
            `
 
- let resposta= await con.query(comando, [usuario.peso, usuario.massaLivreGordura, usuario.imc, usuario.massaMuscular, usuario.frequenciaCardiaca, usuario.massaMuscularEsqueletica, usuario.indiceCoracao, usuario.massaOssea, usuario.taxaMuscular, usuario.gorduraCorporal, usuario.idadeMetabolica, usuario.gorduraSubcutanea, usuario.taxaMetabolicaBassal, usuario.gorduraVisceral, usuario.proteina, usuario.aguaCorporal, id]);
+ let resposta= await con.query(comando, [info.peso, info.massaLivreGordura, info.imc, info.massaMuscular, info.frequenciaCardiaca, info.massaMuscularEsqueletica, info.indiceCoracao, info.massaOssea, info.taxaMuscular, info.gorduraCorporal, info.idadeMetabolica, info.gorduraSubcutanea, info.taxaMetabolicaBassal, info.gorduraVisceral, info.proteina, info.aguaCorporal, id]);
 
  let registros= resposta[0];
  return registros.affectedRows;

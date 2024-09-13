@@ -4,7 +4,7 @@ import con from "./connection.js";
 
 /*lembrar que quando apertar botão deletar, vai deletar o registro na tabela treinos marcados e adiconar na tb finalizados*/
 
-export async function adicionarFinalizadosPendentes(FP){
+export async function adicionarFinalizados(Finalizados){
 
     const comando=  `
 
@@ -12,7 +12,7 @@ insert into db_athenas.tb_avaliacaoFisica (ds_objetivos_cliente, dt_treino)
 values(?,?)
            `
 
- let resposta= await con.query(comando, [FP.objetivos, FP.treino]);
+ let resposta= await con.query(comando, [Finalizados.objetivos, Finalizados.treino]);
 
  let registros= resposta[0];
  return registros.insertId;  
@@ -20,7 +20,7 @@ values(?,?)
 
 
 
-export async function consultarFinalizadosPendentes(){
+export async function consultarFinalizados(){
 
     const comando= `
     
@@ -39,7 +39,7 @@ export async function consultarFinalizadosPendentes(){
 
 
     
-    export async function deletarFinalizadosPendentes(id){
+    export async function deletarFinalizados(id){
 
         const comando= `
         
