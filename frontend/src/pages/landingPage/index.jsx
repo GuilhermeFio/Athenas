@@ -1,6 +1,6 @@
 import './index.scss';
 import { Link } from 'react-router-dom'
-import Footer from '../../components/Footer';
+import Footer from '../../components/footer';
 
 function Landing() {
   return (
@@ -26,7 +26,7 @@ function Landing() {
             <h1> Bem-vinda à Athenas</h1>
             <p> Um ajudante pessoal para todas as suas necessidades </p>
 
-            <button className='Login-button'> <Link to={'/Login'}> <p className='Acesse'> Acesse sua conta </p> </Link> </button>
+            <button className='Login-button'> <Link to={'/loginUsuario'}> <p className='Acesse'> Acesse sua conta </p> </Link> </button>
           </div>
 
 
