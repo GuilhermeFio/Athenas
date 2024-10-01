@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import './index.scss'
-import Menu from '../../components/MenuAbas'
+import Menu from '../../components/abasMenu'
 import axios from 'axios'
 import { useState } from "react";
 

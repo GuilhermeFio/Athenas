@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route} from "react-router-dom"
 
-import Landing from './pages/landing';
-import Login from './pages/login';
-import AdicionarTreino from "./pages/AdicionarTreino";
-import HorarioTreinos from "./pages/HorarioTreinos";
-import InfoClientes from "./pages/InfoClientes";
-import TreinosFinalizados from "./pages/TreinosFinalizados";
+import Landing from './pages/landingPage';
+import Login from './pages/loginUsuario';
+import AdicionarTreino from "./pages/adicionarTreino";
+import HorarioTreinos from "./pages/horariosTreinos";
+import InfoClientes from "./pages/treinoCliente";
+import TreinosFinalizados from "./pages/treinosFinalizados";
 
 
 export default function Navegacao(){
@@ -16,11 +16,11 @@ export default function Navegacao(){
             <Routes>
 
                 <Route path='/' element={<Landing />}> </Route>
-                <Route path='/Login' element={<Login />}> </Route>
-                <Route path='/AdicionarTreino' element={<AdicionarTreino />}> </Route>
-                <Route path='/HorarioTreinos' element={<HorarioTreinos />}> </Route>
-                <Route path='/InfoClientes' element={<InfoClientes />}> </Route>
-                <Route path='/TreinosFinalizados' element={<TreinosFinalizados />}> </Route>
+                <Route path='/login' element={<Login />}> </Route>
+                <Route path='/adicionarTreino' element={<AdicionarTreino />}> </Route>
+                <Route path='/horariosTreinos' element={<HorarioTreinos />}> </Route>
+                <Route path='/treinoCliente' element={<InfoClientes />}> </Route>
+                <Route path='/treinosFinalizados' element={<TreinosFinalizados />}> </Route>
 
             </Routes>
         </BrowserRouter>
