@@ -1,6 +1,6 @@
 import './index.scss';
 import { Link } from 'react-router-dom'
-import Footer from '../../components/footer';
+import Footer from '../../components/footerMenu';
 
 function Landing() {
   return (
