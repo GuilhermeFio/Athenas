@@ -16,7 +16,7 @@ export default function Navegacao(){
             <Routes>
 
                 <Route path='/' element={<Landing />}> </Route>
-                <Route path='/login' element={<Login />}> </Route>
+                <Route path='/loginUsuario' element={<Login />}> </Route>
                 <Route path='/adicionarTreino' element={<AdicionarTreino />}> </Route>
                 <Route path='/horariosTreinos' element={<HorarioTreinos />}> </Route>
                 <Route path='/treinoCliente' element={<InfoClientes />}> </Route>
