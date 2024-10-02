@@ -20,7 +20,7 @@ Endpoints.get('/avaliacao/consultar/', async (req,resp) => {
  })
 
  
- Endpoints.get('/avaliacao/atualizar/:id', async (req,resp) => {
+ Endpoints.put('/avaliacao/atualizar/:id', async (req,resp) => {
  
     try {
        let id = req.params.id
@@ -43,7 +43,7 @@ Endpoints.get('/avaliacao/consultar/', async (req,resp) => {
  })
 
 
- Endpoints.get('/avaliacao/adicionar/', async (req,resp) => {
+ Endpoints.post('/avaliacao/adicionar/', async (req,resp) => {
 
     try {
 

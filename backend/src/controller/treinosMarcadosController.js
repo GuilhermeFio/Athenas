@@ -21,7 +21,7 @@ Endpoints.get('/treinos/consultar/', async (req,resp) => {
  })
  
  
- Endpoints.get('/treinos/atualizar/:id', async (req,resp) => {
+ Endpoints.put('/treinos/atualizar/:id', async (req,resp) => {
  
     try {
        let id = req.params.id
@@ -34,7 +34,7 @@ Endpoints.get('/treinos/consultar/', async (req,resp) => {
        else {
            resp.status(404).send({erro: 'Nenhum registro encontrado'})
        }
-       
+             
    }
     catch (err) {
        resp.status(404).send({
@@ -44,7 +44,7 @@ Endpoints.get('/treinos/consultar/', async (req,resp) => {
  })
 
 
- Endpoints.get('/treinos/adicionar/', async (req,resp) => {
+ Endpoints.post('/treinos/adicionar/', async (req,resp) => {
 
     try {
 
@@ -62,7 +62,7 @@ Endpoints.get('/treinos/consultar/', async (req,resp) => {
  })
 
 
- Endpoints.get('/treinos/deletar/:id', async (req,resp) => {
+ Endpoints.delete('/treinos/deletar/:id', async (req,resp) => {
 
     try {
 

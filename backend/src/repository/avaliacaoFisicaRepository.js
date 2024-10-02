@@ -6,7 +6,7 @@ export async function adicionarAvaliacao(info){
 
     const comando=  `
 
-insert into db_athenas.tb_avaliacaoFisica (ds_peso, ds_massa_livre_gordura, ds_imc, ds_massa_muscular, ds_frequencia_cardiaca, ds_massa_muscular_esqueletica, ds_indice_coracao, ds_massa_ossea, ds_taxa_muscular, ds_gordura_corporal, ds_idade_metabolica, ds_gordura_subcutanea, ds_taxa_metabolica_basal, ds_gordura_visceral, ds_proteina, ds_agua_corporal)
+insert into db_athenas.tb_avaliacao_fisica (ds_peso, ds_massa_livre_gordura, ds_imc, ds_massa_muscular, ds_frequencia_cardiaca, ds_massa_muscular_esqueletica, ds_indice_coracao, ds_massa_ossea, ds_taxa_muscular, ds_gordura_corporal, ds_idade_metabolica, ds_gordura_subcutanea, ds_taxa_metabolica_basal, ds_gordura_visceral, ds_proteina, ds_agua_corporal)
 
 values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
            `
@@ -20,12 +20,14 @@ values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
 
 
 
+
+
 export async function atualizarAvaliacao(id,info){
 
     const comando=  `
 
     
-    update db_athenas.tb_avaliacaoFisica
+    update db_athenas.tb_avaliacao_fisica
        set  ds_peso= ?,
             ds_massa_livre_gordura=?,
             ds_imc=?,
@@ -59,24 +61,24 @@ export async function atualizarAvaliacao(id,info){
         const comando=  `
     
     select 
-        ds_peso   peso,
-        ds_massa_livre_gordura           massa livre de gordura,
+        ds_peso                          peso,
+        ds_massa_livre_gordura           massaLivreGordura,
         ds_imc                           imc,
-        ds_massa_muscular                massa muscular,
-        ds_frequencia_cardiaca           frequencia caridaca,
-        ds_massa_muscular_esqueletica    massa muscular esqueletica,
-        ds_indice_coracao                indice coracao,
-        ds_massa_ossea                   massa ossea,
-        ds_taxa_muscular                 taxa muscular,
-        ds_gordura_corporal              gordura corporal,
-        ds_idade_metabolica              gordura metabolica,
-        ds_gordura_subcutanea            gordura subcutanea,
-        ds_taxa_metabolica_basal         taxa metabolica basal,
-        ds_gordura_visceral              gordura visceral,
+        ds_massa_muscular                massaMuscular,
+        ds_frequencia_cardiaca           frequenciaCaridaca,
+        ds_massa_muscular_esqueletica    massaMuscularEsqueletica,
+        ds_indice_coracao                indiceCoracao,
+        ds_massa_ossea                   massaOssea,
+        ds_taxa_muscular                 taxaMuscular,
+        ds_gordura_corporal              gorduraCorporal,
+        ds_idade_metabolica              gorduraMetabolica,
+        ds_gordura_subcutanea            gorduraSubcutanea,
+        ds_taxa_metabolica_basal         taxaMetabolicaBasal,
+        ds_gordura_visceral              gorduraVisceral,
         ds_proteina                      proteina,
-        ds_agua_corporal                 agua corporal
+        ds_agua_corporal                 aguaCorporal
 
-    from db_athenas.tb_avaliacaoFisica; 
+    from db_athenas.tb_avaliacao_fisica; 
                         `
     
      let resposta= await con.query(comando);
