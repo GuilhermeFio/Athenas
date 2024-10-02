@@ -1,6 +1,6 @@
 import './index.scss';
 import { Link } from 'react-router-dom'
-import Footer from '../../components/Footer';
+import Footer from '../../components/footerMenu';
 
 function Landing() {
   return (
@@ -23,10 +23,10 @@ function Landing() {
           <img className='fundo' src='/assets/images/young-happy-sportswoman-getting-ready-workout-tying-shoelace-fitness-center.jpg' />
 
           <div className='texto1'>
-            <h1> Bem-vindo à Athenas</h1>
+            <h1> Bem-vinda à Athenas</h1>
             <p> Um ajudante pessoal para todas as suas necessidades </p>
 
-            <button className='Login-button'> <Link to={'/Login'}> <p className='Acesse'> Acesse sua conta </p> </Link> </button>
+            <button className='Login-button'> <Link to={'/loginUsuario'}> <p className='Acesse'> Acesse sua conta </p> </Link> </button>
           </div>
 
 
