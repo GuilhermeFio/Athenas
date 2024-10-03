@@ -15,7 +15,7 @@ export default function HorarioTreinos (){
                 <h1>HORÁRIOS DOS TREINOS</h1>
 
                 <div className="irAddTreino">
-                    <h2>Adicionar novo treino</h2>
+                    <h2>Adicionar Novo Treino</h2>
                     <Link to={'/adicionarTreino'}><i id='adicionar' className="fa-solid fa-circle-plus"></i></Link>
                 </div>
 
