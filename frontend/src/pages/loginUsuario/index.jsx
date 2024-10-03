@@ -24,7 +24,7 @@ export default function Login() {
 
 <input type='text' placeholder='Senha' />
 
-<button> Fazer login </button>
+<button><Link to={'/horariosTreinos'}> Fazer login </Link></button>
 
 </div>
 
