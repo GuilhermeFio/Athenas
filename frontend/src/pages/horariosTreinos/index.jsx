@@ -15,8 +15,22 @@ export default function HorarioTreinos (){
                 <h1>HORÁRIOS DOS TREINOS</h1>
 
                 <div className="irAddTreino">
-                    <h3>Adicionar novo treino</h3>
-                    <Link to={'/adicionarTreino'}></Link>
+                    <h2>Adicionar novo treino</h2>
+                    <Link to={'/adicionarTreino'}><i id='adicionar' className="fa-solid fa-circle-plus"></i></Link>
+                </div>
+
+                <div className="atualSemana">
+                    <div className="titulo">
+                        <h3>Esta Semana</h3>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div className="proxSemanas">
+                    <div className="titulo">
+                        <h3>Nas Próximas Semanas</h3>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
             </div>
         </div>

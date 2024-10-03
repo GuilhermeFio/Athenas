@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route} from "react-router-dom"
 
 import Landing from './pages/landingPage';
 import Login from './pages/loginUsuario';
+import AdicionarTreino from './pages/adicionarTreino';
 import HorarioTreinos from "./pages/horariosTreinos";
 import InfoClientes from "./pages/treinoCliente";
 import TreinosFinalizados from "./pages/treinosFinalizados";

@@ -1,0 +1,30 @@
+.pagina-horarios-treinos{
+    background-color: #8299AA;
+    padding: 20px;
+    min-height: 100vh;
+
+    .irAddTreino{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .atualSemana{
+        .titulo{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+
+    .proxSemanas{
+        .titulo{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+}
