@@ -6,6 +6,10 @@ export default function TreinosFinalPend(){
     return(
         <div className="pagina-treinos-finpen">
             <Menu />
+            <div className="secaomae">
+                <h1>Treinos Finalizados</h1>
+                <h1>Treinos Pendentes</h1>
+            </div>
         </div>
     )
 }
