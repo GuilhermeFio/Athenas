@@ -1,14 +1,11 @@
 import './index.scss'
 import {Link} from 'react-router-dom'
+
 export default function Menu (){
-
     return(
-
         <div className='menu'>
 
-            <i id='user' class="fa-solid fa-user"></i>
-
-            <div className='barra'/> 
+            <Link to={'/infosUsuario'}><i id='user' class="fa-solid fa-user"></i></Link>
 
             <div className='opcoes'>
                 <Link to = {'/horariosTreinos'}><i class="fa-solid fa-calendar-days"> Horário dos Treinos </i></Link>
