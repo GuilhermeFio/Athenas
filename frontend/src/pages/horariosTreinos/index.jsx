@@ -1,7 +1,8 @@
 import './index.scss';
 import { Link } from 'react-router-dom'
 import Menu from '../../components/abasMenu'
-import CardTreino from '../../components/cardTreino';
+import CardTreinosAtuais from '../../components/cardTreinosAtuais';
+import CardTreinosProxs from '../../components/cardTreinosProxs';
 import axios from 'axios'
 
 export default function HorarioTreinos (){
@@ -11,31 +12,49 @@ export default function HorarioTreinos (){
 
             <Menu/>
 
-            <div className="secao">
-                <h1>HORÁRIOS DOS TREINOS</h1>
+            <div className="secaomae">
 
-                <div className="irAddTreino">
-                    <h2>Adicionar Novo Treino</h2>
-                    <Link to={'/adicionarTreino'}><i id='adicionar' className="fa-solid fa-circle-plus"></i></Link>
+                <div className="secao1">
+                    <h1>HORÁRIOS DOS TREINOS</h1>
+
+                    <div className="irAddTreino">
+                        <h2>Adicionar Novo Treino</h2>
+                        <Link to={'/adicionarTreino'}><i id='adicionar' className="fa-solid fa-circle-plus"></i></Link>
+                    </div>
                 </div>
 
-                <div className="atualSemana">
-                    <div className="titulo">
-                        <h3>Esta Semana</h3>
-                        <i class="fa-solid fa-arrow-right"></i>
+                <div className="secaotreinos">
+
+                    <div className="atualSemana">
+                        <div className="titulo">
+                            <h3>Esta Semana</h3>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+
+                        <div className="treinosatuais">
+                                <CardTreinosAtuais id={1}/>
+                            <CardTreinosAtuais id={2}/>
+                            <CardTreinosAtuais/>
+                        </div>
                     </div>
 
-                    <CardTreino/>
-                </div>
+                    <div className="proxSemanas">
+                        <div className="titulo">
+                            <h3>Nas Próximas Semanas</h3>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
 
-                <div className="proxSemanas">
-                    <div className="titulo">
-                        <h3>Nas Próximas Semanas</h3>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <div className="treinosproxs">
+                            <CardTreinosProxs/>
+                            <CardTreinosProxs/>
+                            <CardTreinosProxs/>
+                            <CardTreinosProxs/>
+                            <CardTreinosProxs/>
+                            <CardTreinosProxs/>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    
     )
 }

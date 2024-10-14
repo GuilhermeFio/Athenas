@@ -2,29 +2,71 @@
     background-color: #8299AA;
     padding: 20px;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 
-    .irAddTreino{
+    .secaomae{
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 10px;
-    }
+        flex-direction: column;
+        gap: 30px;
 
-    .atualSemana{
-        .titulo{
+        .secao1{
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            gap: 15px;
+
+            .irAddTreino{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+            }
         }
-    }
 
-    .proxSemanas{
-        .titulo{
+        .secaotreinos{
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            gap: 40px;
+            
+            .atualSemana{
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                .titulo{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    
+                    gap: 10px;
+                }
+
+                .treinosatuais{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                }
+            }
+
+            .proxSemanas{
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                
+                .titulo{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                .treinosproxs{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 49px;
+                }
+            }
         }
     }
 }

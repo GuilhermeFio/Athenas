@@ -16,7 +16,7 @@ export default function Navegacao(){
                 <Route path='/adicionarTreino' element={<AdicionarTreino/>}></Route>
                 <Route path='/infosUsuario' element={<InfosUser/>}></Route>
                 <Route path='/horariosTreinos' element={<HorarioTreinos/>}></Route>
-                <Route path='/treinoCliente' element={<InfoClientes/>}></Route>
+                <Route path='/treinoCliente/:id' element={<InfoClientes/>}></Route>
                 <Route path='/treinosFinalPend' element={<TreinosFinalPend/>}></Route>
             </Routes>
         </BrowserRouter>
