@@ -9,9 +9,21 @@
         gap: 20px;
         padding: 20px;
 
-        .infosCliente{
-            background-color: #d8d8d8;
+        .secaoCliente{
+            display: flex;
+            flex-direction: row;
+
+            .avatar{
+                border-radius: 8px;
+            }
+
+            .infosCliente{
+                display: flex;
+                flex-direction: column;
+                background-color: #d8d8d8;
+            }
         }
+       
 
         .tabAvaliacao{
             display: flex;

@@ -75,7 +75,7 @@ function Landing() {
 
           <div className='Formacoes'>
 
-            <h2> Minhas formações: </h2>
+            <h2> Suas formações: </h2>
 
             <div>
               <h2> Graduação em Educação Física
