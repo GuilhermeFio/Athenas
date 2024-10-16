@@ -1,15 +1,15 @@
 .pagina-horarios-treinos{
     background-color: #8299AA;
-    padding: 20px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 
     .secaomae{
         display: flex;
         flex-direction: column;
         gap: 30px;
+        padding: 20px;
 
         .secao1{
             display: flex;

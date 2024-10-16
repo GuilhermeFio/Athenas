@@ -36,7 +36,7 @@ export default function AdicionarTreino() {
 
         <Menu/>
 
-        <div className='secao'>
+        <div className='secaomae'>
 
           <h3>ADICIONAR NOVO TREINO</h3>
   
