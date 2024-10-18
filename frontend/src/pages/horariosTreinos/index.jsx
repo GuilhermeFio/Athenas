@@ -32,8 +32,8 @@ export default function HorarioTreinos (){
                         </div>
 
                         <div className="treinosatuais">
-                                <CardTreinosAtuais id={1}/>
-                            <CardTreinosAtuais id={2}/>
+                                <CardTreinosAtuais/>
+                            <CardTreinosAtuais/>
                             <CardTreinosAtuais/>
                         </div>
                     </div>

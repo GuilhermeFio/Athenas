@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import './index.scss';
 
-function CardTreinosAtuais({id}){
+function CardTreinosAtuais(){
     return(
-        <Link className='comp-card-treinos-atuais' to = {`/treinoCliente/${id}`}>
+        <Link className='comp-card-treinos-atuais' to = {`/treinoCliente`}>
             <div className='cartao'>
                 <img src='/assets/images/avatarfoto.png'/>
                 <div className='infosCliente'>

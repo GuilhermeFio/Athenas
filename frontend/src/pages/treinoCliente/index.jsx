@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import './index.scss'
 import Menu from '../../components/abasMenu'
 import axios from 'axios'
-import { useState, useParams } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
 
 export default function InfoClientes (){
     const[nomeCliente, setNomeCliente] = useState('');
@@ -31,7 +32,15 @@ export default function InfoClientes (){
     const[objetivos, setObjetivos] = useState('');
     const[exercicios, setExercicios] = useState('');
 
-    //const{id} = useParams()
+    const {id} = useParams();
+
+    useEffect(() => {
+
+    });
+
+    const verifyClient = () => {
+        
+    }
 
     return (
         <div className="pagina-treino-cliente">
