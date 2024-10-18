@@ -107,39 +107,39 @@ function Landing() {
 
           <div className='container'>
 
-          <h1> Sobre o Athenas </h1>
-          <p className='olhada'> Dê uma olhada no que podemos oferecer para você antes de embarcar nessa aventura conosco!</p>
+            <h1> Sobre o Athenas </h1>
+            <p className='olhada'> Dê uma olhada no que podemos oferecer para você antes de embarcar nessa aventura conosco!</p>
 
 
-          <div className='tasks'>
+            <div className='tasks'>
 
-          <div className='Planejamento'>
-              <div className='titulo1'>   <i class="fa-solid fa-pen"></i> <h2> Planejamento de treinos</h2> </div>
-              
-              <i id='relogio' class="fa-regular fa-clock"></i>
+              <div className='Planejamento'>
+                <div className='titulo1'>   <i class="fa-solid fa-pen"></i> <h2> Planejamento de treinos</h2> </div>
 
-              <p> Ferramentas próprias para a organização de seus treinos. </p>
+                <i id='relogio' class="fa-regular fa-clock"></i>
+
+                <p> Ferramentas próprias para a organização de seus treinos. </p>
+              </div>
+
+
+              <div className='Suporte'>
+                <div className='titulo2'> <i class="fa-solid fa-check"></i> <h2> Suporte para avaliação física </h2> </div>
+
+                <i id='prencheta' class="fa-regular fa-clipboard"></i>
+
+                <p> Análise dos atributos físicos do cliente para melhor auxílio aos objetivos dele. </p>
+              </div>
+
+
+              <div className='Segurança'>
+                <div className='titulo3'> <i class="fa-regular fa-thumbs-up"></i> <h2> Segurança de dados dedicada </h2> </div>
+
+                <i id='escudo' class="fa-solid fa-shield"></i>
+
+                <p> Proteção assegurada para seus dados e informações de seus clientes. </p>
+              </div>
             </div>
 
-
-            <div className='Suporte'>
-              <div className='titulo2'> <i class="fa-solid fa-check"></i> <h2> Suporte para avaliação física </h2> </div>
-              
-              <i id='prencheta' class="fa-regular fa-clipboard"></i>
-
-              <p> Análise dos atributos físicos do cliente para melhor auxílio aos objetivos dele. </p>
-            </div>
-
-
-            <div className='Segurança'>
-              <div className='titulo3'> <i class="fa-regular fa-thumbs-up"></i> <h2> Segurança de dados dedicada </h2> </div>
-              
-              <i id='escudo' class="fa-solid fa-shield"></i>
-
-              <p> Proteção assegurada para seus dados e informações de seus clientes. </p>
-            </div>
-          </div>
-           
 
 
           </div>
@@ -151,40 +151,40 @@ function Landing() {
 
         <section className='secao5 secao'>
 
-    <h1> Escolha a opção que mais lhe agrada para nos contatar
-    caso tenha alguma dúvida em relação ao seu site: </h1>
+          <h1> Escolha a opção que mais lhe agrada para nos contatar
+            caso tenha alguma dúvida em relação ao seu site: </h1>
 
-    <div className='OpcoesContato'>
+          <div className='OpcoesContato'>
 
-<div className='Whatsapp'>
+            <div className='Whatsapp'>
 
-<div className='titulo1'> 
-<i id='whats' class="fa-brands fa-whatsapp"></i> <h2> WhatsApp:</h2> </div>
-<h3> +55 11 95775-0999</h3>
+              <div className='titulo1'>
+                <i id='whats' class="fa-brands fa-whatsapp"></i> <h2> WhatsApp:</h2> </div>
+              <h3> +55 11 95775-0999</h3>
 
-</div>
+            </div>
 
-<div className='Email'>
+            <div className='Email'>
 
-<div className='titulo2'> 
-<i id='email' class="fa-solid fa-envelope"></i> <h2> E-Mail:</h2> </div>
-<h3> suportedevfox@gmail.com </h3>
+              <div className='titulo2'>
+                <i id='email' class="fa-solid fa-envelope"></i> <h2> E-Mail:</h2> </div>
+              <h3> suportedevfox@gmail.com </h3>
 
-</div>
+            </div>
 
-<div className='Web'>
+            <div className='Web'>
 
-<div className='titulo3'> 
-<i id='globo' class="fa-solid fa-globe"></i> <h2> Website:</h2> </div>
-<h3> www.devfox.com </h3>
+              <div className='titulo3'>
+                <i id='globo' class="fa-solid fa-globe"></i> <h2> Website:</h2> </div>
+              <h3> www.devfox.com </h3>
 
-</div>
+            </div>
 
-    </div>
+          </div>
 
-    <h1 className='atend'> Atendimento: De segunda à sábado, das 9:30 às 18:30 </h1>
+          <h1 className='atend'> Atendimento: De segunda à sábado, das 9:30 às 18:30 </h1>
         </section>
-    </main>
+      </main>
 
       <Footer />
 

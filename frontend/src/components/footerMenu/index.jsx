@@ -1,39 +1,30 @@
 import './index.scss'
 
-export default function Footer(){
+export default function Footer() {
 
-return(
+  return (
     <div className='Footer'>
 
       <footer>
 
         <div className='brands'>
-    <i class="fa-brands fa-facebook"></i>
-    <i class="fa-brands fa-x-twitter"></i>
-    <i class="fa-brands fa-instagram"></i>
+          <div className="insta">
+            <i id='logoinsta' class="fa-brands fa-instagram"><p>@devfox</p></i>
+          </div>
+          <div className="x">
+            <i id='logox' class="fa-brands fa-x-twitter"><p>@devfox</p></i>
+          </div>
         </div>
 
-<div className='opcoes'>
-  
-  <div className='part1'>
-  <li> Info </li>
-  <li> Support </li>  
-  </div>
+        <div className='opcoes'>
+            <li> Terms of use </li>
+            <li> Privacy Policy </li>
+        </div>
 
-<div className='part2'>
-<li> Terms of use </li>
-<li> Privacy Policy </li>
-</div>
-
-
-
-</div>
-
-   <p> @ 2024 DevFox </p>
+        <p> @ 2024 DevFox </p>
 
       </footer>
 
-  </div>
-)
-
+    </div>
+  )
 }
