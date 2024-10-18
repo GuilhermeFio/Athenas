@@ -1,46 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+.login-page {
 
-
-.login-page{
-
-    .secao1{
-
+    .secao1 {
+        background-image: url('../../../public/assets/images/fundoLogin.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
         position: fixed;
+        height: 100%;
+        width: 100%;
 
-        #voltar{
+        #voltar {
 
-       color: #ffffff;
-       position: absolute;
+            color: #ffffff;
+            position: absolute;
         }
 
-        #voltar:hover{
+        #voltar:hover {
 
-   color: #db2323;
-
-        }
-
-        .fundo{
-
-        height: 1100px;
-        width: 2000px;
+            color: #db2323;
 
         }
 
-
-        .login{
+        .login {
 
             display: flex;
             flex-direction: column;
             gap: 35px;
             padding: 10px;
             position: absolute;
-            right: 10%;
-            margin-top: 260px;
+            right: 5%;
+            padding-top: 15%;
 
-            h1{
+            h1 {
 
                 color: #fff;
                 width: 790px;
@@ -48,38 +42,31 @@
                 font-family: "Roboto";
                 font-weight: 600;
                 font-size: 50px;
-               
+
             }
 
-            .informacoes{
+            .informacoes {
 
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     gap: 20px;
-
-
-button{
-
-color: #fff;
-font: 600 24px 'Roboto';
-background-color: #434343;
-margin-left: 10px;
-
-}
-button:hover{
-    color: #929292;
-}
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
 
 
-                        } 
+                button {
 
-                
-           }
+                    color: #fff;
+                    font: 600 24px 'Roboto';
+                    background-color: #434343;
+                    margin-left: 10px;
 
+                }
+
+                button:hover {
+                    color: #929292;
+                }
+            }
+        }
     }
-
-    
-
 }

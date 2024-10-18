@@ -19,28 +19,39 @@
             gap: 19px;
             justify-content: center;
 
+            p{
+                font-family: 'Roboto';
+                font-weight: 500;
+                font-size: 16px;
+                color: #ffffff;
+                list-style: none;
+            }
+
             .insta{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
                 .logoinsta{
-                    width: 100px;
+                    height: 25px;
+                    width: 25px;
                 }
             }
 
             .x{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                
                 .logox{
-                    width: 100px;
+                    height: 25px;
+                    width: 25px;
                 }
             }
-
-            i {
-                background-color: #000000;
-                border-radius: 9px;
-                padding: 7px;
-                color: #ffffff;
-
-            }
-
-
-
         }
 
         .opcoes {
@@ -48,7 +59,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 10px;
+            gap: 19px;
 
             li {
                 font-family: 'Roboto';
@@ -59,21 +70,6 @@
             }
 
 
-
-            .part1 {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 19px;
-            }
-
-            .part2 {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 19px;
-            }
-
         }
 
         p {
@@ -82,6 +78,14 @@
             font-size: 17px;
             color: #616161;
             text-align: center;
+        }
+
+        .direitos{
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            color: #ffffff;
+            list-style: none;
         }
 
     }

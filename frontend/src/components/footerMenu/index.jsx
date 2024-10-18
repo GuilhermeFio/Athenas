@@ -9,10 +9,10 @@ export default function Footer() {
 
         <div className='brands'>
           <div className="insta">
-            <i id='logoinsta' class="fa-brands fa-instagram"><p>@devfox</p></i>
+            <img className='logoinsta' src='/assets/images/instalogo.jpg'/><p>@devfox</p>
           </div>
           <div className="x">
-            <i id='logox' class="fa-brands fa-x-twitter"><p>@devfox</p></i>
+            <img className='logox' src='/assets/images/xlogo.png'/><p>@devfox</p>
           </div>
         </div>
 
@@ -21,7 +21,7 @@ export default function Footer() {
             <li> Privacy Policy </li>
         </div>
 
-        <p> @ 2024 DevFox </p>
+        <p className='direitos'> @ 2024 DevFox </p>
 
       </footer>
 
