@@ -41,19 +41,21 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            gap: 7px;
 
             .finpends{
-                width: 30px;
+                width: 25px;
             }
         }
 
-        .sair{
+        .logout{
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            gap: 7px;
 
-            .user{
+            .sair{
                 width: 40px;
             }
         }

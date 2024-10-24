@@ -19,7 +19,7 @@ export default function HorarioTreinos (){
 
                     <div className="irAddTreino">
                         <h2>Adicionar Novo Treino</h2>
-                        <Link to={'/adicionarTreino'}><i id='adicionar' className="fa-solid fa-circle-plus"></i></Link>
+                        <Link to={'/adicionarTreino'}><img className='add' src='/assets/images/adicionar.png'/></Link>
                     </div>
                 </div>
 
@@ -28,7 +28,7 @@ export default function HorarioTreinos (){
                     <div className="atualSemana">
                         <div className="titulo">
                             <h3>Esta Semana</h3>
-                            <i class="fa-solid fa-arrow-right"></i>
+                            <img className='seta' src='/assets/images/seta.png'/>
                         </div>
 
                         <div className="treinosatuais">
@@ -41,7 +41,7 @@ export default function HorarioTreinos (){
                     <div className="proxSemanas">
                         <div className="titulo">
                             <h3>Nas Próximas Semanas</h3>
-                            <i class="fa-solid fa-arrow-right"></i>
+                            <img className='seta' src='/assets/images/seta.png'/>
                         </div>
 
                         <div className="treinosproxs">

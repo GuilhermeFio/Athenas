@@ -19,8 +19,8 @@ export default function Menu (){
                     <Link to = {'/treinosFinalPend'}><p>Treinos Concluídos/Pendentes</p></Link>
                 </div>
                 
-                <div className="sair">
-                    <img className='user' src='/assets/images/user.png'/>
+                <div className="logout">
+                    <img className='sair' src='/assets/images/sair.png'/>
                     <Link to = {'/loginUsuario'}><p>Sair</p></Link>
                 </div>
             </div>

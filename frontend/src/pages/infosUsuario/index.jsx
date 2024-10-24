@@ -17,7 +17,7 @@ export default function InfosUser(){
             <div className="secaomae">
 
                 <div className="menu">
-                    <Link to={'/horariosTreinos'}><i id='voltar' class="fa-solid fa-circle-arrow-left"></i></Link>
+                    <Link to={'/horariosTreinos'}><img className='seta' src='/assets/images/'/></Link>
                     <h1>Informações do Usuário</h1>
                 </div>
 
