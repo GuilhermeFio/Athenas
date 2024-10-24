@@ -5,10 +5,24 @@ export default function Menu (){
     return(
         <div className='menu'>
             <div className='opcoes'>
-                <Link to={'/infosUsuario'}><i id='user' class="fa-solid fa-user"></i></Link>
-                <Link to = {'/horariosTreinos'}><i id='treinos' class="fa-solid fa-calendar-days"> Horário dos Treinos </i></Link>
-                <Link to = {'/treinosFinalPend'}><i id='finpends' class="fa-regular fa-calendar-check"> Treinos Concluídos/Pendentes </i></Link>
-                <Link to = {'/loginUsuario'}><i id='logout' class="fa-solid fa-right-from-bracket"> Sair </i></Link>
+                <div className="usuario">
+                    <Link to={'/infosUsuario'}><img className='user' src='/assets/images/user.png'/></Link>
+                </div>
+
+                <div className="horarios">
+                    <img className='horas' src='/assets/images/relogio.png'/>
+                    <Link to = {'/horariosTreinos'}><p>Horário dos Treinos</p></Link>
+                </div>
+
+                <div className="finalpends">
+                    <img className='finpends' src='/assets/images/finpends.png'/>
+                    <Link to = {'/treinosFinalPend'}><p>Treinos Concluídos/Pendentes</p></Link>
+                </div>
+                
+                <div className="sair">
+                    <img className='user' src='/assets/images/user.png'/>
+                    <Link to = {'/loginUsuario'}><p>Sair</p></Link>
+                </div>
             </div>
         </div>
     )
