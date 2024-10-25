@@ -5,10 +5,28 @@ import { Router } from 'express'
 
 const Endpoints= Router();
 
-Endpoints.get('/avaliacao/consultar/', async (req,resp) => {
+Endpoints.get('/avaliacao/consultar', async (req,resp) => {
 
     try {
-       let registro = await db.consultarAvaliacao()
+
+       let idCliente = req.params.idCliente
+       let registro = await db.consultarAvaliacao(idCliente)
+       resp.send (registro) 
+   }
+    catch (err) {
+       resp.status(404).send({
+           erro : err.message
+       })
+   }
+ })
+
+
+ Endpoints.post('/avaliacao/adicionar', async (req,resp) => {
+
+    try {
+
+        let info = req.body
+       let registro = await db.adicionarAvaliacao(info)
        resp.send (registro)
        
    }
@@ -43,21 +61,5 @@ Endpoints.get('/avaliacao/consultar/', async (req,resp) => {
  })
 
 
- Endpoints.post('/avaliacao/adicionar/', async (req,resp) => {
-
-    try {
-
-        let info = req.body
-
-       let registro = await db.adicionarAvaliacao(info)
-       resp.send (registro)
-       
-   }
-    catch (err) {
-       resp.status(404).send({
-           erro : err.message
-       })
-   }
- })
 
  export default Endpoints;
