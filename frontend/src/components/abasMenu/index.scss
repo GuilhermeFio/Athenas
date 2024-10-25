@@ -13,10 +13,54 @@
         padding-left: 30px;
         padding-right: 30px;
 
-        #user{
+        .usuario{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .user{
+                width: 40px;
+            }
         }
 
-        i{
+        .horarios{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+
+            .horas{
+                width: 25px;
+            }
+        }
+
+        .finalpends{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+
+            .finpends{
+                width: 25px;
+            }
+        }
+
+        .logout{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+
+            .sair{
+                width: 40px;
+            }
+        }
+
+        p{
             font: 400 26px 'Roboto';
         }
     }

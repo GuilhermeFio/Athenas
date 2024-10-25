@@ -1,9 +1,17 @@
 .pagina-horarios-treinos{
-    background-color: #8299AA;
+    background-image: url('../../../public/assets/images/fundo.jpg');
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    h1{
+        color: #ffffff
+    }
+
+    h2{
+        color: #ffffff
+    }
 
     .secaomae{
         display: flex;
@@ -14,13 +22,21 @@
         .secao1{
             display: flex;
             flex-direction: column;
+            justify-content: center;
             gap: 15px;
 
             .irAddTreino{
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                gap: 10px;
+                gap: 7px;
+
+                .add{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    width: 20px;
+                }
             }
         }
 
@@ -38,8 +54,6 @@
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    
-                    gap: 10px;
                 }
 
                 .treinosatuais{
@@ -58,7 +72,6 @@
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    gap: 10px;
                 }
 
                 .treinosproxs{
@@ -66,6 +79,10 @@
                     flex-direction: row;
                     gap: 49px;
                 }
+            }
+            
+            .seta{
+                width: 30px;
             }
         }
     }
