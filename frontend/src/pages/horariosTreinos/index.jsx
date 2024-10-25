@@ -12,16 +12,16 @@ export default function HorarioTreinos (){
 
     const navigate = useNavigate();
 
-    const {id} = useParams();
+    /*const {id} = useParams();/*
 
-    async function consultar(){
+    /*async function consultar(){
         if(id != undefined){
-            const url = `http://localhost:4000//treinos/${id}?x-access-token=${token}`;
+            const url = `http://localhost:4000/treinos/${id}?x-access-token=${token}`;
             let resp = await axios.get(url);
             let dados = resp.data;
 
         }
-    }
+    }*/
 
     useEffect(() =>{
         let usu = localStorage.getItem('USUARIO')
@@ -31,8 +31,10 @@ export default function HorarioTreinos (){
             navigate('/loginUsuario')
         }
 
-        consultar();
+        
     }, [])
+
+    
 
     return(
         <div className="pagina-horarios-treinos">

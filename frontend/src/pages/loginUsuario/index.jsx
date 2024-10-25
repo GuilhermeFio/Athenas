@@ -14,11 +14,11 @@ export default function Login() {
 
   async function entrar(){
     const usuario = {
-      "ds_email": email,
-      "ds_senha": senha
+      "nome": email,
+      "senha": senha
     }
 
-    const url = 'http://localhost:4000/login/entrar'
+    const url = 'http://localhost:4000/entrar/'
     let resp = await axios.post(url,usuario)
 
     if (resp.data.erro != undefined){
@@ -26,7 +26,7 @@ export default function Login() {
     }
     else {
       localStorage.setItem('USUARIO', resp.data.token)
-      navigate('/horarioTreinos')
+      navigate('/horariosTreinos')
     }
   }
 

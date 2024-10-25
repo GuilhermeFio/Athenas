@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './index.scss'
 import Menu from '../../components/abasMenu'
 import axios from 'axios'
@@ -6,6 +6,11 @@ import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 
 export default function InfoClientes (){
+
+    const[token, setToken] = useState(null);
+
+    const navigate = useNavigate();
+
     const[nomeCliente, setNomeCliente] = useState('');
     const[dataNascimento, setDataNascimento] = useState('');
     const[idadeCliente, setIdadeCliente] = useState('');
@@ -33,6 +38,18 @@ export default function InfoClientes (){
     const[exercicios, setExercicios] = useState('');
 
     const {id} = useParams();
+
+
+    useEffect(() =>{
+        let usu = localStorage.getItem('USUARIO')
+        setToken(usu)
+
+        if(usu == undefined) {
+            navigate('/loginUsuario')
+        }
+
+        
+    }, [])
 
     useEffect(() => {
 

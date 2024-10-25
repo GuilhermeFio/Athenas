@@ -1,7 +1,15 @@
 import './index.scss'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 export default function Menu (){
+
+    const navigate = useNavigate()
+
+    async function sair() {
+        localStorage.setItem('USUARIO', null)
+        navigate('/loginUsuario')
+    }
+
     return(
         <div className='menu'>
             <div className='opcoes'>
@@ -20,7 +28,7 @@ export default function Menu (){
                 </div>
                 
                 <div className="logout">
-                    <img className='sair' src='/assets/images/sair.png'/>
+                    <img onClick={sair} className='sair' src='/assets/images/sair.png'/>
                     <Link to = {'/loginUsuario'}><p>Sair</p></Link>
                 </div>
             </div>
