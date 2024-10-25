@@ -27,7 +27,6 @@ export async function atualizarUsuario(id,usuario){
 
     const comando=  `
 
-    
     update Usuario
 set 	nm_usuario =?,
 		ds_email =?,

@@ -1,8 +1,34 @@
 import { Link } from 'react-router-dom'
 import './index.scss'
+import axios from 'axios'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Login() {
+
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+
+  const navigate = useNavigate()
+
+  async function entrar(){
+    const usuario = {
+      "ds_email": email,
+      "ds_senha": senha
+    }
+
+    const url = 'http://localhost:4000/login/entrar'
+    let resp = await axios.post(url,usuario)
+
+    if (resp.data.erro != undefined){
+      alert(resp.data.erro)
+    }
+    else {
+      localStorage.setItem('USUARIO', resp.data.token)
+      navigate('/horarioTreinos')
+    }
+  }
 
   return (
 
@@ -18,11 +44,11 @@ export default function Login() {
 
             <div className='informacoes'>
 
-              <input type='text' placeholder='E-mail' />
+              <input id='email' type='text' placeholder='E-mail' value={email} onChange={(e) =>setEmail(e.target.value)}/>
 
-              <input type='text' placeholder='Senha' />
+              <input id='senha' type='text' placeholder='Senha' value={senha} onChange={(e) =>setSenha(e.target.value)} />
 
-              <button><Link to={'/horariosTreinos'}> Fazer login </Link></button>
+              <button onClick={entrar}><Link to={'/horariosTreinos'}> Fazer login </Link></button>
 
             </div>
 

@@ -1,8 +1,28 @@
 import './index.scss';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Menu from '../../components/abasMenu'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function TreinosFinalPend(){
+
+    const [token, setToken] = useState(null);
+    const navigate = useNavigate()
+    const{id} = useParams()
+
+
+    useEffect(() =>{
+        let usu = localStorage.getItem('USUARIO')
+        setToken(usu)
+
+        if(usu == undefined) {
+            navigate('/loginUsuario')
+        }
+
+
+    }, [])
+
+
     return(
         <div className="pagina-treinos-finpen">
 

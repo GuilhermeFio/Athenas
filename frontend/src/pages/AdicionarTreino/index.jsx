@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom'
 import './index.scss'
 import Menu from '../../components/abasMenu'
 import axios from 'axios'
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import {Link, useNavigate, useParams}from 'react-router-dom'
+
 
 export default function AdicionarTreino() {
+    const [token, setToken] = useState(null);
+
     const[nomeCliente, setNomeCliente] = useState('');
     const[dataNascimento, setDataNascimento] = useState('');
     const[idadeCliente, setIdadeCliente] = useState('');
@@ -30,6 +33,60 @@ export default function AdicionarTreino() {
 
     const[objetivos, setObjetivos] = useState('');
     const[exercicios, setExercicios] = useState('');
+
+    const navigate = useNavigate()
+
+    const {id} = useParams();
+    
+    async function salvar(){
+        let paramCorpo = {
+            "nome": nomeCliente,
+            "nascimento": dataNascimento,
+            "idade": idadeCliente,
+            "telefone": numCliente,
+            "dt_treino": dataTreino,
+            /*img_cliente,*/
+            
+            "ds_peso": peso,
+            "ds_imc" : imc,
+            "ds_frequencia_cardiaca" : freqCard,
+            "ds_indice_coracao" : indcCoracao,
+            "ds_taxa_muscular" : taxaMuscular,
+            "ds_idade_metabolica" : iddMetabolica,
+            "ds_taxa_metabolica_basal" : taxaMetBasal,
+            "ds_proteina" : proteina,
+            "ds_massa_livre_gordura" : massaLivGord,
+            "ds_massa_muscular" : massaMusc,
+            "ds_massa_muscular_esqueletica":massaMuscEsq,
+            "ds_massa_ossea": massaOssea,
+            "ds_gordura_corporal": gordCorp,
+            "ds_gordura_subcutanea": gordSub,
+            "ds_gordura_visceral" : gordVis,
+            "ds_agua_corporal" : aguaCorp,
+            
+            "ds_objetivos_cliente": objetivos,
+            "exercicios_escolhidos" : exercicios
+
+        }
+
+        if(id == undefined){
+            const url1 = `http://localhost:4000/cliente/adicionar?x-access-token=${token}`;
+            const url2 = `http://localhost:4000/avaliacao/adicionar?x-access-token=${token}`;
+            const url3 = `http://localhost:4000/treinos/adicionar?x-access-token=${token}`;
+            let resp = await axios.post(url1, url2, url3, paramCorpo);
+            alert('treino adicionado na lista. Id:' + resp.data.novoId)
+
+        }
+    }
+
+    useEffect(()=>{
+        let usu = localStorage.getItem('USUARIO')
+        setToken(usu)
+
+        if(usu == undefined) {
+            navigate('/loginUsuario')
+        }
+    }, [])
 
     return (
       <div className="pagina-add-treino">
@@ -120,7 +177,7 @@ export default function AdicionarTreino() {
               </div>
           </div>
 
-          <button className='botaoAdd'>ADICIONAR TREINO</button>
+          <button onClick={salvar} className='botaoAdd'>ADICIONAR TREINO</button>
               
         </div>      
       </div>

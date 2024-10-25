@@ -1,16 +1,70 @@
 import './index.scss';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function InfosUser(){
+    const [token, setToken] = useState(null);
 
+    const {id} = useParams();
+
+    const navigate = useNavigate()
+
+    
     const[email, setEmail] = useState('');
     const[dtnasc, setDtnasc] = useState('');
     const[cidade, setCidade] = useState('');
     const[gen, setGen] = useState('');
     const[idade, setIdade] = useState('');
     const[uf, setUf] = useState('');
+
+
+    async function salvar(){
+        let paramCorpo = {
+                 
+            "ds_email" : email,      
+            "dt_nascimento" : dtnasc, 
+            "ds_cidade" : cidade,     
+            "ds_genero" : gen,     
+            "ds_UF"   : uf       
+            /*img_usuario*/    
+        }
+
+        const url = `http://localhost:4000/usuario/atualizar/${id}?x-access-token=${token}`;
+        let resp = await axios.put(url, paramCorpo);
+        alert('Informação alterada');
+    }
+
+    async function consultar(){
+        if(id != undefined){
+            const url = `http://localhost:4000/usuario/consultar/${id}?x-access-token=${token}`;
+            let resp = await axios.get(url);
+            let dados = resp.data;
+
+
+            setEmail(dados.email)
+            setDtnasc(dados.nascimento)
+            setCidade(dados.cidade)
+            setGen(dados.genero)
+            setIdade(dados.idade)
+            setUf(dados.uf)
+
+        }
+    }
+
+    useEffect(() =>{
+        let usu = localStorage.getItem('USUARIO')
+        setToken(usu)
+
+        if(usu == undefined) {
+            navigate('/loginUsuario')
+        }
+
+        consultar();
+    }, [])
+
+
+
 
     return(
         <div className="pagina-infos-usuario">
@@ -42,7 +96,7 @@ export default function InfosUser(){
                 </div>
 
                 <div className="logout">
-                    <button><Link to={'/loginUsuario'}> Encerrar Sessão <i class="fa-solid fa-arrow-right-from-bracket"></i> </Link></button>
+                    <button onClick={salvar}><Link to={'/loginUsuario'}> Encerrar Sessão <i class="fa-solid fa-arrow-right-from-bracket"></i> </Link></button>
                 </div>
 
                 <div className="rodape">

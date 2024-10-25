@@ -22,7 +22,7 @@ values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
 
 
 
-export async function atualizarAvaliacao(id,info){
+/*export async function atualizarAvaliacao(id,info){
 
     const comando=  `
 
@@ -53,7 +53,7 @@ export async function atualizarAvaliacao(id,info){
  let registros= resposta[0];
  return registros.affectedRows;
  
-    }
+    }*/
 
 
     export async function consultarAvaliacao(idCliente){

@@ -42,6 +42,9 @@ export default function InfoClientes (){
         
     }
 
+
+    
+
     return (
         <div className="pagina-treino-cliente">
   

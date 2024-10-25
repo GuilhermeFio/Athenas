@@ -36,4 +36,5 @@ Endpoints.get('/cliente/:id', async (req,resp)=>{
         })
     }
     })
+    
 export default Endpoints;

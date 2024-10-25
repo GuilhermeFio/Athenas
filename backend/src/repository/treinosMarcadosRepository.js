@@ -16,7 +16,7 @@ values(?,?,?)
     }
 
 
-export async function consultarTreino(){
+export async function consultarTreino(idUsuario){
 
     const comando= `
     
@@ -26,15 +26,33 @@ export async function consultarTreino(){
                 ds_exercicios_escolhidos     exercicios
     
         from AthenasDB.Treinos_marcados;
+        where id_usuario
     
     `
     
-    let resposta= await con.query(comando);
+    let resposta= await con.query(comando, [idUsuario]);
     let registros= resposta[0];
     return registros   
     }
     
+    export async function consultarTreinoPorId(id){
 
+        const comando= `
+        
+            select
+                    ds_objetivos_cliente         objetivos,
+                    dt_treino                    data,
+                    ds_exercicios_escolhidos     exercicios
+        
+            from AthenasDB.Treinos_marcados;
+            where treino_id
+        
+        `
+        
+        let resposta= await con.query(comando, [id]);
+        let registros= resposta[0];
+        return registros   
+        }
     
     export async function atualizarTreino(id,treinos){
     

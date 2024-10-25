@@ -3,14 +3,16 @@ import * as cliente from '../repository/clienteRepository.js'
 import multer from 'multer'
 import { Router } from 'express'
 
+import{autenticar} from '../utils/jwt.js'
+
 const Endpoints= Router();
 
 
 
-Endpoints.get('/treinos/:id', async (req,resp) => {
+
+Endpoints.get('/treinos/:id', autenticar, async (req,resp) => {
 
     try {
-
          let idCliente= req.params.idCliente
 
        let registro = await cliente.treinosMarcados(idCliente)
@@ -25,11 +27,12 @@ Endpoints.get('/treinos/:id', async (req,resp) => {
  })
  
 
-Endpoints.post('/treinos/adicionar', async (req,resp) => {
+Endpoints.post('/treinos/adicionar',autenticar, async (req,resp) => {
 
     try {
 
        let treinos = req.body
+       treinos.idUsuario= req.user.id
        let registro = await db.adicionarTreino(treinos)
        resp.send (registro)
        
@@ -42,10 +45,13 @@ Endpoints.post('/treinos/adicionar', async (req,resp) => {
  })
 
 
-/*Endpoints.get('/treinos/consultar/', async (req,resp) => {
+Endpoints.get('/treinos', async (req,resp) => {
 
     try {
-       let registro = await db.consultarTreino()
+
+         let idUsuario= req.user.id
+
+       let registro = await db.consultarTreino(idUsuario)
        resp.send (registro)
        
    }
@@ -54,10 +60,29 @@ Endpoints.post('/treinos/adicionar', async (req,resp) => {
            erro : err.message
        })
    }
- })*/
+ })
+
+ Endpoints.get('/treinos', async (req,resp) => {
+
+    try {
+
+         let id= req.params.id
+         let registro = await db.consultarTreinoPorId(id)
+         resp.send (registro)
+       
+   }
+    catch (err) {
+       resp.status(404).send({
+           erro : err.message
+       })
+   }
+ })
+
+
+
 
  
- Endpoints.put('/treinos/atualizar/:id', async (req,resp) => {
+ Endpoints.put('/treinos/atualizar/:id',autenticar, async (req,resp) => {
  
     try {
        let id = req.params.id
@@ -83,7 +108,7 @@ Endpoints.post('/treinos/adicionar', async (req,resp) => {
  
 
 
- Endpoints.delete('/treinos/deletar/:id', async (req,resp) => {
+ Endpoints.delete('/treinos/deletar/:id',autenticar, async (req,resp) => {
 
     try {
 

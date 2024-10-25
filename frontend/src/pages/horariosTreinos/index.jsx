@@ -1,11 +1,38 @@
 import './index.scss';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Menu from '../../components/abasMenu'
 import CardTreinosAtuais from '../../components/cardTreinosAtuais';
 import CardTreinosProxs from '../../components/cardTreinosProxs';
 import axios from 'axios'
+import { useEffect, useState } from 'react';
 
 export default function HorarioTreinos (){
+
+    const[token, setToken] = useState(null);
+
+    const navigate = useNavigate();
+
+    const {id} = useParams();
+
+    async function consultar(){
+        if(id != undefined){
+            const url = `http://localhost:4000//treinos/${id}?x-access-token=${token}`;
+            let resp = await axios.get(url);
+            let dados = resp.data;
+
+        }
+    }
+
+    useEffect(() =>{
+        let usu = localStorage.getItem('USUARIO')
+        setToken(usu)
+
+        if(usu == undefined) {
+            navigate('/loginUsuario')
+        }
+
+        consultar();
+    }, [])
 
     return(
         <div className="pagina-horarios-treinos">
