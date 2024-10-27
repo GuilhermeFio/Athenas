@@ -6,14 +6,14 @@ export async function adicionarTreino(treinos){
     const comando=  `
 
 insert into AthenasDB.Treinos_marcados (ds_objetivos_cliente, dt_treino, ds_exercicios_escolhidos, bt_concluido)
-values(?,?,?)
+values(?,?,?,?)
            `
 
- let resposta= await con.query(comando, [treinos.objetivos, treinos.data, treinos.exercicios]);
+ let resposta= await con.query(comando, [treinos.objetivos, treinos.data, treinos.exercicios, treinos.concluido]);
 
  let registros= resposta[0];
  return registros.insertId;  
-    }
+    }  //sem autorização para adicionar//
 
 
 export async function consultarTreino(idUsuario){
@@ -25,8 +25,8 @@ export async function consultarTreino(idUsuario){
                 dt_treino                    data,
                 ds_exercicios_escolhidos     exercicios
     
-        from AthenasDB.Treinos_marcados;
-        where id_usuario
+        from AthenasDB.Treinos_marcados
+        where id_usuario=?;
     
     `
     

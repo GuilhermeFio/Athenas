@@ -4,14 +4,13 @@ export async function inserirCliente(clienteObj){
 
 const comando= `
 
-insert into Cliente(nome, nascimento, idade, telefone, treino_id, avaliacao_id, reavaliacao_id)
-values(?,?,?,?,?,?);
+insert into Cliente(nome, nascimento, idade, telefone)
+values(?,?,?,?);
 `
 
-let resposta= await con.query(comando, [clienteObj.nome, clienteObj.nascimento, clienteObj.idade, clienteObj.telefone, clienteObj.treinoId, clienteObj.avaliacaoID, clienteObj.reavaliacaoId])
+let resposta= await con.query(comando, [clienteObj.nome, clienteObj.nascimento, clienteObj.idade, clienteObj.telefone])
 let registros = resposta[0]
 return registros.insertId
-
 }
 
 export async function treinosMarcados(idCliente){

@@ -15,7 +15,6 @@ values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
 
  let registros= resposta[0];
  return registros.insertId;
-    
     }
 
 
@@ -80,7 +79,7 @@ values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
 
     from AthenasDB.Avaliacao_fisica
 
-    inner join Clientes
+    inner join Cliente
     on  AthenasDB.Avaliacao_fisica.avaliacao_id = Cliente.avaliacao_id
     where id_cliente=?; 
                         `

@@ -29,7 +29,7 @@ export default function Menu (){
                 
                 <div className="logout">
                     <img onClick={sair} className='sair' src='/assets/images/sair.png'/>
-                    <Link to = {'/loginUsuario'}><p>Sair</p></Link>
+                    <p>Sair</p>
                 </div>
             </div>
         </div>

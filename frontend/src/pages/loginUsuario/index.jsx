@@ -48,7 +48,7 @@ export default function Login() {
 
               <input id='senha' type='text' placeholder='Senha' value={senha} onChange={(e) =>setSenha(e.target.value)} />
 
-              <button onClick={entrar}><Link to={'/horariosTreinos'}> Fazer login </Link></button>
+              <button onClick={entrar}> Fazer login</button>
 
             </div>
 

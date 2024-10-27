@@ -63,7 +63,7 @@ export async function inserirUsuario(pessoa) {
   }  */
   
   
-  export async function validarUsuario(pessoa) {
+  export async function validarUsuario(pessoa) {//FUNCIONA
     const comando = `
         select 
             id_login id,

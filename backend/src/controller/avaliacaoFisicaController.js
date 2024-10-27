@@ -5,7 +5,7 @@ import { Router } from 'express'
 
 const Endpoints= Router();
 
-Endpoints.get('/avaliacao/consultar', async (req,resp) => {
+Endpoints.get('/avaliacao/consultar/:idCliente', async (req,resp) => {
 
     try {
 

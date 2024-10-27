@@ -61,7 +61,7 @@ export default function HorarioTreinos (){
                         </div>
 
                         <div className="treinosatuais">
-                                <CardTreinosAtuais/>
+                            <CardTreinosAtuais/>
                             <CardTreinosAtuais/>
                             <CardTreinosAtuais/>
                         </div>

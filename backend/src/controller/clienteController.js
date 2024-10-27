@@ -14,7 +14,7 @@ try {
     let registro= await db.inserirCliente(clienteObj)
     resp.send(registro)
 
-} catch (error) {
+} catch (err) {
     resp.status(404).send({
         erro : err.message
     })
@@ -30,7 +30,7 @@ Endpoints.get('/cliente/:id', async (req,resp)=>{
         let registro= await db.infoCliente(idCliente);
         resp.send(registro);
     
-    } catch (error) {
+    } catch (err) {
         resp.status(404).send({
             erro : err.message
         })

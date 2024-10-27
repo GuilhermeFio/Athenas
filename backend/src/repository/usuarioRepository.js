@@ -1,6 +1,6 @@
 import con from "./connection.js";
 
-export async function consultarUsuario(){
+export async function consultarUsuario(){//FUNCIONA
 
 const comando= `
            
@@ -11,7 +11,7 @@ const comando= `
         ds_cidade      cidade,
         ds_genero      genero,
         ds_UF          UF,
-        img_usuario    perfil   
+        img_perfil    perfil   
  from Usuario;
 
 `
@@ -23,7 +23,7 @@ return registros
 }
 
 
-export async function atualizarUsuario(id,usuario){
+export async function atualizarUsuario(id,usuario){//OS VALORES ATUALIZAM PARA NULO
 
     const comando=  `
 
@@ -33,19 +33,18 @@ set 	nm_usuario =?,
 		dt_nascimento =?,
 		ds_cidade =?,
 		ds_genero =?,
-		ds_UF =?,
-		img_usuario =?
+		ds_UF =?
 where id_usuario = ?;
 
-           `
-
- let resposta= await con.query(comando, [usuario.nome, usuario.genero, usuario.nascimento, usuario.UF, usuario.perfil, id]);
+    `
+    
+ let resposta= await con.query(comando, [usuario.nome, usuario.email, usuario.nascimento,usuario.cidade, usuario.genero, usuario.UF, id]);
  let registros= resposta[0];
  return registros.affectedRows; 
     }
 
 
-    export async function alterarimagem(id, caminho){
+    export async function alterarimagem(id, caminho){//FUNCIONA
 
         const comando= `
         

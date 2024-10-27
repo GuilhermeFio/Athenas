@@ -41,14 +41,12 @@ export default function InfosUser(){
             let resp = await axios.get(url);
             let dados = resp.data;
 
-
             setEmail(dados.email)
             setDtnasc(dados.nascimento)
             setCidade(dados.cidade)
             setGen(dados.genero)
             setIdade(dados.idade)
             setUf(dados.uf)
-
         }
     }
 
@@ -59,12 +57,8 @@ export default function InfosUser(){
         if(usu == undefined) {
             navigate('/loginUsuario')
         }
-
         consultar();
     }, [])
-
-
-
 
     return(
         <div className="pagina-infos-usuario">

@@ -1,15 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
+html    {
+    scroll-behavior: smooth;
+        }
+
+
+:target{ /*estilizar elementos que receberam foco através de um fragmento de URL lá no HTML ('a' referenciado com #)*/
+    scroll-margin-top: .8em; /*css que permite que o scrolamento seja feito corretamente sem erros*/
+       }
+
+
 .landing-page {
 
     .cabecalho {
 
-        padding: 10px;
+        padding: 2vh;
 
+         a{
+           color: #000;
+                }
     }
 
     .secao1 {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
         .fundo {
 
@@ -23,13 +41,12 @@
             flex-direction: column;
             justify-content: center;
             position: absolute;
-            margin-left: 630px;
-            margin-top: 530px;
+       
 
             h1 {
 
                 font-family: 'Oswald';
-                font-size: 70px;
+                font-size: 7vh;
                 color: #ffffff;
                 text-shadow: 1px 1px 2px #000;
                 text-align: center;
@@ -39,7 +56,7 @@
             p {
 
                 font-family: 'Kanit';
-                font-size: 26px;
+                font-size: 3vh;
                 color: #ffffff;
                 text-shadow: 1px 1px 2px #000;
 
@@ -53,7 +70,6 @@
             max-width: 165px;
             padding: 12px;
             margin-left: 170px;
-            margin-top: 11px;
             border: none;
             font-family: 'Kanit';
 
@@ -75,26 +91,23 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-        padding: 30px;
+        padding: 10vh;
 
         .img2 {
-
-            width: 580px;
-
-
+            width: 60vh;
         }
 
         .texto2 {
 
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 2vh;
 
 
 
             h2 {
                 font-family: 'Inter';
-                font-size: 40px;
+                font-size: 4vh;
 
             }
 
@@ -102,19 +115,19 @@
 
                 font-family: 'Inter';
                 font-weight: 500;
-                font-size: 26px;
-                margin-bottom: 65px;
+                font-size: 3vh;
+                margin-bottom: 6vh;
             }
 
             ul {
 
-                width: 790px;
+                width: 40vw;
 
                 li {
 
                     font-family: 'Inter';
                     font-weight: 500;
-                    font-size: 32px;
+                    font-size: 3vh;
                     margin-bottom: 15px;
 
                 }
@@ -133,14 +146,14 @@
         flex-direction: column;
         justify-content: column;
         background-color: #C3D2E9;
-        padding: 90px;
-        gap: 60px;
+        padding: 10vh;
+        gap: 6vh;
 
         .sobrePersonal {
             display: flex;
             flex-direction: row;
             justify-content: center;
-            gap: 50px;
+            gap: 5vw;
 
             .infoPersonal{
                 display: flex;
@@ -150,12 +163,12 @@
             h2 {
                 font-family: 'Inter';
                 font-weight: 500;
-                font-size: 30px;
+                font-size: 4vh;
                 text-align: center;
             }
 
             .ImgPersonal {
-                max-width: 467px;
+                max-width: 47vh;
                 border-radius: 15px;
                 border: 1px solid #ffffff;
             }
@@ -166,43 +179,37 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 2vw;
 
             .titulo{
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                gap: 20px;
+                gap: 1vw;
 
                 img{
-                    width: 30px;
+                    width: 3vh;
                 }
             }
 
-            .itens{
+            .itens{ //formacoes
                 display: flex;
                 flex-direction: row;
-                gap: 10px;
-                
-                h2 {
-                    text-align: center;
-                    font-family: 'Inter';
-                    font-weight: 600;
-                    font-size: 31px;
-                }
+                gap: 1vw;
 
                 &>div {
                     background-color: #CADFFF;
                     box-shadow: 1px 1px 2px #000;
-                    padding: 20px;
+                    padding: 2vh;
                     border-radius: 20px;
-                    width: 460px;
+                    width: 24vw;
 
                     h2 {
+                        text-align: center;
                         font-family: 'Inter';
                         font-weight: 600;
-                        font-size: 24px;
+                        font-size: 2.5vh;
 
                     }
                 }
@@ -217,7 +224,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 100px;
+        padding: 10vh;
 
         h1 {
 
@@ -235,7 +242,7 @@
 
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 4vh;
 
             .tasks {
 
@@ -252,17 +259,17 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                gap: 10px;
+                gap: 2vh;
 
                 .titulo1 {
 
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    gap: 10px;
+                    gap: 2vh;
 
                     img{
-                        width: 20px;
+                        width: 1.5vw;
                     }
                 }
 
@@ -292,7 +299,7 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                gap: 10px;
+                gap: 2vh;
 
                 .titulo2 {
 
@@ -334,14 +341,14 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                gap: 10px;
+                gap: 2vh;
 
                 .titulo3 {
 
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    gap: 10px;
+                    gap: 2vh;
 
                     img{
                         width: 20px;

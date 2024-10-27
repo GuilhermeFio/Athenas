@@ -35,7 +35,6 @@
          else {
              resp.status(404).send({erro: 'Nenhum registro encontrado'})
          }
-         
      }
       catch (err) {
          resp.status(404).send({

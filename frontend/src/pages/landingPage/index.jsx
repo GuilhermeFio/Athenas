@@ -12,14 +12,14 @@ function Landing() {
         <img className='logo' src='/assets/images/logo_1.png' />
 
         <div className='opcoes'>
-          <p> Personal Trainer  </p>
-          <p> Sobre o Athenas   </p>
-          <p>  Contato </p>
+          <p> <a href='#s3'> Personal Trainer </a> </p>
+          <p> <a href='#s4'> Sobre o Athenas </a> </p>
+          <p> <a href='#s5'> Contato </a> </p>
         </div>
       </header>
 
       <main>
-        <section className="secao1 secao" >
+        <section className="secao1 secao"  id='s1'>
           <img className='fundo' src='/assets/images/young-happy-sportswoman-getting-ready-workout-tying-shoelace-fitness-center.jpg' />
 
           <div className='texto1'>
@@ -30,7 +30,7 @@ function Landing() {
           </div>
         </section>
 
-        <section className='secao2 secao'>
+        <section className='secao2 secao' id='s2'>
 
           <img className='img2' src='/assets/images/Img-secao2.jpg' />
 
@@ -52,7 +52,7 @@ function Landing() {
 
         </section>
 
-        <section className='secao3 secao'>
+        <section className='secao3 secao' id='s3' >
 
           <div className='sobrePersonal'>
             <div className="infoPersonal">
@@ -93,7 +93,7 @@ function Landing() {
 
 
 
-        <section className='secao4 secao'>
+        <section className='secao4 secao' id='s4'>
 
           <div className='container'>
 
@@ -155,7 +155,7 @@ function Landing() {
 
         </section>
 
-        <section className='secao5 secao'>
+        <section className='secao5 secao' id='s5'>
 
           <h1> Escolha a opção que mais lhe agrada para nos contatar
             caso tenha alguma dúvida em relação ao seu site: </h1>
@@ -204,5 +204,4 @@ function Landing() {
     </div>
   );
 }
-
 export default Landing;
