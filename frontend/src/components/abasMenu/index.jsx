@@ -6,7 +6,8 @@ export default function Menu (){
     const navigate = useNavigate()
 
     async function sair() {
-        localStorage.setItem('USUARIO', null)
+        localStorage.setItem('USUARIO', undefined)
+        
         navigate('/loginUsuario')
     }
 
@@ -14,7 +15,7 @@ export default function Menu (){
         <div className='menu'>
             <div className='opcoes'>
                 <div className="usuario">
-                    <Link to={'/infosUsuario'}><img className='user' src='/assets/images/user.png'/></Link>
+                    <img className='user' src='/assets/images/logo_1.png'/>
                 </div>
 
                 <div className="horarios">

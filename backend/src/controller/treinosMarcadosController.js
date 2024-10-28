@@ -34,7 +34,7 @@ Endpoints.post('/treinos/adicionar',autenticar, async (req,resp) => {
        let treinos = req.body
        treinos.idUsuario= req.user.id
        let registro = await db.adicionarTreino(treinos)
-       resp.send (registro)
+       resp.send ({registro})
        
    }
     catch (err) {

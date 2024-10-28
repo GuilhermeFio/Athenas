@@ -26,12 +26,10 @@ export default function HorarioTreinos (){
     useEffect(() =>{
         let usu = localStorage.getItem('USUARIO')
         setToken(usu)
-
-        if(usu == undefined) {
+        
+        if(usu == 'undefined' || usu == 'null') {
             navigate('/loginUsuario')
         }
-
-        
     }, [])
 
     
@@ -44,7 +42,7 @@ export default function HorarioTreinos (){
             <div className="secaomae">
 
                 <div className="secao1">
-                    <h1>HORÁRIOS DOS TREINOS</h1>
+                    <h1>TREINOS MARCADOS</h1>
 
                     <div className="irAddTreino">
                         <h2>Adicionar Novo Treino</h2>
@@ -54,12 +52,7 @@ export default function HorarioTreinos (){
 
                 <div className="secaotreinos">
 
-                    <div className="atualSemana">
-                        <div className="titulo">
-                            <h3>Esta Semana</h3>
-                            <img className='seta' src='/assets/images/seta.png'/>
-                        </div>
-
+                    <div className="treinosMarcados">
                         <div className="treinosatuais">
                             <CardTreinosAtuais/>
                             <CardTreinosAtuais/>

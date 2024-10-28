@@ -11,9 +11,9 @@ try {
 let info= req.body;
 
 let registro = await db.inserirReavaliacaoFisica(info)
-resp.send(registro);
+resp.send({registro});
     
-} catch (error) {
+} catch (err) {
     resp.status(404).send({
         erro : err.message
     })

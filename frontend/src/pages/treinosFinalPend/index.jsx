@@ -14,12 +14,10 @@ export default function TreinosFinalPend(){
     useEffect(() =>{
         let usu = localStorage.getItem('USUARIO')
         setToken(usu)
-
-        if(usu == undefined) {
+        
+        if(usu == 'undefined' || usu == 'null') {
             navigate('/loginUsuario')
         }
-
-
     }, [])
 
 

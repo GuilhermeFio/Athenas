@@ -4,11 +4,11 @@ export async function inserirCliente(clienteObj){
 
 const comando= `
 
-insert into Cliente(nome, nascimento, idade, telefone)
-values(?,?,?,?);
+insert into Cliente(nome, nascimento, idade, telefone, treino_id, avaliacao_id, reavaliacao_id)
+values(?,?,?,?,?,?,?);
 `
 
-let resposta= await con.query(comando, [clienteObj.nome, clienteObj.nascimento, clienteObj.idade, clienteObj.telefone])
+let resposta= await con.query(comando, [clienteObj.nome, clienteObj.nascimento, clienteObj.idade, clienteObj.telefone, clienteObj.treinoid, clienteObj.avaliacaoid, clienteObj.reavaliacaoid])
 let registros = resposta[0]
 return registros.insertId
 }

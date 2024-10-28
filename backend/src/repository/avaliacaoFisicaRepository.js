@@ -11,12 +11,14 @@ insert into AthenasDB.Avaliacao_fisica (ds_peso, ds_massa_livre_gordura, ds_imc,
 values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
            `
 
- let resposta= await con.query(comando, [info.peso, info.massaLivreGordura, info.imc, info.massaMuscular, info.frequenciaCardiaca, info.massaMuscularEsqueletica, info.indiceCoracao, info.massaOssea, info.taxaMuscular, info.gorduraCorporal, info.idadeMetabolica, info.gorduraSubcutanea, info.taxaMetabolicaBassal, info.gorduraVisceral, info.proteina, info.aguaCorporal]);
+ let resposta= await con.query(comando, [info.peso, info.massaLivreGordura, info.imc, info.massaMuscular, info.frequenciaCardiaca, info.massaMuscularEsqueletica, info.indiceCoracao, info.massaOssea, info.taxaMuscular, info.gorduraCorporal, info.idadeMetabolica, info.gorduraSubcutanea, info.taxaMetabolicaBasal, info.gorduraVisceral, info.proteina, info.aguaCorporal]);
+
+
 
  let registros= resposta[0];
+ console.log(registros.insertId);
  return registros.insertId;
     }
-
 
 
 
@@ -88,4 +90,4 @@ values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
      let registros= resposta[0];
      return registros;
         
-        }
+}

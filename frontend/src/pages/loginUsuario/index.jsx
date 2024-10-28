@@ -14,7 +14,7 @@ export default function Login() {
 
   async function entrar(){
     const usuario = {
-      "nome": email,
+      "usuario": email,
       "senha": senha
     }
 
@@ -48,16 +48,14 @@ export default function Login() {
 
               <input id='senha' type='text' placeholder='Senha' value={senha} onChange={(e) =>setSenha(e.target.value)} />
 
-              <button onClick={entrar}> Fazer login</button>
+              <button onClick={entrar}> Fazer login </button>
 
             </div>
 
-
           </div>
 
-
-
         </section>
+        
       </main>
 
     </div>

@@ -7,7 +7,7 @@ export async function inserirUsuario(pessoa) {
 					        values (?, ?)
     `;
     
-    let resposta = await con.query(comando, [pessoa.nome, pessoa.senha])
+    let resposta = await con.query(comando, [pessoa.usuario, pessoa.senha])
     let info = resposta[0];
     
     return info.insertId;
@@ -74,6 +74,6 @@ export async function inserirUsuario(pessoa) {
             and ds_senha = ?
     `;
     
-    let registros = await con.query(comando, [pessoa.nome, pessoa.senha])
+    let registros = await con.query(comando, [pessoa.usuario, pessoa.senha])
     return registros[0][0];
 }

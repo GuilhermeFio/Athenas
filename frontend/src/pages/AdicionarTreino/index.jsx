@@ -79,11 +79,11 @@ export default function AdicionarTreino() {
         }
     }
 
-    useEffect(()=>{
+    useEffect(() =>{
         let usu = localStorage.getItem('USUARIO')
         setToken(usu)
-
-        if(usu == undefined) {
+        
+        if(usu == 'undefined' || usu == 'null') {
             navigate('/loginUsuario')
         }
     }, [])

@@ -12,7 +12,7 @@ try {
     
     let clienteObj= req.body
     let registro= await db.inserirCliente(clienteObj)
-    resp.send(registro)
+    resp.send({registro})
 
 } catch (err) {
     resp.status(404).send({

@@ -25,9 +25,9 @@ Endpoints.get('/avaliacao/consultar/:idCliente', async (req,resp) => {
 
     try {
 
-        let info = req.body
+       let info = req.body
        let registro = await db.adicionarAvaliacao(info)
-       resp.send (registro)
+       resp.send ({registro})
        
    }
     catch (err) {

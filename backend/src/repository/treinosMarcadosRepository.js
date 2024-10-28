@@ -5,7 +5,7 @@ export async function adicionarTreino(treinos){
 
     const comando=  `
 
-insert into AthenasDB.Treinos_marcados (ds_objetivos_cliente, dt_treino, ds_exercicios_escolhidos, bt_concluido)
+insert into AthenasDB.Treinos_marcados (ds_objetivos_cliente, dt_treino, exercicios_escolhidos, bt_concluido)
 values(?,?,?,?)
            `
 
