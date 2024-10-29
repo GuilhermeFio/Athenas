@@ -387,10 +387,10 @@ html    {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: flex-start;
-        gap: 100px;
+        align-items: center;
+        gap: 11vh;
         background-color: #C3D2E9;
-        padding: 100px;
+        padding: 10vh;
 
         .atend {
             display: flex;
@@ -403,7 +403,7 @@ html    {
 
             font-family: 'Inter';
             font-weight: 600;
-            font-size: 48px;
+            font-size: 4vh;
             text-align: center;
         }
 
@@ -411,9 +411,7 @@ html    {
 
             display: flex;
             flex-direction: row;
-            gap: 100px;
-            margin-left: 100px;
-
+            gap: 12vw;
 
             .Whatsapp {
 
@@ -422,7 +420,7 @@ html    {
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    gap: 10px;
+                    gap: 3%;
 
                     img{
                         width: 30px;
@@ -432,7 +430,7 @@ html    {
 
                         font-family: 'Inter';
                         font-weight: 600;
-                        font-size: 32px;
+                        font-size: 3vh;
 
                     }
                 }
@@ -441,7 +439,7 @@ html    {
 
                     font-family: 'Inter';
                     font-weight: 600;
-                    font-size: 26px;
+                    font-size: 3vh;
                 }
 
             }
@@ -453,7 +451,7 @@ html    {
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    gap: 10px;
+                    gap: 3%;
 
                     img{
                         width: 30px;
@@ -464,7 +462,7 @@ html    {
 
                         font-family: 'Inter';
                         font-weight: 600;
-                        font-size: 32px;
+                        font-size: 3vh;
 
                     }
                 }
@@ -473,7 +471,7 @@ html    {
 
                     font-family: 'Inter';
                     font-weight: 600;
-                    font-size: 26px;
+                    font-size: 3vh;
                 }
 
             }
@@ -487,7 +485,7 @@ html    {
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    gap: 10px;
+                    gap: 3%;
 
                     img{
                         width: 30px;
@@ -498,7 +496,7 @@ html    {
 
                         font-family: 'Inter';
                         font-weight: 600;
-                        font-size: 32px;
+                        font-size: 3vh;
 
                     }
                 }
@@ -507,7 +505,7 @@ html    {
 
                     font-family: 'Inter';
                     font-weight: 600;
-                    font-size: 26px;
+                    font-size: 3vh;
                 }
 
             }

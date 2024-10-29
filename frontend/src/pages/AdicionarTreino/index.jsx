@@ -107,8 +107,7 @@ export default function AdicionarTreino() {
                     <h3>Data e horário do treino: <input type='text' placeholder='Data e horário do treino' value={dataTreino} onChange={e => setDataTreino(e.target.value)}/></h3>
               </div>
           </div>
-
-          <div className="tabAvaliacao">
+         <div className="tabAvaliacao">
               <h2>AVALIAÇÃO FÍSICA DO CLIENTE</h2>
 
               <div className="dadosFisicos">

@@ -1,6 +1,6 @@
 import con from "./connection.js";
 
-export async function consultarUsuario(){//FUNCIONA
+export async function consultarUsuario(){
 
 const comando= `
            
@@ -23,7 +23,7 @@ return registros
 }
 
 
-export async function atualizarUsuario(id,usuario){//OS VALORES ATUALIZAM PARA NULO
+export async function atualizarUsuario(id,usuario){
 
     const comando=  `
 
@@ -44,7 +44,7 @@ where id_usuario = ?;
     }
 
 
-    export async function alterarimagem(id, caminho){//FUNCIONA
+    export async function alterarimagem(id, caminho){
 
         const comando= `
         
