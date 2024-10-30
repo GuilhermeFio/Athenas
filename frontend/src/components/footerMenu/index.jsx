@@ -7,18 +7,16 @@ export default function Footer() {
 
       <footer>
 
-        <div className='brands'>
+        <div className='rede1'>
           <div className="insta">
             <img className='logoinsta' src='/assets/images/instalogo.jpg'/><p>@devfox</p>
           </div>
-          <div className="x">
-            <img className='logox' src='/assets/images/xlogo.png'/><p>@devfox</p>
-          </div>
         </div>
 
-        <div className='opcoes'>
-            <li> Terms of use </li>
-            <li> Privacy Policy </li>
+        <div className='rede2'>
+        <div className="x">
+            <img className='logox' src='/assets/images/xlogo.png'/><p>@devfox</p>
+          </div>
         </div>
 
         <p className='direitos'> @ 2024 DevFox </p>

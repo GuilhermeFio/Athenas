@@ -14,12 +14,21 @@ html    {
 .landing-page {
 
     .cabecalho {
-
+        display: flex;
         padding: 2vh;
+
+        .opcoes{
+
+            display: flex;
+        }
 
          a{
            color: #000;
                 }
+
+      .link-toggle{
+        display: none;
+      }          
     }
 
     .secao1 {
@@ -513,3 +522,111 @@ html    {
         }
     }
 }
+
+
+  @media screen and (max-width: 768px) {
+       
+      .landing-page{
+        width: 202vw;
+
+        .cabecalho{
+            display: flex;
+            flex-direction: row;
+        .opcoes{
+            display: none;
+        }
+        
+        .link-toggle{
+            display: flex;
+            right: -300px;
+            top:3vh;
+            font-size: 10vh;
+        }
+        }    
+    
+       .secao1{
+        display: block;
+        width: 202vw;
+
+        .texto1{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: absolute;
+                top: 48%;
+                left: 35%;
+                width: 150vw;
+                button{
+                    margin: 0%;
+                }
+        }
+               }
+
+        .secao2{
+            display: block;
+            text-align: center;
+            ul{
+                display: flex;
+                flex-direction: column;
+                align-self: self-start;
+                margin-left: 110px;
+
+             li{
+                width: 85vw;
+             }   
+            }
+            .img2{
+                display: none;
+            }
+        }
+       .secao3{
+      
+        .Formacoes{
+           
+     
+        }
+         .itens{
+         
+         }
+       }
+       
+       .secao4{
+         display: flex;
+         flex-direction: column;
+         width: 200vw;
+      
+       }
+
+       .secao5{
+          display: flex;
+          flex-direction: column;
+          
+          .opcoesContato{
+            display: flex;
+            flex-direction: column;
+          }
+       }
+      }
+  }
+
+    @media only screen and (max-width: 768px){
+      .cabecalho{
+          flex-direction: column;
+
+      .opcoes{
+          flex-direction: column;
+          display: none;
+      } 
+      
+      .link-toggle{
+        align-self: flex-end;
+        display: initial;
+        position: absolute;
+        cursor: pointer;
+      }
+      }
+
+      .cabecalho__ToggleShow{
+        display: flex;
+      }
+    }

@@ -10,14 +10,16 @@ function Landing() {
       <header className='cabecalho'>
 
         <img className='logo' src='/assets/images/logo_1.png' />
-
+        <div className='link-toggle'>
+                        ≡
+        </div>
         <div className='opcoes'>
           <p> <a href='#s3'> Personal Trainer </a> </p>
           <p> <a href='#s4'> Sobre o Athenas </a> </p>
           <p> <a href='#s5'> Contato </a> </p>
         </div>
       </header>
-      
+
       <main>
         <section className="secao1 secao"  id='s1'>
           <img className='fundo' src='/assets/images/young-happy-sportswoman-getting-ready-workout-tying-shoelace-fitness-center.jpg' />
@@ -200,7 +202,7 @@ function Landing() {
       </main>
 
       <Footer />
-
+      <script src='./script.js'></script>
     </div>
   );
 }
