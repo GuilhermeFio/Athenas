@@ -1,14 +1,14 @@
 import './index.scss';
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import Menu from '../../components/abasMenu'
-import CardTreinosAtuais from '../../components/cardTreinosAtuais';
-import CardTreinosProxs from '../../components/cardTreinosProxs';
+import CardTreinos from '../../components/cardTreinos';
 import axios from 'axios'
 import { useEffect, useState } from 'react';
 
 export default function HorarioTreinos (){
 
     const[token, setToken] = useState(null);
+    const listaTreinos = [];
 
     const navigate = useNavigate();
 
@@ -53,28 +53,11 @@ export default function HorarioTreinos (){
                 <div className="secaotreinos">
 
                     <div className="treinosMarcados">
-                        <div className="treinosatuais">
-                            <CardTreinosAtuais/>
-                            <CardTreinosAtuais/>
-                            <CardTreinosAtuais/>
-                        </div>
+                        {listaTreinos.map(item =>
+                            <CardTreinos item={item}/>
+                        )}
                     </div>
 
-                    <div className="proxSemanas">
-                        <div className="titulo">
-                            <h3>Nas Próximas Semanas</h3>
-                            <img className='seta' src='/assets/images/seta.png'/>
-                        </div>
-
-                        <div className="treinosproxs">
-                            <CardTreinosProxs/>
-                            <CardTreinosProxs/>
-                            <CardTreinosProxs/>
-                            <CardTreinosProxs/>
-                            <CardTreinosProxs/>
-                            <CardTreinosProxs/>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

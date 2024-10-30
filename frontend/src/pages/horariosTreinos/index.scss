@@ -46,45 +46,21 @@
             flex-direction: column;
             gap: 4vh;
             
-            .atualSemana{
+            .titulo{
                 display: flex;
-                flex-direction: column;
-                gap: 15px;
-
-                .titulo{
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                }
-
-                .treinosatuais{
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                }
+                flex-direction: row;
+                align-items: center;
             }
 
-            .proxSemanas{
+            .treinosMarcados{
                 display: flex;
-                flex-direction: column;
-                gap: 15px;
-                
-                .titulo{
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                }
-
-                .treinosproxs{
-                    display: flex;
-                    flex-direction: row;
-                    gap: 49px;
-                }
+                flex-direction: row;
+                gap: 10px;
             }
+        }
             
-            .seta{
-                width: 30px;
-            }
+        .seta{
+            width: 30px;
         }
     }
 }

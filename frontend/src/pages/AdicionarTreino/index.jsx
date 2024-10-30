@@ -8,6 +8,7 @@ import {Link, useNavigate, useParams}from 'react-router-dom'
 export default function AdicionarTreino() {
     const [token, setToken] = useState(null);
 
+    const[imgCliente, setImgCliente] = useState(null);
     const[nomeCliente, setNomeCliente] = useState('');
     const[dataNascimento, setDataNascimento] = useState('');
     const[idadeCliente, setIdadeCliente] = useState('');
@@ -45,7 +46,7 @@ export default function AdicionarTreino() {
             "idade": idadeCliente,
             "telefone": numCliente,
             "dt_treino": dataTreino,
-            /*img_cliente,*/
+            "img_cliente": imgCliente,
             
             "ds_peso": peso,
             "ds_imc" : imc,
@@ -79,6 +80,19 @@ export default function AdicionarTreino() {
         }
     }
 
+    function alterarImg(e) {
+        const file = e.target.files[0];
+        
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImgCliente(reader.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    }
+
     useEffect(() =>{
         let usu = localStorage.getItem('USUARIO')
         setToken(usu)
@@ -98,7 +112,20 @@ export default function AdicionarTreino() {
           <h2 className='titulo'>ADICIONAR NOVO TREINO</h2>
   
           <div className='secaoCliente'>
-              <img className='avatar' src='/assets/images/avatarfoto.png'/>
+
+              <div className='avatar'>
+                {imgCliente &&
+                    <div className='imagem'>
+                        <img id='cliente'src={imgCliente} alt="Foto" />
+                    </div>
+                }
+
+                <div className="sobreimg">
+                    <input type='file' accept='image/*' onChange={alterarImg}/>
+                    <p>Remover Imagem <i class='fa-solid fa-trash botao' onClick={() => setImgCliente(null)} /></p>
+                </div>
+              </div>
+
               <div className="infosCliente">
                     <h3>Nome do cliente: <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)}/></h3>
                     <h3>Data de nascimento: <input type='text' placeholder='Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)}/></h3>
