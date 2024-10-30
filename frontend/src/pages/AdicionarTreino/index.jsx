@@ -95,7 +95,7 @@ export default function AdicionarTreino() {
 
         <div className='secaomae'>
 
-          <h2>ADICIONAR NOVO TREINO</h2>
+          <h2 className='titulo'>ADICIONAR NOVO TREINO</h2>
   
           <div className='secaoCliente'>
               <img className='avatar' src='/assets/images/avatarfoto.png'/>

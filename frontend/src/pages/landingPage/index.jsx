@@ -17,7 +17,7 @@ function Landing() {
           <p> <a href='#s5'> Contato </a> </p>
         </div>
       </header>
-
+      
       <main>
         <section className="secao1 secao"  id='s1'>
           <img className='fundo' src='/assets/images/young-happy-sportswoman-getting-ready-workout-tying-shoelace-fitness-center.jpg' />
