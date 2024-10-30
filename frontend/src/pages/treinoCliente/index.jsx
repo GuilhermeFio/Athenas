@@ -84,7 +84,7 @@ export default function InfoClientes (){
   
           <div className='secaomae'>
   
-            <h2>TREINO DE (nome do cliente)</h2>
+            <h2>TREINO DE {nomeCliente}</h2>
     
             <div className='secaoCliente'>
                 <img className='avatar' src='/assets/images/avatarfoto.png'/>

@@ -68,7 +68,7 @@ function Landing() {
           <div className='Formacoes'>
             <div className="titulo">
               <img src='assets/images/medalha.png'/>
-              <h2>SUAS FORMAÇÕES</h2>
+              <h2>FORMAÇÕES</h2>
               <img src='assets/images/medalha.png'/>
             </div>
 
