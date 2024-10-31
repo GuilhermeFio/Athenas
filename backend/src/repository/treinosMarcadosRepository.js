@@ -13,10 +13,8 @@ values(?,?,?,?)
 
  let registros= resposta[0];
  return registros.insertId;  
-    }  //sem autorização para adicionar//
-
-
-export async function consultarTreino(idUsuario){
+    }
+export async function consultarTreino(id, idUsuario){
 
     const comando= `
     
@@ -26,11 +24,11 @@ export async function consultarTreino(idUsuario){
                 ds_exercicios_escolhidos     exercicios
     
         from AthenasDB.Treinos_marcados
-        where id_usuario=?;
+        where treino_id = ?;
     
     `
     
-    let resposta= await con.query(comando, [idUsuario]);
+    let resposta= await con.query(comando, [id, idUsuario]);
     let registros= resposta[0];
     return registros   
     }
@@ -48,7 +46,6 @@ export async function consultarTreino(idUsuario){
             where treino_id
         
         `
-        
         let resposta= await con.query(comando, [id]);
         let registros= resposta[0];
         return registros   

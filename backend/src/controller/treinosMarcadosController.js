@@ -27,7 +27,7 @@ Endpoints.get('/treinos/:id', autenticar, async (req,resp) => {
  })
  
 
-Endpoints.post('/treinos/adicionar',autenticar, async (req,resp) => {
+Endpoints.post('/treinos/adicionar', autenticar, async (req,resp) => {
 
     try {
 
@@ -45,12 +45,12 @@ Endpoints.post('/treinos/adicionar',autenticar, async (req,resp) => {
  })
 
 
-Endpoints.get('/treinos', async (req,resp) => {
+Endpoints.get('/treinos/:id', async (req,resp) => {
 
     try {
-
+       let id= req.params.id
        let idUsuario= req.user.id
-       let registro = await db.consultarTreino(idUsuario)
+       let registro = await db.consultarTreino(id,idUsuario)
        resp.send (registro)
        
    }

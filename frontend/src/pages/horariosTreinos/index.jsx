@@ -28,9 +28,9 @@ async function treinos() {
     setListaTreinos(resp.data)
  }
 
-    useEffect(() =>{
+    /*useEffect(() =>{
         treinos()
-    })
+    })*/
 
     useEffect(() =>{
         let usu = localStorage.getItem('USUARIO')
