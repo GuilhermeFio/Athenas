@@ -7,10 +7,9 @@ import { useEffect, useState } from 'react';
 
 export default function HorarioTreinos (){
 
-    const[token, setToken] = useState(null);
-    const listaTreinos = [];
-
+    const [token, setToken] = useState(null);
     const navigate = useNavigate();
+    const [listaTreinos, setListaTreinos] = useState([]);
 
     /*const {id} = useParams();/*
 
@@ -22,6 +21,16 @@ export default function HorarioTreinos (){
 
         }
     }*/
+
+async function treinos() {
+    const url = `http://localhost:4000/treinos?x-access-token=${token}`;
+    let resp= await axios.get(url);
+    setListaTreinos(resp.data)
+ }
+
+    useEffect(() =>{
+        treinos()
+    })
 
     useEffect(() =>{
         let usu = localStorage.getItem('USUARIO')
@@ -46,7 +55,7 @@ export default function HorarioTreinos (){
 
                     <div className="irAddTreino">
                         <h2>Adicionar Novo Treino</h2>
-                        <Link to={'/adicionarTreino'}><img className='add' src='/assets/images/adicionar.png'/></Link>
+                        <Link to={'/novoTreino'}><img className='add' src='/assets/images/adicionar.png'/></Link>
                     </div>
                 </div>
 

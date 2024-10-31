@@ -18,7 +18,7 @@ export default function InfoClientes (){
     const[numCliente, setNumCliente] = useState('');
     const[dataTreino, setDataTreino] = useState('');
 
-    //AVALIAÇÃO
+    //AVALIAÇÃO | 
     const[peso, setPeso] = useState(0);
     const[imc, setImc] = useState(0);
     const[freqCard, setFreqCard] = useState(0);
@@ -73,8 +73,7 @@ export default function InfoClientes (){
 
     });
 
-    const verifyClient = () => {
-        
+    const verifyClient = () => {    
     }
 
     return (
@@ -84,8 +83,8 @@ export default function InfoClientes (){
   
           <div className='secaomae'>
   
-            <h2>TREINO DE {nomeCliente}</h2>
-    
+            <h2>TREINO DE {nomeCliente}</h2> 
+         
             <div className='secaoCliente'>
                 <img className='avatar' src='/assets/images/avatarfoto.png'/>
                 <div className="infosCliente">

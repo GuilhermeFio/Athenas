@@ -1,3 +1,0 @@
-    /*logica dos endpoints*/
-
-    

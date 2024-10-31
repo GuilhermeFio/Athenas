@@ -66,7 +66,6 @@ export default function AdicionarTreino() {
             
             "ds_objetivos_cliente": objetivos,
             "exercicios_escolhidos" : exercicios
-
         }
 
         if(id == undefined){
@@ -75,7 +74,6 @@ export default function AdicionarTreino() {
             const url3 = `http://localhost:4000/treinos/adicionar?x-access-token=${token}`;
             let resp = await axios.post(url1, url2, url3, paramCorpo);
             alert('treino adicionado na lista. Id:' + resp.data.novoId)
-
         }
     }
 

@@ -49,8 +49,7 @@ Endpoints.get('/treinos', async (req,resp) => {
 
     try {
 
-         let idUsuario= req.user.id
-
+       let idUsuario= req.user.id
        let registro = await db.consultarTreino(idUsuario)
        resp.send (registro)
        

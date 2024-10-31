@@ -79,7 +79,22 @@ export async function infoCliente(idCliente){
 
 let resposta= await con.query(comando, [idCliente])
 let registros = resposta[0]
-
 return registros;
+}
+
+export async function atualizarCliente(id, clienteObj){
+
+	const comando = `
+
+	   update Cliente
+	   set nome = ?,
+		   nascimento= ?,
+		   idade = ?,
+		   telefone = ?
+	   where id_cliente = ?;
+`
+let resposta = await con.query(comando, [clienteObj.nome, clienteObj.nascimento, clienteObj.idade, clienteObj.telefone, id])
+let info = resposta[0];
+return info.affectedRows;
 
 }

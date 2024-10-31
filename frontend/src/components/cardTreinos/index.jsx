@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import './index.scss';
 
 function CardTreinos(props){
+
     return(
         <Link className='comp-card-treinos-atuais' to = {`/treinoCliente`}>
             <div className='cartao'>
@@ -24,5 +25,4 @@ function CardTreinos(props){
         </Link>
     )
 }
-
 export default CardTreinos;
