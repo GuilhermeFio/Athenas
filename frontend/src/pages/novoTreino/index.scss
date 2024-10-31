@@ -6,7 +6,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2vh;
+        gap: 5vh;
         padding: 4vh;
 
         .titulo{
@@ -16,25 +16,29 @@
         .secaoCliente{
             display: flex;
             flex-direction: row;
+            gap: 4vw;
 
             .avatar{
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
                 background-color: #d8d8d8;
                 border-radius: 8px;
+                width: 27vw;
 
                 .imagem{
                     display: flex;
                     justify-content: center;
 
                     #cliente{
-                        height: 150px;
+                       width: 21vw
                     }
                 }
 
                 .sobreimg{
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
+                    gap: 1vh;
                     justify-content: center;
                     align-items: center;
                 }
@@ -44,6 +48,8 @@
                     flex-direction: row;
                     justify-content: center;
                     align-items: center;
+                    width: 13vw;
+                  
                 }
 
                 
@@ -53,7 +59,11 @@
             .infosCliente{
                 display: flex;
                 flex-direction: column;
-                background-color: #d8d8d8;
+                gap: 3vh;
+
+                input{
+                    height: 6vh;
+                }
             }
         }
        

@@ -119,16 +119,30 @@ export default function AdicionarTreino() {
 
                 <div className="sobreimg">
                     <input type='file' accept='image/*' onChange={alterarImg}/>
-                    <p>Remover Imagem <i class='fa-solid fa-trash botao' onClick={() => setImgCliente(null)} /></p>
+                    <p>REMOVER IMAGEM <i class='fa-solid fa-trash botao' onClick={() => setImgCliente(null)} /></p>
                 </div>
               </div>
 
               <div className="infosCliente">
-                    <h3>Nome do cliente: <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)}/></h3>
-                    <h3>Data de nascimento: <input type='text' placeholder='Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)}/></h3>
-                    <h3>Idade do cliente: <input type='text' placeholder='Idade do cliente' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)}/></h3>
-                    <h3>Telefone/Celular do cliente: <input type='text' placeholder='Número do cliente' value={numCliente} onChange={e => setNumCliente(e.target.value)}/></h3>
-                    <h3>Data e horário do treino: <input type='text' placeholder='Data e horário do treino' value={dataTreino} onChange={e => setDataTreino(e.target.value)}/></h3>
+              <div className='nome'>
+                    <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)}/>
+                    </div>
+
+                    <div className='nascimento'>
+                    <input type='text' placeholder='Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)}/>
+                    </div>
+                    
+                    <div className='idade'>
+                    <input type='text' placeholder='Idade do cliente' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)}/>
+                    </div>
+                     
+                     <div className='telefone' >
+                     <input type='text' placeholder='Número do cliente' value={numCliente} onChange={e => setNumCliente(e.target.value)}/>
+                     </div>
+                     
+                     <div className='data'> 
+                     <input type='text' placeholder='Data e horário do treino' value={dataTreino} onChange={e => setDataTreino(e.target.value)}/>
+                     </div>
               </div>
           </div>
          <div className="tabAvaliacao">

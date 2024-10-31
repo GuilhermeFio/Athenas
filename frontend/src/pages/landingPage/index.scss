@@ -6,8 +6,8 @@ html    {
         }
 
 
-:target{ /*estilizar elementos que receberam foco através de um fragmento de URL lá no HTML ('a' referenciado com #)*/
-    scroll-margin-top: .8em; /*css que permite que o scrolamento seja feito corretamente sem erros*/
+:target{ 
+    scroll-margin-top: .8em; 
        }
 
 
@@ -579,17 +579,6 @@ html    {
                 display: none;
             }
         }
-       .secao3{
-      
-        .Formacoes{
-           
-     
-        }
-         .itens{
-         
-         }
-       }
-       
        .secao4{
          display: flex;
          flex-direction: column;

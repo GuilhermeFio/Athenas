@@ -20,7 +20,7 @@ export default function Menu (){
 
                 <div className="horarios">
                     <img className='horas' src='/assets/images/relogio.png'/>
-                    <Link to = {'/horariosTreinos'}><p>Horário dos Treinos</p></Link>
+                    <Link to = {'/horariosTreinos'}><p>Treinos Marcados</p></Link>
                 </div>
 
                 <div className="finalpends">
