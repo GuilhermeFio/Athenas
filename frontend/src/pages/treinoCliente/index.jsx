@@ -94,7 +94,7 @@ export default function InfoClientes (){
                     </div>
 
                     <div className='nascimento'>
-                    <input type='text' placeholder='Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)}/>
+                    <input type='text' placeholder='Data de nascimento (YYYY-MM-DD)' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)}/>
                     </div>
                     
                     <div className='idade'>
@@ -149,7 +149,7 @@ export default function InfoClientes (){
                         <input type='text' placeholder='Massa Muscular' value={massaMusc} onChange={e => setMassaMusc(e.target.value)}/>
   
                         <h3>Massa Muscular Esquelética:</h3>
-                        <input type='text' placeholder='Massa Muscular Esquelética' value={massaMuscEsq} onChange={e => (setMassaMuscEsq.target.value)}/>
+                        <input type='text' placeholder='Massa Muscular Esquelética' value={massaMuscEsq} onChange={e => setMassaMuscEsq (e.target.value)}/>
   
                         <h3>Massa Óssea:</h3>
                         <input type='text' placeholder='Massa Óssea' value={massaOssea} onChange={e => setMassaOssea(e.target.value)}/>

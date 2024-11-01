@@ -58,9 +58,9 @@ function Landing() {
 
           <div className='sobrePersonal'>
             <div className="infoPersonal">
-              <h2> Nome completo </h2>
+              <h2> Angelica B. Hessel Nunes </h2>
               <h2> Atuando desde 2011</h2>
-              <p> Um pouco sobre o autônomo; desejos; sonhos; porque quis atuar como tal </p>
+              <p> Atua na questão de melhorar a saúde das pessoas, visando conseguir trazer mais tempo de vida e qualidade à elas. </p>
             </div>
             <img className='ImgPersonal' src='assets/images/Autonomo.jpg' />
           </div>  

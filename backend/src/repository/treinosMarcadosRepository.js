@@ -5,11 +5,11 @@ export async function adicionarTreino(treinos){
 
     const comando=  `
 
-insert into AthenasDB.Treinos_marcados (ds_objetivos_cliente, dt_treino, exercicios_escolhidos, bt_concluido)
-values(?,?,?,?)
+insert into AthenasDB.Treinos_marcados (ds_objetivos_cliente, dt_treino, exercicios_escolhidos, bt_concluido, id_login)
+values(?,?,?,?,?)
            `
 
- let resposta= await con.query(comando, [treinos.objetivos, treinos.data, treinos.exercicios, treinos.concluido]);
+ let resposta= await con.query(comando, [treinos.objetivos, treinos.data, treinos.exercicios, treinos.concluido, treinos.idUsuario]);
 
  let registros= resposta[0];
  return registros.insertId;  

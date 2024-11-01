@@ -3,13 +3,15 @@ import * as db from '../repository/avaliacaoFisicaRepository.js'
 import multer from 'multer'
 import { Router } from 'express'
 
+import{autenticar} from '../utils/jwt.js'
+
 const Endpoints= Router();
 
-Endpoints.get('/avaliacao/consultar/:idCliente', async (req,resp) => {
+Endpoints.get('/avaliacao/consultar/:idCliente', autenticar, async (req,resp) => {
 
     try {
-
-       let idCliente = req.params.idCliente
+        
+       let idCliente = req.params.id
        let registro = await db.consultarAvaliacao(idCliente)
        resp.send (registro) 
    }
@@ -21,13 +23,18 @@ Endpoints.get('/avaliacao/consultar/:idCliente', async (req,resp) => {
  })
 
 
- Endpoints.post('/avaliacao/adicionar', async (req,resp) => {
+ Endpoints.post('/avaliacao/adicionar', autenticar, async (req,resp) => {
 
     try {
+        
 
        let info = req.body
+        info.idUsuario = req.user.id;
+
        let registro = await db.adicionarAvaliacao(info)
-       resp.send ({registro})
+       resp.send ({
+        novoId: registro
+       })
        
    }
     catch (err) {

@@ -14,22 +14,22 @@ export default function AdicionarTreino() {
     const[numCliente, setNumCliente] = useState('');
     const[dataTreino, setDataTreino] = useState('');
 
-    const[peso, setPeso] = useState(0);
-    const[imc, setImc] = useState(0);
-    const[freqCard, setFreqCard] = useState(0);
-    const[indcCoracao, setIndcCoracao] = useState(0);
-    const[taxaMuscular, setTaxaMuscular] = useState(0);
-    const[iddMetabolica, setIddMetabolica] = useState(0);
-    const[taxaMetBasal, setTaxaMetBasal] = useState(0);
-    const[proteina, setProteina] = useState(0);
-    const[massaLivGord, setMassaLivGord] = useState(0);
-    const[massaMusc, setMassaMusc] = useState(0);
-    const[massaMuscEsq, setMassaMuscEsq] = useState(0);
-    const[massaOssea, setMassaOssea] = useState(0);
-    const[gordCorp, setGordCorp] = useState(0);
-    const[gordSub, setGordSub] = useState(0);
-    const[gordVis, setGordVis] = useState(0);
-    const[aguaCorp, setAguaCorp] = useState(0);
+    const[peso, setPeso] = useState('');
+    const[imc, setImc] = useState('');
+    const[freqCard, setFreqCard] = useState('');
+    const[indcCoracao, setIndcCoracao] = useState('');
+    const[taxaMuscular, setTaxaMuscular] = useState('');
+    const[iddMetabolica, setIddMetabolica] = useState('');
+    const[taxaMetBasal, setTaxaMetBasal] = useState('');
+    const[proteina, setProteina] = useState('');
+    const[massaLivGord, setMassaLivGord] = useState('');
+    const[massaMusc, setMassaMusc] = useState('');
+    const[massaMuscEsq, setMassaMuscEsq] = useState('');
+    const[massaOssea, setMassaOssea] = useState('');
+    const[gordCorp, setGordCorp] = useState('');
+    const[gordSub, setGordSub] = useState('');
+    const[gordVis, setGordVis] = useState('');
+    const[aguaCorp, setAguaCorp] = useState('');
 
     const[objetivos, setObjetivos] = useState('');
     const[exercicios, setExercicios] = useState('');
@@ -39,7 +39,9 @@ export default function AdicionarTreino() {
     const {id} = useParams();
     
     async function salvar(){
+
         let paramCorpo = {
+
             "nome": nomeCliente,
             "nascimento": dataNascimento,
             "idade": idadeCliente,
@@ -72,7 +74,8 @@ export default function AdicionarTreino() {
             const url1 = `http://localhost:4000/cliente/adicionar?x-access-token=${token}`;
             const url2 = `http://localhost:4000/avaliacao/adicionar?x-access-token=${token}`;
             const url3 = `http://localhost:4000/treinos/adicionar?x-access-token=${token}`;
-            let resp = await axios.post(url1, url2, url3, paramCorpo);
+            let resp = await axios.post( url1, url2, url3,  paramCorpo);
+            
             alert('treino adicionado na lista. Id:' + resp.data.novoId)
         }
     }
@@ -129,7 +132,7 @@ export default function AdicionarTreino() {
                     </div>
 
                     <div className='nascimento'>
-                    <input type='text' placeholder='Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)}/>
+                    <input type='text' placeholder='Data de nascimento (YYYY-MM-DD)' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)}/>
                     </div>
                     
                     <div className='idade'>
@@ -151,7 +154,7 @@ export default function AdicionarTreino() {
               <div className="dadosFisicos">
                   <div className="dados1">
                       <h3>Peso:</h3>
-                      <input type='text' value={peso} onChange={e => setPeso(e.target.value)}/>
+                      <input type='text' placeholder='peso' value={peso} onChange={e => setPeso(e.target.value)}/>
 
                       <h3>IMC:</h3>
                       <input type='text' placeholder='Índice de Massa Corporal' value={imc} onChange={e => setImc(e.target.value)}/>
@@ -172,7 +175,7 @@ export default function AdicionarTreino() {
                       <input type='text' placeholder='Taxa Metabólica Basal (TMB)' value={taxaMetBasal} onChange={e => setTaxaMetBasal(e.target.value)}/>
 
                       <h3>Proteína:</h3>
-                      <input type='text' placeholder='' value={proteina} onChange={e => setProteina(e.target.value)}/>
+                      <input type='text' placeholder='Proteína' value={proteina} onChange={e => setProteina(e.target.value)}/>
                   </div>
 
                   <div className="dados2">
@@ -183,7 +186,7 @@ export default function AdicionarTreino() {
                       <input type='text' placeholder='Massa Muscular' value={massaMusc} onChange={e => setMassaMusc(e.target.value)}/>
 
                       <h3>Massa Muscular Esquelética:</h3>
-                      <input type='text' placeholder='Massa Muscular Esquelética' value={massaMuscEsq} onChange={e => (setMassaMuscEsq.target.value)}/>
+                      <input type='text' placeholder='Massa Muscular Esquelética' value={massaMuscEsq} onChange={e => setMassaMuscEsq(e.target.value)}/>
 
                       <h3>Massa Óssea:</h3>
                       <input type='text' placeholder='Massa Óssea' value={massaOssea} onChange={e => setMassaOssea(e.target.value)}/>

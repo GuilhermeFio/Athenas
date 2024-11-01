@@ -167,12 +167,22 @@ html    {
             .infoPersonal{
                 display: flex;
                 flex-direction: column;
+                gap: 6vh;
             }
 
             h2 {
                 font-family: 'Inter';
                 font-weight: 500;
                 font-size: 4vh;
+                text-align: center;
+            }
+
+            p{
+                background-color: #CADFFF;
+                border: 1px solid black;
+                padding: 1em;
+                font: 400 2em 'Oswald';
+                max-width: 30vw;
                 text-align: center;
             }
 
