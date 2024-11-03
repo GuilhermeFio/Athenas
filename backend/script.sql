@@ -15,8 +15,7 @@ select*from login;
 
 create table AthenasDB.Treinos_marcados(
 treino_id int primary key auto_increment,
-ds_objetivos_cliente enum('Emagrecer', 'Ganhar massa muscular', 'Ganhar resistência', 'Definir
-o corpo') not null,
+ds_objetivos_cliente varchar(100) not null,
 dt_treino datetime not null,
 exercicios_escolhidos varchar(220) not null,
 bt_concluido boolean,
@@ -154,13 +153,17 @@ telefone varchar (30),
 treino_id int,
 avaliacao_id int,
 reavaliacao_id int,
-img_cliente varchar (500),
+img_cliente MEDIUMBLOB,
 foreign key (treino_id) references Treinos_marcados(treino_id),
 foreign key (avaliacao_id) references Avaliacao_fisica(avaliacao_id),
 foreign key (reavaliacao_id) references Reavaliacao_fisica(reavaliacao_id),
 id_login int,
 foreign key (id_login) references Login (id_login)
 );
+
+ALTER TABLE Cliente MODIFY COLUMN img_cliente MEDIUMBLOB;
+
+
 
 insert into Cliente (nome, nascimento, idade, telefone, treino_id, avaliacao_id, reavaliacao_id, img_cliente)
 values ('Pauilo', '2005-07-08', 19, '11987652344', 1, 1, 1, '');
@@ -171,14 +174,14 @@ select * from Cliente;
 repository fazer login -> só select
 */
 select 
-	ds_email,
+	ds_usuario,
 	ds_senha 
 from Login;
 
 /* página info usuario
 repository info usuario -> update, select
 */
-
+/*
 select
 	nm_usuario,
 	ds_email,
@@ -197,7 +200,7 @@ set 	nm_usuario =?,
 		ds_genero =?,
 		ds_UF =?,
 		img_usuario =?
-where id = 1;
+where id = 1;*/
 
 /* página horario treinos
 repository horario treinos -> select
@@ -260,6 +263,11 @@ on Cliente.treino_id = Treinos_marcados.treino_id
 inner join Avaliacao_fisica
 on Cliente.avaliacao_id = Avaliacao_fisica.avaliacao_id;
 
+select * from Login;
+
+select * from Cliente;
+
+select * from AthenasDB.Treinos_marcados;
 
 insert into Reavaliacao_fisica(ds_peso, ds_massa_livre_gordura, ds_imc, ds_massa_muscular, ds_frequencia_cardiaca, ds_massa_muscular_esqueletica, ds_indice_coracao, ds_massa_ossea, ds_taxa_muscular, ds_gordura_corporal, ds_idade_metabolica, ds_gordura_subcutanea, ds_taxa_metabolica_basal, ds_gordura_visceral, ds_proteina, ds_agua_corporal)
 values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);

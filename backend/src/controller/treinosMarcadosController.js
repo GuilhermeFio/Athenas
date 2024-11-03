@@ -10,21 +10,31 @@ const Endpoints= Router();
 
 
 
-Endpoints.get('/treinos/:id', autenticar, async (req,resp) => {
 
+Endpoints.get('/treinos/:id', autenticar, async (req, resp) => {
     try {
-         let idCliente= req.params.idCliente
-
-       let registro = await cliente.treinosMarcados(idCliente)
-       resp.send (registro)
+        const idCliente = req.params.id;
+        
+        const registro = await cliente.treinosMarcados(idCliente);
+        
+        resp.send(registro);
+    } catch (err) {
        
-   }
-    catch (err) {
-       resp.status(404).send({
-           erro : err.message
-       })
-   }
- })
+        resp.status(404).send({ erro: err.message });
+    }
+});
+
+
+Endpoints.get('/treinos', autenticar, async (req, resp) => {
+    try {
+       
+        const registro = await cliente.treinosMarcados();
+        resp.send(registro);
+
+    } catch (err) {
+        resp.status(404).send({ erro: err.message });
+    }
+});
  
 
 Endpoints.post('/treinos/adicionar', autenticar, async (req,resp) => {
@@ -46,7 +56,7 @@ Endpoints.post('/treinos/adicionar', autenticar, async (req,resp) => {
    }
  })
 
-
+/*
 Endpoints.get('/treinos/:id', async (req,resp) => {
 
     try {
@@ -79,7 +89,7 @@ Endpoints.get('/treinos/:id', async (req,resp) => {
    }
  })
 
-
+*/
 
 
  

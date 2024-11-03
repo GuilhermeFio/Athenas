@@ -4,34 +4,65 @@ export async function inserirCliente(clienteObj){
 
 const comando= `
 
-insert into Cliente(nome, nascimento, idade, telefone, treino_id, avaliacao_id, reavaliacao_id, id_login)
-values(?,?,?,?,?,?,?,?);
+insert into Cliente(nome, nascimento, idade, telefone, treino_id, avaliacao_id, reavaliacao_id, img_cliente, id_login)
+values(?,?,?,?,?,?,?,?,?);
 `
-
-let resposta= await con.query(comando, [clienteObj.nome, clienteObj.nascimento, clienteObj.idade, clienteObj.telefone, clienteObj.treinoid, clienteObj.avaliacaoid, clienteObj.reavaliacaoid, clienteObj.idUsuario])
+console.log(clienteObj);
+let resposta= await con.query(comando, [clienteObj.nome, clienteObj.nascimento, clienteObj.idade, clienteObj.telefone, clienteObj.treinoid, clienteObj.avaliacaoid, clienteObj.reavaliacaoid, clienteObj.imagem, clienteObj.idUsuario])
 let registros = resposta[0]
 return registros.insertId
 }
 
-export async function treinosMarcados(idCliente){
 
-const comando = ` 
 
-      select 
-      nome,
-      dt_treino     DataTreino,
-      telefone
-      from Cliente
-      inner join Treinos_marcados
-      on Cliente.treino_id = Treinos_marcados.treino_id
-	  where id_cliente= ?; 
-`
 
-let resposta= await con.query(comando, [idCliente])
-let registros= resposta[0]
-return registros;
+export async function treinosMarcados() {
+    const comando = `
+        select 
+            id_cliente,
+            nome,
+            dt_treino  dataTreino,
+            telefone,
+            img_cliente  perfil
+        from Cliente
+        inner join Treinos_marcados
+            on Cliente.treino_id = Treinos_marcados.treino_id
+			order by dataTreino
+    `;
+	
+    
+    let resposta = await con.query(comando);
+	let registro = resposta [0]
 
+    return registro;
 }
+
+/*export async function treinosMarcadosId(idCliente) {
+    const comando = `
+        select 
+            id_cliente,
+            nome,
+            dt_treino as dataTreino,
+            telefone,
+            img_cliente as perfil
+        from Cliente
+        inner join Treinos_marcados
+            on Cliente.treino_id = Treinos_marcados.treino_id
+        "where id_cliente = ?"
+    `;
+    const params = idCliente ? [idCliente] : [];
+    const [registros] = await con.query(comando, params);
+
+    const registrosComImagem = registros.map(registro => ({
+        ...registro,
+        perfil: registro.perfil ? `data:image/jpeg;base64,${Buffer.from(registro.perfil).toString('base64')}` : null
+    }));
+
+    return registrosComImagem;
+}
+*/
+
+
 
 
 export async function infoCliente(idCliente){

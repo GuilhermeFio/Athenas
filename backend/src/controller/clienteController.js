@@ -13,7 +13,6 @@ Endpoints.post('/cliente/adicionar', autenticar, async (req,resp)=>{
 try {
     
     let clienteObj= req.body
-
     clienteObj.idUsuario = req.user.id;
 
     let registro= await db.inserirCliente(clienteObj)

@@ -1,36 +1,21 @@
 import './index.scss';
-import { Link, useNavigate, useParams } from 'react-router-dom'
-import Menu from '../../components/abasMenu'
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import Menu from '../../components/abasMenu';
 import CardTreinos from '../../components/cardTreinos';
-import axios from 'axios'
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-export default function HorarioTreinos (){
-
+export default function HorarioTreinos() {
     const [token, setToken] = useState(null);
-    const navigate = useNavigate();
     const [listaTreinos, setListaTreinos] = useState([]);
-
-    /*const {id} = useParams();/*
-
-    /*async function consultar(){
-        if(id != undefined){
-            const url = `http://localhost:4000/treinos/${id}?x-access-token=${token}`;
-            let resp = await axios.get(url);
-            let dados = resp.data;
-
+    const navigate = useNavigate();
+    const { id } = useParams();
+    const constatoken = {
+        headers: {
+          'x-access-token': token
+          
         }
-    }*/
-
-async function treinos() {
-    const url = `http://localhost:4000/treinos?x-access-token=${token}`;
-    let resp= await axios.get(url);
-    setListaTreinos(resp.data)
- }
-
-    /*useEffect(() =>{
-        treinos()
-    })*/
+      };
 
     useEffect(() =>{
         let usu = localStorage.getItem('USUARIO')
@@ -41,34 +26,45 @@ async function treinos() {
         }
     }, [])
 
-    
+    useEffect(() => {
+        if (token) {
+            consultar();
+        }
+    }, [token]);
 
-    return(
+    async function consultar() {
+       
+            const url = `http://localhost:4000/treinos`;
+            const resp = await axios.get(url, constatoken);
+            setListaTreinos(resp.data);
+           
+    }
+
+    return (
         <div className="pagina-horarios-treinos">
-
-            <Menu/>
-
+            <Menu />
             <div className="secaomae">
-
                 <div className="secao1">
                     <h1>TREINOS MARCADOS</h1>
-
                     <div className="irAddTreino">
                         <h2>Adicionar Novo Treino</h2>
-                        <Link to={'/novoTreino'}><img className='add' src='/assets/images/adicionar.png'/></Link>
+                        <Link to={'/novoTreino'}>
+                            <img className='add' src='/assets/images/adicionar.png' alt="Adicionar Treino"/>
+                        </Link>
                     </div>
                 </div>
-
                 <div className="secaotreinos">
-
                     <div className="treinosMarcados">
-                        {listaTreinos.map(item =>
-                            <CardTreinos item={item}/>
+                        {listaTreinos.length === 0 ? (
+                            <p>Nenhum treino marcado encontrado.</p>
+                        ) : (
+                            listaTreinos.map(item => (
+                                <CardTreinos item={item} />
+                            ))
                         )}
                     </div>
-
                 </div>
             </div>
         </div>
-    )
+    );
 }
