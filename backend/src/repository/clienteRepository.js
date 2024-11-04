@@ -35,6 +35,10 @@ export async function treinosMarcados() {
     let resposta = await con.query(comando);
 	let registro = resposta [0]
 
+	for(let i in registro){
+		registro[i].perfil=registro[i].perfil?.toString();
+	}
+
     return registro;
 }
 
@@ -55,12 +59,11 @@ export async function treinosMarcadosId(id) {
     let resposta = await con.query(comando, [id]);
 	let registros = resposta[0][0]
 
+	registros.perfil=registros.perfil?.toString();
 
-   /* const registrosComImagem = registros.map(registro => ({
-        ...registro,
-        perfil: registro.perfil ? `data:image/jpeg;base64,${Buffer.from(registro.perfil).toString('base64')}` : null
-    }));
-*/
+
+ 
+
     return registros;
 }
 
@@ -113,10 +116,13 @@ export async function infoCliente(idCliente){
 
 let resposta= await con.query(comando, [idCliente])
 let registros = resposta[0][0]
+
+registros.perfil=registros.perfil?.toString();
+
 return registros;
 }
 
-export async function atualizarCliente(id, clienteObj){
+/*export async function atualizarCliente(id, clienteObj){
 
 	const comando = `
 
@@ -128,6 +134,20 @@ export async function atualizarCliente(id, clienteObj){
 	   where id_cliente = ?;
 `
 let resposta = await con.query(comando, [clienteObj.nome, clienteObj.nascimento, clienteObj.idade, clienteObj.telefone, id])
+let info = resposta[0];
+return info.affectedRows;
+
+}*/
+
+export async function atualizarClienteIdReavaliacao(id, clienteObj){
+
+	const comando = `
+
+	   update Cliente
+	   set reavaliacaoid =?,
+	   where id_cliente = ?;
+`
+let resposta = await con.query(comando, [clienteObj.nome, clienteObj.nascimento, clienteObj.idade, clienteObj.telefone, clienteObj.reavaliacaoid, clienteObj.imagem, id])
 let info = resposta[0];
 return info.affectedRows;
 

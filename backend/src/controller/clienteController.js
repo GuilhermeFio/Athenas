@@ -44,13 +44,35 @@ Endpoints.get('/cliente/:id', async (req,resp)=>{
     })
 
     
-Endpoints.put('/cliente/atualizar/:id', async (req,resp)=>{
+/*Endpoints.put('/cliente/atualizar/:id', async (req,resp)=>{
 
     try {
         let id = req.params.id;
         let clienteObj = req.body;
 
         let linhasAfetadas = await db.atualizarCliente(id, clienteObj);
+        if (linhasAfetadas >= 1) {
+            resp.send();
+        }
+        else {
+            resp.status(404).send({ erro: 'Nenhum registro encontrado' })
+        }
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+    })*/
+
+
+Endpoints.put('/cliente/atualizaridrev/:id', autenticar, async (req,resp)=>{
+
+    try {
+        let id = req.params.id;
+        let clienteObj = req.body;
+
+        let linhasAfetadas = await db.atualizarClienteIdReavaliacao(id, clienteObj);
         if (linhasAfetadas >= 1) {
             resp.send();
         }

@@ -1,4 +1,4 @@
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './index.scss'
 import Menu from '../../components/abasMenu'
 import axios from 'axios'
@@ -17,6 +17,7 @@ export default function InfoClientes (){
     const[idadeCliente, setIdadeCliente] = useState('');
     const[numCliente, setNumCliente] = useState('');
     const[dataTreino, setDataTreino] = useState('');
+    const[imagem, setImagem] = useState('')
 
     //AVALIAÇÃO | 
     const[peso, setPeso] = useState(0);
@@ -84,8 +85,7 @@ export default function InfoClientes (){
         }
     }, [token, id]);
 
-    /*const verifyClient = () => {    
-    }*/
+  
 
     async function consultar(){
         
@@ -98,6 +98,7 @@ export default function InfoClientes (){
             setIdadeCliente(cliente.idade);
             setNumCliente(cliente.telefone);
             setDataTreino(new Date(cliente.dataTreino).toLocaleDateString());
+            setImagem(cliente.perfil)
 
             setPeso (cliente.peso);
             setImc (cliente.imc);
@@ -122,6 +123,47 @@ export default function InfoClientes (){
              
   
     }
+
+    async function addRev(){
+        try {
+            const reavaliacaoData = {
+                "peso": peso2,
+                "massaLivreGordura": massaLivGord2,
+                "imc": imc2,
+                "massaMuscular": massaMusc2,
+                "frequenciaCardiaca": freqCard2,
+                "massaMuscularEsqueletica": massaMuscEsq2,
+                "indiceCoracao": indcCoracao2,
+                "massaOssea": massaOssea2,
+                "taxaMuscular": taxaMuscular2,
+                "gorduraCorporal": gordCorp2,
+                "idadeMetabolica": iddMetabolica2,
+                "gorduraSubcutanea": gordSub2,
+                "taxaMetabolicaBasal": taxaMetBasal2,
+                "gorduraVisceral": gordVis2,
+                "proteina": proteina2,
+                "aguaCorporal": aguaCorp2,
+
+            };
+            const respReavaliacao = await axios.post(`http://localhost:4000/reavaliacao/adicionar`, reavaliacaoData, constatoken);
+            const reavaliacaoId = respReavaliacao.data.novoId;
+
+
+            const clienteData = {
+                "reavaliacaoid": reavaliacaoId,
+            };
+            const respCliente = await axios.put(`http://localhost:4000/cliente/atualizaridrev/${id}`, clienteData, constatoken);
+            const clienteId = respCliente.data.novoId;
+
+            alert('Reavaliação adicionada com sucesso!  IdCliente:' + clienteId + 'IdReavaliacao:' + reavaliacaoId);
+            navigate('/horariosTreinos')
+
+        } catch (error) {
+            alert('Erro ao adicionar os dados: ' + error.message);
+        }
+    }
+
+    
     
 
     return (
@@ -131,10 +173,10 @@ export default function InfoClientes (){
   
           <div className='secaomae'>
   
-            <h2>TREINO DE {nomeCliente}</h2> 
+            <h2>TREINO DE {nomeCliente.toUpperCase()}</h2> 
          
             <div className='secaoCliente'>
-                <img className='avatar' src='/assets/images/avatarfoto.png'/>
+                <img className='avatar' src={imagem}/>
                 <div className="infosCliente">
 
                     <div className='nome'>
@@ -287,7 +329,7 @@ export default function InfoClientes (){
                 </div>
             </div>
                     <div className='botoes'>
-                    <button className='concluir'> Concluir treino </button>
+                    <button onClick={addRev} className='concluir'> Concluir treino </button>
                     <button className='excluir'> Excluir treino </button>
                     </div>
                         

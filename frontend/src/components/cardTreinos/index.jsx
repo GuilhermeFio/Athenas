@@ -20,7 +20,7 @@ function CardTreinos(props) {
                     </div>
                     <div>
                         <h3>Data do Treino:</h3>
-                        <h3>{new Date(props.item.dataTreino).toLocaleDateString()}</h3>
+                        <h3>{new Date(props.item.dataTreino).toLocaleString()}</h3>
                     </div>
                     <div>
                         <h3>Telefone do Cliente:</h3>
