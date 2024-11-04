@@ -32,7 +32,7 @@ Endpoints.get('/cliente/:id', async (req,resp)=>{
 
     try {
         
-        let idCliente= req.params.idCliente;
+        let idCliente= req.params.id;
         let registro= await db.infoCliente(idCliente);
         resp.send(registro);
     

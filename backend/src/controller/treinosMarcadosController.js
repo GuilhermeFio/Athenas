@@ -13,9 +13,9 @@ const Endpoints= Router();
 
 Endpoints.get('/treinos/:id', autenticar, async (req, resp) => {
     try {
-        const idCliente = req.params.id;
+        const id = req.params.id;
         
-        const registro = await cliente.treinosMarcados(idCliente);
+        const registro = await cliente.treinosMarcadosId(id);
         
         resp.send(registro);
     } catch (err) {

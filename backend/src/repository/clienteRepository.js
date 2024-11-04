@@ -28,6 +28,7 @@ export async function treinosMarcados() {
         inner join Treinos_marcados
             on Cliente.treino_id = Treinos_marcados.treino_id
 			order by dataTreino
+			
     `;
 	
     
@@ -37,10 +38,10 @@ export async function treinosMarcados() {
     return registro;
 }
 
-/*export async function treinosMarcadosId(idCliente) {
+export async function treinosMarcadosId(id) {
     const comando = `
         select 
-            id_cliente,
+            id_cliente id,
             nome,
             dt_treino as dataTreino,
             telefone,
@@ -50,17 +51,19 @@ export async function treinosMarcados() {
             on Cliente.treino_id = Treinos_marcados.treino_id
         "where id_cliente = ?"
     `;
-    const params = idCliente ? [idCliente] : [];
-    const [registros] = await con.query(comando, params);
+    
+    let resposta = await con.query(comando, [id]);
+	let registros = resposta[0][0]
 
-    const registrosComImagem = registros.map(registro => ({
+
+   /* const registrosComImagem = registros.map(registro => ({
         ...registro,
         perfil: registro.perfil ? `data:image/jpeg;base64,${Buffer.from(registro.perfil).toString('base64')}` : null
     }));
-
-    return registrosComImagem;
-}
 */
+    return registros;
+}
+
 
 
 
@@ -109,7 +112,7 @@ export async function infoCliente(idCliente){
 `
 
 let resposta= await con.query(comando, [idCliente])
-let registros = resposta[0]
+let registros = resposta[0][0]
 return registros;
 }
 

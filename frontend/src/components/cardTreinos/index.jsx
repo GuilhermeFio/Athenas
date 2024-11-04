@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import './index.scss';
 
 function CardTreinos(props) {
-    console.log("Imagem recebida no CardTreinos:", props.item.perfil);
+   
 
     return (
-        <Link className='comp-card-treinos-atuais' to={`/treinoCliente`}>
+        <Link className='comp-card-treinos-atuais' to={`/treinoCliente/${props.item.id_cliente}`}>
             <div className='cartao'>
                 {props.item.perfil ? (
                     <img src={props.item.perfil} alt="Foto do Cliente"/>
