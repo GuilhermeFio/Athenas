@@ -69,10 +69,10 @@ Endpoints.get('/cliente/:id', async (req,resp)=>{
 Endpoints.put('/cliente/atualizaridrev/:id', autenticar, async (req,resp)=>{
 
     try {
-        let id = req.params.id;
+        let idCli = req.params.id;
         let clienteObj = req.body;
 
-        let linhasAfetadas = await db.atualizarClienteIdReavaliacao(id, clienteObj);
+        let linhasAfetadas = await db.atualizarClienteIdReavaliacao(idCli, clienteObj);
         if (linhasAfetadas >= 1) {
             resp.send();
         }
@@ -86,5 +86,21 @@ Endpoints.put('/cliente/atualizaridrev/:id', autenticar, async (req,resp)=>{
         })
     }
     })
+
+Endpoints.delete('/cliente/deletar/:id', autenticar, async (req,resp)=>{
+    try {
+
+        let idCli = req.params.id;
+        let linhasAfetadas = await db.deletarCliente(idCli)
+        if(linhasAfetadas >=1){
+            resp.send()
+        }
+        
+    } catch (err) {
+        resp.status(400).send({
+            erro:err.message
+        })
+    }
+})    
     
 export default Endpoints;

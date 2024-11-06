@@ -124,6 +124,18 @@ export default function InfoClientes (){
   
     }
 
+
+
+
+
+    async function excluir(){
+
+        await axios.delete(`http://localhost:4000/cliente/deletar/${id}`, constatoken);
+
+    }
+
+
+
     async function addRev(){
         try {
             const reavaliacaoData = {
@@ -147,19 +159,31 @@ export default function InfoClientes (){
             };
             const respReavaliacao = await axios.post(`http://localhost:4000/reavaliacao/adicionar`, reavaliacaoData, constatoken);
             const reavaliacaoId = respReavaliacao.data.novoId;
+           
 
 
             const clienteData = {
                 "reavaliacaoid": reavaliacaoId,
             };
-            const respCliente = await axios.put(`http://localhost:4000/cliente/atualizaridrev/${id}`, clienteData, constatoken);
-            const clienteId = respCliente.data.novoId;
+            await axios.put(`http://localhost:4000/cliente/atualizaridrev/${id}`, clienteData, constatoken);
+           
 
-            alert('Reavaliação adicionada com sucesso!  IdCliente:' + clienteId + 'IdReavaliacao:' + reavaliacaoId);
+
+
+            const treinoData = {
+                "concluido": true,
+            };
+            await axios.put(`http://localhost:4000/treinos/atualizar/${id}`, treinoData, constatoken);
+
+
+            
+
+            alert('Reavaliação adicionada com sucesso!  IdReavaliacao:' + reavaliacaoId);
             navigate('/horariosTreinos')
 
         } catch (error) {
             alert('Erro ao adicionar os dados: ' + error.message);
+            
         }
     }
 
@@ -176,7 +200,7 @@ export default function InfoClientes (){
             <h2>TREINO DE {nomeCliente.toUpperCase()}</h2> 
          
             <div className='secaoCliente'>
-                <img className='avatar' src={imagem}/>
+                <img className= 'avatar' src={imagem}/>
                 <div className="infosCliente">
 
                     <div className='nome'>
@@ -330,7 +354,7 @@ export default function InfoClientes (){
             </div>
                     <div className='botoes'>
                     <button onClick={addRev} className='concluir'> Concluir treino </button>
-                    <button className='excluir'> Excluir treino </button>
+                    <button onClick={excluir} className='excluir'> Excluir treino </button>
                     </div>
                         
           </div>      

@@ -51,21 +51,19 @@ export async function consultarTreino(id, idUsuario){
         return registros   
         }
     
-    export async function atualizarTreino(id,treinos){
+    export async function marcarTreinoConcluido(id, treinos){
     
         const comando=  `
     
         
         update AthenasDB.Treinos_marcados
-                        set ds_objetivos_cliente= ?,
-                            dt_treino=?,
-                            ds_exercicios_escolhidos=?
+                        set 
                             bt_concluido =?
         where treino_id= ?;
     
                `
     
-     let resposta= await con.query(comando, [treinos.objetivos, treinos.data, treinos.exercicios, id]);
+     let resposta= await con.query(comando, [treinos.concluido, id]);
      let registros= resposta[0];
      return registros.affectedRows; 
         } 

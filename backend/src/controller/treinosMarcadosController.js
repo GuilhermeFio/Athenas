@@ -47,7 +47,6 @@ Endpoints.post('/treinos/adicionar', autenticar, async (req,resp) => {
        resp.send ({
         novoId: registro
        })
-       
    }
     catch (err) {
        resp.status(404).send({
@@ -99,7 +98,7 @@ Endpoints.get('/treinos/:id', async (req,resp) => {
        let id = req.params.id
        let treinos = req.body
  
-       let linhasAfetadas = await db.atualizarTreino(id,treinos);
+       let linhasAfetadas = await db.marcarTreinoConcluido(id,treinos);
        if (linhasAfetadas >=1){
            resp.send();
        }

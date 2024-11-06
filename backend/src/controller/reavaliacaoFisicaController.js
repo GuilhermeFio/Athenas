@@ -32,6 +32,7 @@ const Endpoints= Router();
         info.idUsuario = req.user.id;
 
        let registro = await db.inserirReavaliacaoFisica(info)
+       db.atualizarIdReavaliadcao(registro)
        resp.send ({
         novoId: registro
        })

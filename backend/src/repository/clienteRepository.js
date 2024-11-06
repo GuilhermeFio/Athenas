@@ -139,16 +139,26 @@ return info.affectedRows;
 
 }*/
 
-export async function atualizarClienteIdReavaliacao(id, clienteObj){
+export async function atualizarClienteIdReavaliacao(id, cli){
 
 	const comando = `
 
 	   update Cliente
-	   set reavaliacaoid =?,
+	   set reavaliacao_id = ?
 	   where id_cliente = ?;
 `
-let resposta = await con.query(comando, [clienteObj.nome, clienteObj.nascimento, clienteObj.idade, clienteObj.telefone, clienteObj.reavaliacaoid, clienteObj.imagem, id])
+let resposta = await con.query(comando, [cli.reavaliacaoid, id])
 let info = resposta[0];
 return info.affectedRows;
+}
 
+export async function deletarCliente(id){
+	const comando = `
+	delete from Cliente
+	where id_cliente = ?
+	`
+
+	let resposta = await con.query(comando,[id])
+	let info = resposta[0]
+	return info.affectedRows;
 }
