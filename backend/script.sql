@@ -1,239 +1,131 @@
-create database AthenasDB;
+create database athenasdb;
 drop database athenasdb;
-use AthenasDB;
-
-create table Login(
-id_login int primary key auto_increment,
-ds_usuario varchar(100),
-ds_senha varchar(50)
+use athenasdb;
+/***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+create table athenasdb.login(
+    id_login int primary key auto_increment,
+    ds_usuario varchar(100),
+    ds_senha varchar(50)
 );
-insert into Login(ds_usuario, ds_senha)
+
+insert into athenasdb.login(ds_usuario, ds_senha)
 values('Angelica', 'P3rs0n4l#');
 
-
-select*from login;
-
-create table AthenasDB.Treinos_marcados(
-treino_id int primary key auto_increment,
-ds_objetivos_cliente varchar(100) not null,
-dt_treino datetime not null,
-exercicios_escolhidos varchar(220) not null,
-bt_concluido boolean,
-id_login int,
-foreign key (id_login) references Login (id_login)
+select * from athenasdb.login;
+/***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+create table athenasdb.treinos_marcados(
+    treino_id int primary key auto_increment,
+    ds_objetivos_cliente varchar(100) not null,
+    dt_avaliacao datetime not null,
+    dt_reavaliacao datetime not null,
+    exercicios_escolhidos varchar(220) not null,
+    bt_concluido boolean,
+    id_login int,
+    foreign key (id_login) references athenasdb.login(id_login) on delete cascade
 );
 
-insert into AthenasDB.Treinos_marcados(ds_objetivos_cliente, dt_treino, exercicios_escolhidos, bt_concluido)
-values('Ganhar massa muscular', '2024-10-30', 'polichinelo 3x15', false);
-
-/*****************************************************************/
-create table AthenasDB.Avaliacao_fisica(
-avaliacao_id int primary key auto_increment,
-ds_peso varchar(50) not null,
-ds_massa_livre_gordura varchar(50) not null,
-ds_imc varchar(50) not null,
-ds_massa_muscular varchar(50) not null,
-ds_frequencia_cardiaca varchar (100) not null,
-ds_massa_muscular_esqueletica varchar(50) not null,
-ds_indice_coracao varchar(50) not null,
-ds_massa_ossea varchar(50) not null,
-ds_taxa_muscular varchar(50) not null,
-ds_gordura_corporal varchar(50) not null,
-ds_idade_metabolica varchar(50) not null,
-ds_gordura_subcutanea varchar(50) not null,
-ds_taxa_metabolica_basal varchar(50) not null,
-ds_gordura_visceral varchar(50) not null,
-ds_proteina varchar(50) not null,
-ds_agua_corporal varchar(50) not null,
-id_login int,
-foreign key (id_login) references Login (id_login)
+insert into athenasdb.treinos_marcados(ds_objetivos_cliente, dt_avaliacao, dt_reavaliacao, exercicios_escolhidos, bt_concluido)
+values('Ganhar massa muscular', '2024-05-30 15:00:00', '2024-11-30 15:00:00','polichinelo 3x15', false);
+/***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+create table athenasdb.avaliacao_fisica(
+    avaliacao_id int primary key auto_increment,
+    ds_peso varchar(50) not null,
+    ds_massa_livre_gordura varchar(50) not null,
+    ds_imc varchar(50) not null,
+    ds_massa_muscular varchar(50) not null,
+    ds_frequencia_cardiaca varchar (100) not null,
+    ds_massa_muscular_esqueletica varchar(50) not null,
+    ds_indice_coracao varchar(50) not null,
+    ds_massa_ossea varchar(50) not null,
+    ds_taxa_muscular varchar(50) not null,
+    ds_gordura_corporal varchar(50) not null,
+    ds_idade_metabolica varchar(50) not null,
+    ds_gordura_subcutanea varchar(50) not null,
+    ds_taxa_metabolica_basal varchar(50) not null,
+    ds_gordura_visceral varchar(50) not null,
+    ds_proteina varchar(50) not null,
+    ds_agua_corporal varchar(50) not null,
+    id_login int,
+    foreign key (id_login) references athenasdb.login(id_login) on delete cascade
 );
 
-INSERT INTO AthenasDB.Avaliacao_fisica (
-    ds_peso,
-    ds_massa_livre_gordura,
-    ds_imc,
-    ds_massa_muscular,
-    ds_frequencia_cardiaca,
-    ds_massa_muscular_esqueletica,
-    ds_indice_coracao,
-    ds_massa_ossea,
-    ds_taxa_muscular,
-    ds_gordura_corporal,
-    ds_idade_metabolica,
-    ds_gordura_subcutanea,
-    ds_taxa_metabolica_basal,
-    ds_gordura_visceral,
-    ds_proteina,
-    ds_agua_corporal
-) VALUES (
-    '75kg',
-    '60kg',
-    '24.5',
-    '30kg',
-    '70 bpm',
-    '25kg',
-    '3.5',
-    '3.0kg',
-    '40%',
-    '15%',
-    '28 anos',
-    '10%',
-    '1500 kcal',
-    '12%',
-    '18g',
-    '55%'
+insert into athenasdb.avaliacao_fisica(ds_peso, ds_massa_livre_gordura, ds_imc, ds_massa_muscular, ds_frequencia_cardiaca, ds_massa_muscular_esqueletica, ds_indice_coracao, ds_massa_ossea, ds_taxa_muscular, ds_gordura_corporal, ds_idade_metabolica, ds_gordura_subcutanea, ds_taxa_metabolica_basal, ds_gordura_visceral, ds_proteina, ds_agua_corporal)
+values('75kg', '60kg', '24.5', '30kg', '70 bpm', '25kg', '3.5', '3.0kg', '40%', '15%', '28 anos', '10%', '1500 kcal', '12%', '18g', '55%');
+/***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+create table athenasdb.reavaliacao_fisica(
+    reavaliacao_id int primary key auto_increment,
+    ds_peso varchar(50) not null,
+    ds_massa_livre_gordura varchar(50) not null,
+    ds_imc varchar(50) not null,
+    ds_massa_muscular varchar(50) not null,
+    ds_frequencia_cardiaca varchar (100) not null,
+    ds_massa_muscular_esqueletica varchar(50) not null,
+    ds_indice_coracao varchar(50) not null,
+    ds_massa_ossea varchar(50) not null,
+    ds_taxa_muscular varchar(50) not null,
+    ds_gordura_corporal varchar(50) not null,
+    ds_idade_metabolica varchar(50) not null,
+    ds_gordura_subcutanea varchar(50) not null,
+    ds_taxa_metabolica_basal varchar(50) not null,
+    ds_gordura_visceral varchar(50) not null,
+    ds_proteina varchar(50) not null,
+    ds_agua_corporal varchar(50) not null,
+    id_login int,
+    foreign key (id_login) references athenasdb.login(id_login) on delete cascade
 );
 
-/*********************************************/
-create table AthenasDB.Reavaliacao_fisica(
-reavaliacao_id int primary key auto_increment,
-ds_peso varchar(50) not null,
-ds_massa_livre_gordura varchar(50) not null,
-ds_imc varchar(50) not null,
-ds_massa_muscular varchar(50) not null,
-ds_frequencia_cardiaca varchar (100) not null,
-ds_massa_muscular_esqueletica varchar(50) not null,
-ds_indice_coracao varchar(50) not null,
-ds_massa_ossea varchar(50) not null,
-ds_taxa_muscular varchar(50) not null,
-ds_gordura_corporal varchar(50) not null,
-ds_idade_metabolica varchar(50) not null,
-ds_gordura_subcutanea varchar(50) not null,
-ds_taxa_metabolica_basal varchar(50) not null,
-ds_gordura_visceral varchar(50) not null,
-ds_proteina varchar(50) not null,
-ds_agua_corporal varchar(50) not null,
-id_login int,
-foreign key (id_login) references Login (id_login)
+insert into athenasdb.reavaliacao_fisica(ds_peso, ds_massa_livre_gordura, ds_imc, ds_massa_muscular, ds_frequencia_cardiaca, ds_massa_muscular_esqueletica, ds_indice_coracao, ds_massa_ossea, ds_taxa_muscular, ds_gordura_corporal, ds_idade_metabolica, ds_gordura_subcutanea, ds_taxa_metabolica_basal, ds_gordura_visceral, ds_proteina, ds_agua_corporal)
+values('75kg', '60kg', '24.5', '30kg', '70 bpm', '25kg', '3.5', '3.0kg', '40%', '15%', '28 anos', '10%', '1500 kcal', '12%', '18g', '55%');
+/***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+create table athenasdb.cliente(
+    id_cliente int primary key auto_increment,
+    nome varchar (200),
+    nascimento date,
+    idade int,
+    telefone varchar (30),
+    treino_id int,
+    avaliacao_id int,
+    reavaliacao_id int,
+    img_cliente mediumblob,
+    foreign key (treino_id) references athenasdb.treinos_marcados(treino_id),
+    foreign key (avaliacao_id) references athenasdb.avaliacao_fisica(avaliacao_id),
+    foreign key (reavaliacao_id) references athenasdb.reavaliacao_fisica(reavaliacao_id),
+    id_login int,
+    foreign key (id_login) references athenasdb.login(id_login)
 );
 
-INSERT INTO AthenasDB.Reavaliacao_fisica (
-    ds_peso,
-    ds_massa_livre_gordura,
-    ds_imc,
-    ds_massa_muscular,
-    ds_frequencia_cardiaca,
-    ds_massa_muscular_esqueletica,
-    ds_indice_coracao,
-    ds_massa_ossea,
-    ds_taxa_muscular,
-    ds_gordura_corporal,
-    ds_idade_metabolica,
-    ds_gordura_subcutanea,
-    ds_taxa_metabolica_basal,
-    ds_gordura_visceral,
-    ds_proteina,
-    ds_agua_corporal
-) VALUES (
-    '75kg',
-    '60kg',
-    '24.5',
-    '30kg',
-    '70 bpm',
-    '25kg',
-    '3.5',
-    '3.0kg',
-    '40%',
-    '15%',
-    '28 anos',
-    '10%',
-    '1500 kcal',
-    '12%',
-    '18g',
-    '55%'
-);
+alter table athenasdb.cliente modify column img_cliente mediumblob;
 
-create table Cliente(
-id_cliente int primary key auto_increment,
-nome varchar (200),
-nascimento date,
-idade int,
-telefone varchar (30),
-treino_id int,
-avaliacao_id int,
-reavaliacao_id int,
-img_cliente MEDIUMBLOB,
-foreign key (treino_id) references Treinos_marcados(treino_id),
-foreign key (avaliacao_id) references Avaliacao_fisica(avaliacao_id),
-foreign key (reavaliacao_id) references Reavaliacao_fisica(reavaliacao_id),
-id_login int,
-foreign key (id_login) references Login (id_login)
-);
+insert into athenasdb.cliente(nome, nascimento, idade, telefone, treino_id, avaliacao_id, reavaliacao_id, img_cliente)
+values('Pauilo', '2005-07-08', 19, '11987652344', 1, 1, 1, '');
 
-ALTER TABLE Cliente MODIFY COLUMN img_cliente MEDIUMBLOB;
+select * from athenasdb.cliente;
+/***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* página fazer login: repository fazer login -> só select */
+select ds_usuario, ds_senha from athenasdb.login;
 
+/* página horario treinos: repository horario treinos -> select */
+select nome, dt_treino, telefone from athenasdb.cliente
+inner join athenasdb.treinos_marcados on athenasdb.cliente.treino_id = athenasdb.treinos_marcados.treino_id;
 
-
-insert into Cliente (nome, nascimento, idade, telefone, treino_id, avaliacao_id, reavaliacao_id, img_cliente)
-values ('Pauilo', '2005-07-08', 19, '11987652344', 1, 1, 1, '');
-
-select * from Cliente;
-
-/* página fazer login
-repository fazer login -> só select
-*/
-select 
-	ds_usuario,
-	ds_senha 
-from Login;
-
-/* página info usuario
-repository info usuario -> update, select
-*/
-/*
-select
-	nm_usuario,
-	ds_email,
-	dt_nascimento,
-	ds_cidade,
-	ds_genero,
-	ds_UF,
-	img_usuario
-from Usuario;
-
-update Usuario
-set 	nm_usuario =?,
-		ds_email =?,
-		dt_nascimento =?,
-		ds_cidade =?,
-		ds_genero =?,
-		ds_UF =?,
-		img_usuario =?
-where id = 1;*/
-
-/* página horario treinos
-repository horario treinos -> select
-*/
-select 
-	nome,
-	dt_treino,
-	telefone
-from Cliente
-inner join Treinos_marcados
-on Cliente.treino_id = Treinos_marcados.treino_id;
-
-/* página adicionar treinos 
-repository adicionar cliente -> insert
-*/
-insert into Cliente(nome, nascimento, idade, telefone, treino_id, avaliacao_id, reavaliacao_id)
+/* página novo treino: repository adicionar treino -> insert */
+insert into athenasdb.cliente(nome, nascimento, idade, telefone, treino_id, avaliacao_id, reavaliacao_id)
 values(?,?,?,?,?,?);
 
-insert into Avaliacao_fisica(ds_peso, ds_massa_livre_gordura, ds_imc, ds_massa_muscular, ds_frequencia_cardiaca, ds_massa_muscular_esqueletica, ds_indice_coracao, ds_massa_ossea, ds_taxa_muscular, ds_gordura_corporal, ds_idade_metabolica, ds_gordura_subcutanea, ds_taxa_metabolica_basal, ds_gordura_visceral, ds_proteina, ds_agua_corporal)
+insert into athenasdb.avaliacao_fisica(ds_peso, ds_massa_livre_gordura, ds_imc, ds_massa_muscular, ds_frequencia_cardiaca, ds_massa_muscular_esqueletica, ds_indice_coracao, ds_massa_ossea, ds_taxa_muscular, ds_gordura_corporal, ds_idade_metabolica, ds_gordura_subcutanea, ds_taxa_metabolica_basal, ds_gordura_visceral, ds_proteina, ds_agua_corporal)
 values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
 
-insert into Treinos_marcados(ds_objetivos_cliente, dt_treino, exercicios_escolhidos, bt_concluido)
+insert into athenasdb.treinos_marcados(ds_objetivos_cliente, dt_avaliacao, dt_reavaliacao, exercicios_escolhidos, bt_concluido)
 values(?,?,?,?);
 
-/* página infos cliente
-repository infos cliente -> select, insert
-*/
+/* página treino cliente: repository treino cliente -> select, insert */
 select 
 	nome,
 	nascimento,
 	idade,
 	telefone,
-	dt_treino,
+	dt_avaliacao,
+    dt_reavaliacao,
 	img_cliente,
 	
 	ds_peso,
@@ -256,18 +148,13 @@ select
 	ds_objetivos_cliente,
 	exercicios_escolhidos
 	
-from Cliente
-inner join Treinos_marcados
-on Cliente.treino_id = Treinos_marcados.treino_id
+from athenasdb.cliente
+inner join athenasdb.treinos_marcados on athenasdb.cliente.treino_id = athenasdb.treinos_marcados.treino_id
+inner join athenasdb.avaliacao_fisica on athenasdb.cliente.avaliacao_id = athenasdb.avaliacao_fisica.avaliacao_id;
 
-inner join Avaliacao_fisica
-on Cliente.avaliacao_id = Avaliacao_fisica.avaliacao_id;
+select * from athenasdb.login;
+select * from athenasdb.cliente;
+select * from athenasdb.treinos_marcados;
 
-select * from Login;
-
-select * from Cliente;
-
-select * from AthenasDB.Treinos_marcados;
-
-insert into Reavaliacao_fisica(ds_peso, ds_massa_livre_gordura, ds_imc, ds_massa_muscular, ds_frequencia_cardiaca, ds_massa_muscular_esqueletica, ds_indice_coracao, ds_massa_ossea, ds_taxa_muscular, ds_gordura_corporal, ds_idade_metabolica, ds_gordura_subcutanea, ds_taxa_metabolica_basal, ds_gordura_visceral, ds_proteina, ds_agua_corporal)
+insert into athenasdb.reavaliacao_fisica(ds_peso, ds_massa_livre_gordura, ds_imc, ds_massa_muscular, ds_frequencia_cardiaca, ds_massa_muscular_esqueletica, ds_indice_coracao, ds_massa_ossea, ds_taxa_muscular, ds_gordura_corporal, ds_idade_metabolica, ds_gordura_subcutanea, ds_taxa_metabolica_basal, ds_gordura_visceral, ds_proteina, ds_agua_corporal)
 values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
