@@ -181,7 +181,7 @@ html    {
                 background-color: #CADFFF;
                 border: 1px solid black;
                 padding: 1em;
-                font: 400 2em 'Oswald';
+                font: 400 2em 'Inter';
                 max-width: 30vw;
                 text-align: center;
             }
@@ -206,6 +206,10 @@ html    {
                 justify-content: center;
                 align-items: center;
                 gap: 1vw;
+
+                h2{
+                    font: 500 3vh 'Inter';
+                }
 
                 img{
                     width: 3vh;
@@ -244,24 +248,34 @@ html    {
         flex-direction: column;
         justify-content: center;
         padding: 10vh;
+   
+     
 
-        h1 {
+            .sobre{
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+              
+                h1 {
 
-            text-align: center;
-            top: 0%;
+                    text-align: center;
+                    top: 0%;
+                    font: 600 2em 'Inter';
+        
+                } 
 
-        }
-
-        .olhada {
-            text-align: center;
-            top: 0%;
-        }
-
+                .olhada {
+                    text-align: center;
+                    top: 0%;
+                    font: 500 2.5vh 'Inter';
+                }        
+            }
+      
         .container {
 
             display: flex;
             flex-direction: column;
-            gap: 4vh;
+            gap: 10vh;
 
             .tasks {
 
@@ -278,7 +292,16 @@ html    {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                gap: 2vh;
+                gap: 4vh;
+
+                h2{
+                    font: 700 3vh 'Inter';
+                }
+                 p{
+                    font: 600 2vh 'Inter';
+                    width: 15vw;
+
+                 }
 
                 .titulo1 {
 
@@ -307,10 +330,6 @@ html    {
                         width: 150px;
                     }
                 }
-
-                p{
-                    width: 180px;
-                }
             }
 
             .Suporte {
@@ -318,7 +337,15 @@ html    {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                gap: 2vh;
+                gap: 4vh;
+
+                h2{
+                    font: 700 3vh 'Inter';
+                }
+                 p{
+                    font: 600 2vh 'Inter';
+                    width: 19vw;
+                 }
 
                 .titulo2 {
 
@@ -348,10 +375,6 @@ html    {
                     }
                 }
 
-                p{
-                    width: 250px;
-                }
-
             }
 
             .Segurança {
@@ -360,7 +383,17 @@ html    {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                gap: 2vh;
+                gap: 4vh;
+
+                
+                h2{
+                    font: 700 3vh 'Inter';
+                }
+                 p{
+                    font: 600 2vh 'Inter';
+                    width: 19vw;
+                 }
+
 
                 .titulo3 {
 
@@ -388,10 +421,6 @@ html    {
                     img{
                         width: 155px;
                     }
-                }
-
-                p{
-                    width: 240px;
                 }
 
             }

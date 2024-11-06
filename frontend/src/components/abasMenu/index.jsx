@@ -20,12 +20,12 @@ export default function Menu (){
 
                 <div className="horarios">
                     <img className='horas' src='/assets/images/relogio.png'/>
-                    <Link to = {'/horariosTreinos'}><p>Treinos Marcados</p></Link>
+                    <Link className='TreinosMarcados' to = {'/horariosTreinos'}><p>Treinos Marcados</p></Link>
                 </div>
 
                 <div className="finalpends">
                     <img className='finpends' src='/assets/images/finpends.png'/>
-                    <Link to = {'/treinosFinalPend'}><p>Treinos Concluídos/Pendentes</p></Link>
+                    <Link className='FinalizadosPendentes' to = {'/treinosFinalPend'}><p>Treinos Concluídos/Pendentes</p></Link>
                 </div>
                 
                 <div className="logout">

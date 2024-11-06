@@ -9,8 +9,9 @@
         gap: 20px;
         padding: 3vh;
 
-        h2{
+              h2{
             color: #ffffff;
+            font: 600 2.5vh 'Roboto';
                  }
      
 
@@ -55,6 +56,7 @@
 
             h2{
            color: #000;
+           font: 600 2.5vh 'Roboto';
             }
             
             .dadosFisicos{
@@ -107,14 +109,10 @@
 
                 h2{
                 color: #000;
-                }
-
-                .objetivos{
-                    
-    
-
+                font: 600 2.5vh 'Roboto';
                 }
             }
+
             .exerciciosTreino{
                 display: flex;
                 flex-direction: column;
@@ -126,10 +124,7 @@
 
                 h2{
                     color: #000;
-                 }
-
-                 .exercicios{
-                    
+                    font: 600 2.5vh 'Roboto';
                  }
             }
         }
@@ -147,7 +142,7 @@
 
             h2{
            color: #000;
-
+           font: 600 2.5vh 'Roboto';
             }
             
             .dadosFisicos{
@@ -188,7 +183,7 @@
                 color: #ffffff;
                 align-self: center;
                 padding: 13px;
-                font: 600 2.5vh 'Oswald' ;
+                font: 600 2.5vh 'Roboto' ;
            }
 
            .excluir{
@@ -197,7 +192,7 @@
              color: #f00000;
              align-self: center;
              padding: 13px;
-             font: 600 2.5vh 'Oswald';
+             font: 600 2.5vh 'Roboto';
            
            }
         }

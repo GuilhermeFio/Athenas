@@ -60,8 +60,23 @@
             }
         }
 
+        .TreinosMarcados{
+            p{
+                color: #000;
+                text-decoration: none;
+            }
+        }
+        
+            .FinalizadosPendentes{
+                p{
+                    color: #000;
+                    text-decoration: none;
+                }
+        
+            }
+
         p{
-            font: 400 26px 'Roboto';
+            font: 500 26px 'Roboto';
         }
     }
 }

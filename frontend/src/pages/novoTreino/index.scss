@@ -11,6 +11,7 @@
 
         .titulo{
             color: #FFFFFF;
+            font: 600 26px 'Roboto';
         }
 
         .secaoCliente{
@@ -78,6 +79,14 @@
             padding: 10px;
             gap: 3vh;
             border-radius: 8px;
+
+
+             h2{
+                font: 600 24px 'Roboto';
+             }
+            h3{
+                font: 500 19px 'Roboto';
+            }
             
             .dadosFisicos{
                 display: flex;
@@ -126,6 +135,10 @@
                 border-radius: 8px;
                 padding: 15px;
                 gap: 10px;
+
+                h2{
+                    font: 500 24px 'Roboto';
+                }
             }
             .exerciciosTreino{
                 display: flex;
@@ -135,6 +148,10 @@
                 border-radius: 8px;
                 padding: 15px;
                 gap: 10px;
+
+                h2{
+                    font: 500 24px 'Roboto';
+                }
             }
         }
 
@@ -147,3 +164,5 @@
         }
     }
 }
+
+
