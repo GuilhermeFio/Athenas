@@ -13,13 +13,12 @@ export function autenticacao(req, resp, next){
   try {
     let token = req.headers['x-access-token'];
 
-    if (token === undefined)
+    if (token === undefined){
       token = req.query['x-access-token']
+    }
 
     let signd = jwt.verify(token, KEY);
-
     req.user = signd;
-    
     next();
   }
   catch(e){
