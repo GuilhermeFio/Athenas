@@ -1,12 +1,9 @@
-// frontend - components/cardsTreino/index.jsx
 import { Link } from 'react-router-dom';
 import './index.scss';
 
-function CardTreinos(props) {
-   
-
+function CardTreinoConcluido(props) {
     return (
-        <Link className='comp-card-treinos-atuais' to={`/treinoCliente/${props.item.id_cliente}`}>
+        <Link className='comp-card-treino-concluido' to={`/clienteConcluido/${props.item.id_cliente}`}>
             <div className='cartao'>
                 {props.item.perfil ? (
                     <img src={props.item.perfil} alt="Foto do Cliente"/>
@@ -19,12 +16,12 @@ function CardTreinos(props) {
                         <h3>{props.item.nome}</h3>
                     </div>
                     <div>
-                        <h3>Data do Treino:</h3>
-                        <h3>{new Date(props.item.dataTreino).toLocaleString()}</h3>
+                        <h3>Data da Avaliação:</h3>
+                        <h3>{new Date(props.item.dataAvaliacao).toLocaleString()}</h3>
                     </div>
                     <div>
-                        <h3>Telefone do Cliente:</h3>
-                        <h3>{props.item.telefone}</h3>
+                        <h3>Data da Reavaliação:</h3>
+                        <h3>{new Date(props.item.dataReavaliacao).toLocaleString()}</h3>
                     </div>
                 </div>
             </div>
@@ -32,4 +29,4 @@ function CardTreinos(props) {
     );
 }
 
-export default CardTreinos;
+export default CardTreinoConcluido;

@@ -3,7 +3,7 @@ import Landing from './pages/landingPage';
 import Login from './pages/loginUsuario';
 import HorarioTreinos from "./pages/horariosTreinos";
 import InfoClientes from "./pages/treinoCliente";
-import TreinosFinalPend from "./pages/treinosFinalPend";
+import TreinosConcluidos from "./pages/treinosConcluidos";
 import AdicionarTreino from "./pages/novoTreino";
 
 export default function Navegacao(){
@@ -16,7 +16,7 @@ export default function Navegacao(){
                 <Route path='/horariosTreinos' element={<HorarioTreinos/>}></Route>
                 <Route path='/treinoCliente' element={<InfoClientes/>}></Route>
                 <Route path='/treinoCliente/:id' element={<InfoClientes/>}></Route>
-                <Route path='/treinosFinalPend' element={<TreinosFinalPend/>}></Route>
+                <Route path='/treinosConcluidos' element={<TreinosConcluidos/>}></Route>
             </Routes>
         </BrowserRouter>
     )

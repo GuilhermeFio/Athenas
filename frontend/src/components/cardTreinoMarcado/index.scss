@@ -1,0 +1,35 @@
+.comp-card-treino-marcado{
+    display: flex;
+    gap: 20px;
+    background-color: #ffffff;
+    height: 190px;
+    width: 435px;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 10px #dbdbdb;
+    
+    .cartao{
+        display: flex;
+        gap: 18px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+
+        h3{
+            font: 500 26px 'Roboto';
+        }
+
+        img{
+            height: 160px;
+            width: 160px;
+        }
+
+        .infosCliente{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: #ffffff;
+        }
+    }
+}

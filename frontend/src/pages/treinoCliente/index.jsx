@@ -16,44 +16,45 @@ export default function InfoClientes (){
     const[dataNascimento, setDataNascimento] = useState('');
     const[idadeCliente, setIdadeCliente] = useState('');
     const[numCliente, setNumCliente] = useState('');
-    const[dataTreino, setDataTreino] = useState('');
+    const[diaAvaliacao, setDiaAvaliacao] = useState('');
+    const[diaReavaliacao, setDiaReavaliacao] = useState('');
     const[imagem, setImagem] = useState('')
 
     //AVALIAÇÃO | 
-    const[peso, setPeso] = useState(0);
-    const[imc, setImc] = useState(0);
-    const[freqCard, setFreqCard] = useState(0);
-    const[indcCoracao, setIndcCoracao] = useState(0);
-    const[taxaMuscular, setTaxaMuscular] = useState(0);
-    const[iddMetabolica, setIddMetabolica] = useState(0);
-    const[taxaMetBasal, setTaxaMetBasal] = useState(0);
-    const[proteina, setProteina] = useState(0);
-    const[massaLivGord, setMassaLivGord] = useState(0);
-    const[massaMusc, setMassaMusc] = useState(0);
-    const[massaMuscEsq, setMassaMuscEsq] = useState(0);
-    const[massaOssea, setMassaOssea] = useState(0);
-    const[gordCorp, setGordCorp] = useState(0);
-    const[gordSub, setGordSub] = useState(0);
-    const[gordVis, setGordVis] = useState(0);
-    const[aguaCorp, setAguaCorp] = useState(0);
+    const[peso, setPeso] = useState('');
+    const[imc, setImc] = useState('');
+    const[freqCard, setFreqCard] = useState('');
+    const[indcCoracao, setIndcCoracao] = useState('');
+    const[taxaMuscular, setTaxaMuscular] = useState('');
+    const[iddMetabolica, setIddMetabolica] = useState('');
+    const[taxaMetBasal, setTaxaMetBasal] = useState('');
+    const[proteina, setProteina] = useState('');
+    const[massaLivGord, setMassaLivGord] = useState('');
+    const[massaMusc, setMassaMusc] = useState('');
+    const[massaMuscEsq, setMassaMuscEsq] = useState('');
+    const[massaOssea, setMassaOssea] = useState('');
+    const[gordCorp, setGordCorp] = useState('');
+    const[gordSub, setGordSub] = useState('');
+    const[gordVis, setGordVis] = useState('');
+    const[aguaCorp, setAguaCorp] = useState('');
 
     //REAVALIAÇÃO
-    const[peso2, setPeso2] = useState(0);
-    const[imc2, setImc2] = useState(0);
-    const[freqCard2, setFreqCard2] = useState(0);
-    const[indcCoracao2, setIndcCoracao2] = useState(0);
-    const[taxaMuscular2, setTaxaMuscular2] = useState(0);
-    const[iddMetabolica2, setIddMetabolica2] = useState(0);
-    const[taxaMetBasal2, setTaxaMetBasal2] = useState(0);
-    const[proteina2, setProteina2] = useState(0);
-    const[massaLivGord2, setMassaLivGord2] = useState(0);
-    const[massaMusc2, setMassaMusc2] = useState(0);
-    const[massaMuscEsq2, setMassaMuscEsq2] = useState(0);
-    const[massaOssea2, setMassaOssea2] = useState(0);
-    const[gordCorp2, setGordCorp2] = useState(0);
-    const[gordSub2, setGordSub2] = useState(0);
-    const[gordVis2, setGordVis2] = useState(0);
-    const[aguaCorp2, setAguaCorp2] = useState(0);
+    const[peso2, setPeso2] = useState('');
+    const[imc2, setImc2] = useState('');
+    const[freqCard2, setFreqCard2] = useState('');
+    const[indcCoracao2, setIndcCoracao2] = useState('');
+    const[taxaMuscular2, setTaxaMuscular2] = useState('');
+    const[iddMetabolica2, setIddMetabolica2] = useState('');
+    const[taxaMetBasal2, setTaxaMetBasal2] = useState('');
+    const[proteina2, setProteina2] = useState('');
+    const[massaLivGord2, setMassaLivGord2] = useState('');
+    const[massaMusc2, setMassaMusc2] = useState('');
+    const[massaMuscEsq2, setMassaMuscEsq2] = useState('');
+    const[massaOssea2, setMassaOssea2] = useState('');
+    const[gordCorp2, setGordCorp2] = useState('');
+    const[gordSub2, setGordSub2] = useState('');
+    const[gordVis2, setGordVis2] = useState('');
+    const[aguaCorp2, setAguaCorp2] = useState('');
 
     const[objetivos, setObjetivos] = useState('');
     const[exercicios, setExercicios] = useState('');
@@ -61,14 +62,11 @@ export default function InfoClientes (){
     const constatoken = {
         headers: {
           'x-access-token': token
-          
         }
       };
 
     const {id} = useParams();
     
-
-
     useEffect(() =>{
         let usu = localStorage.getItem('USUARIO')
         setToken(usu)
@@ -85,8 +83,6 @@ export default function InfoClientes (){
         }
     }, [token, id]);
 
-  
-
     async function consultar(){
         
             const url = `http://localhost:4000/cliente/${id}`;
@@ -97,7 +93,8 @@ export default function InfoClientes (){
             setDataNascimento(new Date(cliente.nascimento).toLocaleDateString());
             setIdadeCliente(cliente.idade);
             setNumCliente(cliente.telefone);
-            setDataTreino(new Date(cliente.dataTreino).toLocaleDateString());
+            setDiaAvaliacao(new Date(cliente.dataAvaliacao).toLocaleDateString());
+            setDiaReavaliacao(new Date(cliente.dataReavaliacao).toLocaleDateString());
             setImagem(cliente.perfil)
 
             setPeso (cliente.peso);
@@ -119,22 +116,11 @@ export default function InfoClientes (){
 
             setObjetivos (cliente.Objetivos);
             setExercicios (cliente.exercicios);
-
-             
-  
     }
-
-
-
-
 
     async function excluir(){
-
         await axios.delete(`http://localhost:4000/cliente/deletar/${id}`, constatoken);
-
     }
-
-
 
     async function addRev(){
         try {
@@ -157,38 +143,28 @@ export default function InfoClientes (){
                 "aguaCorporal": aguaCorp2,
 
             };
+
             const respReavaliacao = await axios.post(`http://localhost:4000/reavaliacao/adicionar`, reavaliacaoData, constatoken);
             const reavaliacaoId = respReavaliacao.data.novoId;
            
-
-
             const clienteData = {
                 "reavaliacaoid": reavaliacaoId,
             };
+
             await axios.put(`http://localhost:4000/cliente/atualizaridrev/${id}`, clienteData, constatoken);
            
-
-
-
             const treinoData = {
                 "concluido": true,
             };
             await axios.put(`http://localhost:4000/treinos/atualizar/${id}`, treinoData, constatoken);
 
-
-            
-
             alert('Reavaliação adicionada com sucesso!  IdReavaliacao:' + reavaliacaoId);
             navigate('/horariosTreinos')
 
         } catch (error) {
-            alert('Erro ao adicionar os dados: ' + error.message);
-            
+            alert('Erro ao adicionar os dados: ' + error.message); 
         }
     }
-
-    
-    
 
     return (
         <div className="pagina-treino-cliente">
@@ -201,27 +177,40 @@ export default function InfoClientes (){
          
             <div className='secaoCliente'>
                 <img className= 'avatar' src={imagem}/>
-                <div className="infosCliente">
 
+                <div className="infosCliente">
                     <div className='nome'>
-                    <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} readOnly/>
+                        <h2>Nome do Cliente:</h2>
+                        <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} readOnly/>
                     </div>
 
                     <div className='nascimento'>
-                    <input type='text' placeholder='Data de nascimento (YYYY-MM-DD)' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} readOnly/>
+                        <h2>Data de Nascimento do Cliente:</h2>
+                        <input type='date' placeholder='Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} readOnly/>
                     </div>
                     
                     <div className='idade'>
-                    <input type='text' placeholder='Idade do cliente' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} readOnly/>
+                        <h2>Idade do Cliente:</h2>
+                        <input type='text' placeholder='Idade do cliente' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} readOnly/>
                     </div>
                      
-                     <div className='telefone' >
-                     <input type='text' placeholder='Número do cliente' value={numCliente} onChange={e => setNumCliente(e.target.value)} readOnly/>
+                     <div className='telefone'>
+                        <h2>Telefone do Cliente:</h2>
+                        <input type='text' placeholder='Telefone do cliente' value={numCliente} onChange={e => setNumCliente(e.target.value)} readOnly/>
                      </div>
                      
-                     <div className='data'> 
-                     <input type='text' placeholder='Data e horário do treino' value={dataTreino} onChange={e => setDataTreino(e.target.value)} readOnly/>
+                     <div className="avas">
+                        <div className='dataava'> 
+                            <h2>Data da Avaliação:</h2>
+                            <input type='datetime-local' placeholder='Data da Avaliação Física' value={diaAvaliacao} onChange={e => setDiaAvaliacao(e.target.value)} readOnly/>
+                        </div>
+
+                        <div className='datareava'>
+                            <h2>Data da Reavaliação:</h2>
+                            <input type='datetime-local' placeholder='Data da Reavaliação Física' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} readOnly/>
+                        </div>
                      </div>
+
                 </div>
             </div>
   
@@ -231,7 +220,7 @@ export default function InfoClientes (){
                 <div className="dadosFisicos">
                     <div className="dados1">
                         <h3>Peso:</h3>
-                        <input type='text' value={peso} onChange={e => setPeso(e.target.value)} readOnly/>
+                        <input type='text' placeholder='Peso' value={peso} onChange={e => setPeso(e.target.value)} readOnly/>
   
                         <h3>IMC:</h3>
                         <input type='text' placeholder='Índice de Massa Corporal' value={imc} onChange={e => setImc(e.target.value)} readOnly/>
@@ -252,7 +241,7 @@ export default function InfoClientes (){
                         <input type='text' placeholder='Taxa Metabólica Basal (TMB)' value={taxaMetBasal} onChange={e => setTaxaMetBasal(e.target.value)} readOnly/>
   
                         <h3>Proteína:</h3>
-                        <input type='text' placeholder='' value={proteina} onChange={e => setProteina(e.target.value)} readOnly/>
+                        <input type='text' placeholder='Proteína' value={proteina} onChange={e => setProteina(e.target.value)} readOnly/>
                     </div>
   
                     <div className="dados2">
@@ -301,7 +290,7 @@ export default function InfoClientes (){
                 <div className="dadosFisicos">
                     <div className="dados1">
                         <h3>Peso:</h3>
-                        <input type='text' value={peso2} onChange={e => setPeso2(e.target.value)}/>
+                        <input type='text' placeholder='Peso' value={peso2} onChange={e => setPeso2(e.target.value)}/>
   
                         <h3>IMC:</h3>
                         <input type='text' placeholder='Índice de Massa Corporal' value={imc2} onChange={e => setImc2(e.target.value)}/>
@@ -322,7 +311,7 @@ export default function InfoClientes (){
                         <input type='text' placeholder='Taxa Metabólica Basal (TMB)' value={taxaMetBasal2} onChange={e => setTaxaMetBasal2(e.target.value)}/>
   
                         <h3>Proteína:</h3>
-                        <input type='text' placeholder='' value={proteina2} onChange={e => setProteina2(e.target.value)}/>
+                        <input type='text' placeholder='Proteína' value={proteina2} onChange={e => setProteina2(e.target.value)}/>
                     </div>
   
                     <div className="dados2">

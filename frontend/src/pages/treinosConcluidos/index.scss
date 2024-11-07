@@ -1,4 +1,4 @@
-.pagina-treinos-finpen{
+.pagina-treinos-concluidos{
     background-image: url('../../../public/assets/images/fundo.jpg');
     min-height: 100vh;
     display: flex;
@@ -12,17 +12,6 @@
               width: 2em;
             }
 
-            h1{
-                color: #fff;
-                font: 700 3.5vh 'Roboto';
-            }
-        }
-
-        .secaoPendentes{
-            .pend{
-                width: 1.85em;
-            }
-            
             h1{
                 color: #fff;
                 font: 700 3.5vh 'Roboto';

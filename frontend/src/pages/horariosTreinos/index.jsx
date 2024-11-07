@@ -1,7 +1,7 @@
 import './index.scss';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Menu from '../../components/abasMenu';
-import CardTreinos from '../../components/cardTreinos';
+import CardTreinoMarcado from '../../components/cardTreinoMarcado';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -59,7 +59,7 @@ export default function HorarioTreinos() {
                             <p>Os treinos marcados aparecerão aqui.</p>
                         ) : (
                             listaTreinos.map(item => (
-                                <CardTreinos item={item} />
+                                <CardTreinoMarcado item={item} />
                             ))
                         )}
                     </div>
