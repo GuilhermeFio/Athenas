@@ -87,11 +87,11 @@ create table athenasdb.cliente(
     avaliacao_id int,
     reavaliacao_id int,
     img_cliente mediumblob,
-    foreign key (treino_id) references athenasdb.treinos_marcados(treino_id),
-    foreign key (avaliacao_id) references athenasdb.avaliacao_fisica(avaliacao_id),
-    foreign key (reavaliacao_id) references athenasdb.reavaliacao_fisica(reavaliacao_id),
+    foreign key (treino_id) references athenasdb.treinos_marcados(treino_id) on delete cascade,
+    foreign key (avaliacao_id) references athenasdb.avaliacao_fisica(avaliacao_id) on delete cascade,
+    foreign key (reavaliacao_id) references athenasdb.reavaliacao_fisica(reavaliacao_id) on delete cascade,
     id_login int,
-    foreign key (id_login) references athenasdb.login(id_login)
+    foreign key (id_login) references athenasdb.login(id_login) on delete cascade
 );
 
 alter table athenasdb.cliente modify column img_cliente mediumblob;

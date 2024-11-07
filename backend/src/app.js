@@ -2,7 +2,6 @@ import 'dotenv/config.js'
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser';
-
 import AdicionarRotas from './rotas.js'
 
 const servidor= express();

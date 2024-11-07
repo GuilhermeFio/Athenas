@@ -6,4 +6,4 @@ import clienteController from './controller/clienteController.js'
 
 export default function AdicionarRotas(servidor){
     servidor.use(loginController, avaliacaoFisicaController, treinosMarcadosController, reavaliacaoFisicaController, clienteController)
-    }
+}

@@ -1,24 +1,15 @@
 import jwt from 'jsonwebtoken'
 const KEY = '===!!Athe3na4s!=='
-                  
-
-
-
-
-export function gerarToken(userInfo) {
+/************************************************/
+export function gerarToken(userInfo){
   return jwt.sign(userInfo, KEY)
 }
-
-
-export function autenticar(req, resp, next) {
+/************************************************/
+export function autenticar(req, resp, next){
   return autenticacao(req, resp, next);
 }
-
-
-
-
-
-export function autenticacao(req, resp, next) {
+/************************************************/
+export function autenticacao(req, resp, next){
   try {
     let token = req.headers['x-access-token'];
 
@@ -30,8 +21,8 @@ export function autenticacao(req, resp, next) {
     req.user = signd;
     
     next();
-
-  } catch (e) {
+  }
+  catch(e){
     resp.status(401).end();
   }
 }
