@@ -7,22 +7,17 @@
 
     .secaomae{
 
-        .secaoConcluidos{
-            .final{
-              width: 2em;
-            }
-
+        .secao1{
             h1{
                 color: #fff;
                 font: 700 3.5vh 'Roboto';
             }
         }
-
-        .titulo{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 8px;
-        }
+            .treinosConcluídos{
+                p{
+                    color: #fff;
+                    font: 400 2.5vh 'Roboto';
+                }
+            }
     }
 }
