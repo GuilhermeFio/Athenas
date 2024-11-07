@@ -3,9 +3,18 @@ import { Link } from 'react-router-dom';
 import './index.scss';
 
 function CardTreinoMarcado(props) {
+
+
     return (
-        <Link className='comp-card-treino-marcado' to={`/treinoCliente/${props.item.id_cliente}`}>
+
+        
+        
+        
             <div className='cartao'>
+                {props.item.concluido == false && ( 
+                
+
+                <Link className='comp-card-treino-marcado' to={`/treinoCliente/${props.item.id_cliente}`}>
                 {props.item.perfil ? (
                     <img src={props.item.perfil} alt="Foto do Cliente"/>
                 ) : (
@@ -29,8 +38,12 @@ function CardTreinoMarcado(props) {
                         <h3>{props.item.telefone}</h3>
                     </div>
                 </div>
+                </Link>
+
+                )}
+                
             </div>
-        </Link>
+        
     );
 }
 

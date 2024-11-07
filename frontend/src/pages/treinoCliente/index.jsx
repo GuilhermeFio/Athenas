@@ -150,7 +150,7 @@ export default function InfoClientes (){
             const reavaliacaoId = respReavaliacao.data.novoId;
            
             const clienteData = {
-                "reavaliacaoid": reavaliacaoId,
+                "reavaliacao_id": reavaliacaoId,
             };
 
             await axios.put(`http://localhost:4000/cliente/atualizaridrev/${id}`, clienteData, constatoken);

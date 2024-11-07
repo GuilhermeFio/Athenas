@@ -6,8 +6,10 @@ function CardTreinoConcluido(props) {
 
        
        
-        <Link className='comp-card-treino-concluido' to={`/clienteConcluido/${props.item.id_cliente}`}>
+       
             <div className='cartao'>
+
+                {props.item.concluido == true && ( <Link className='comp-card-treino-concluido' to={`/clienteConcluido/${props.item.id_cliente}`}>
                 {props.item.perfil ? (
                     <img src={props.item.perfil} alt="Foto do Cliente"/>
                 ) : (
@@ -27,8 +29,11 @@ function CardTreinoConcluido(props) {
                         <h3>{new Date(props.item.dataReavaliacao).toLocaleString()}</h3>
                     </div>
                 </div>
+                </Link>) }
+
+                
             </div>
-        </Link>
+        
     );
 }
 

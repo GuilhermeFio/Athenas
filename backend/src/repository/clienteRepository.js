@@ -20,7 +20,8 @@ export async function treinosMarcados(){
 			dt_avaliacao	dataAvaliacao,
 			dt_reavaliacao	dataReavaliacao,
             telefone,
-            img_cliente		perfil
+            img_cliente		perfil,
+			bt_concluido    concluido
         from athenasdb.cliente
 
         inner join athenasdb.treinos_marcados on athenasdb.cliente.treino_id = athenasdb.treinos_marcados.treino_id
