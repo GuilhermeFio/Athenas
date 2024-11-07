@@ -114,7 +114,7 @@ export default function InfoClientes (){
             setGordVis (cliente.gorduraVisceral);
             setAguaCorp (cliente.aguaCorporal);
 
-            setObjetivos (cliente.Objetivos);
+            setObjetivos (cliente.objetivos);
             setExercicios (cliente.exercicios);
     }
 
@@ -186,7 +186,7 @@ export default function InfoClientes (){
 
                     <div className='nascimento'>
                         <h2>Data de Nascimento do Cliente:</h2>
-                        <input type='date' placeholder='Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} readOnly/>
+                        <input type='text' placeholder='Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} readOnly/>
                     </div>
                     
                     <div className='idade'>
@@ -202,12 +202,12 @@ export default function InfoClientes (){
                      <div className="avas">
                         <div className='dataava'> 
                             <h2>Data da Avaliação:</h2>
-                            <input type='datetime-local' placeholder='Data da Avaliação Física' value={diaAvaliacao} onChange={e => setDiaAvaliacao(e.target.value)} readOnly/>
+                            <input type='text' placeholder='Data da Avaliação Física' value={diaAvaliacao} onChange={e => setDiaAvaliacao(e.target.value)} readOnly/>
                         </div>
 
                         <div className='datareava'>
                             <h2>Data da Reavaliação:</h2>
-                            <input type='datetime-local' placeholder='Data da Reavaliação Física' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} readOnly/>
+                            <input type='text' placeholder='Data da Reavaliação Física' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} readOnly/>
                         </div>
                      </div>
 
