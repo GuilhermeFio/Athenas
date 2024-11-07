@@ -120,7 +120,7 @@ export default function AdicionarTreino() {
             const respCliente = await axios.post(`http://localhost:4000/cliente/adicionar`, clienteData, constatoken);
             const clienteId = respCliente.data.novoId;
 
-            alert('Dados adicionados com sucesso!  Id:' + clienteId);
+            alert(`Dados do cliente ${nomeCliente} adicionados com sucesso!`);
             navigate('/horariosTreinos')
 
         } catch (error) {

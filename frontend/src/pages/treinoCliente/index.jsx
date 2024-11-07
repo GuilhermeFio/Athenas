@@ -120,6 +120,8 @@ export default function InfoClientes (){
 
     async function excluir(){
         await axios.delete(`http://localhost:4000/cliente/deletar/${id}`, constatoken);
+        alert(`Treino de ${nomeCliente} excluido com sucesso!`);
+        navigate('/horariosTreinos')
     }
 
     async function addRev(){

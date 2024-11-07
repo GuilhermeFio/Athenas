@@ -21,7 +21,7 @@ export default function HorarioTreinos() {
         let usu = localStorage.getItem('USUARIO')
         setToken(usu)
         
-        if(usu == 'undefined' || usu == 'null') {
+        if(usu == 'undefined' || usu == 'null' || !usu) {
             navigate('/loginUsuario')
         }
     }, [])

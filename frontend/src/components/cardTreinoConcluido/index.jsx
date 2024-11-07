@@ -3,6 +3,9 @@ import './index.scss';
 
 function CardTreinoConcluido(props) {
     return (
+
+       
+       
         <Link className='comp-card-treino-concluido' to={`/clienteConcluido/${props.item.id_cliente}`}>
             <div className='cartao'>
                 {props.item.perfil ? (
