@@ -6,10 +6,6 @@ function CardTreinoMarcado(props) {
 
 
     return (
-
-        
-        
-        
             <div className='cartao'>
                 {props.item.concluido == false && ( 
                 
