@@ -36,7 +36,7 @@ export default function TreinosConcluidos() {
     
         async function consultar() {
            
-                const url = `http://localhost:4000/treinos`;
+                const url = `http://4.172.207.208:5008/treinos`;
                 const resp = await axios.get(url, constatoken);
                 setListaTC(resp.data);
                

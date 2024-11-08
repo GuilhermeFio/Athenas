@@ -50,7 +50,7 @@ export default function AdicionarTreino() {
         let usu = localStorage.getItem('USUARIO')
         setToken(usu)
 
-        if (usu == 'undefined' || usu == 'null') {
+        if (usu == 'undefined' || usu == 'null' || !usu) {
             navigate('/loginUsuario')
         }
     }, [])
@@ -91,7 +91,7 @@ export default function AdicionarTreino() {
                 "aguaCorporal": aguaCorp,
 
             };
-            const respAvaliacao = await axios.post(`http://localhost:4000/avaliacao/adicionar`, avaliacaoData, constatoken);
+            const respAvaliacao = await axios.post(`http://4.172.207.208:5008/avaliacao/adicionar`, avaliacaoData, constatoken);
             const avaliacaoId = respAvaliacao.data.novoId;
 
 
@@ -104,7 +104,7 @@ export default function AdicionarTreino() {
                 "concluido": false
 
             };
-            const respTreino = await axios.post(`http://localhost:4000/treinos/adicionar`, treinoData, constatoken);
+            const respTreino = await axios.post(`http://4.172.207.208:5008/treinos/adicionar`, treinoData, constatoken);
             const treinoId = respTreino.data.novoId;
 
             const clienteData = {
@@ -117,7 +117,7 @@ export default function AdicionarTreino() {
                 "imagem": imgCliente,
             };
 
-            const respCliente = await axios.post(`http://localhost:4000/cliente/adicionar`, clienteData, constatoken);
+            const respCliente = await axios.post(`http://4.172.207.208:5008/cliente/adicionar`, clienteData, constatoken);
             const clienteId = respCliente.data.novoId;
 
             alert(`Dados do cliente ${nomeCliente} adicionados com sucesso!`);

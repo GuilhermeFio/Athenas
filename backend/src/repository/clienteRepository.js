@@ -119,13 +119,13 @@ export async function infoCliente(idCliente){
 	return info.affectedRows;
 }*/
 /********************************************************************************************************************************************************************************************************************************************/
-export async function atualizarClienteIdReavaliacao(id, cli){
+export async function atualizarClienteIdReavaliacao(id, reavaliacaoid){
 	const comando = `
 	   update athenasdb.cliente
 	   set reavaliacao_id = ?
 	   where id_cliente = ?;
 	`
-	let resposta = await con.query(comando, [cli.reavaliacaoid, id])
+	let resposta = await con.query(comando, [reavaliacaoid.reavaliacao_id, id])
 	let info = resposta[0];
 	return info.affectedRows;
 }

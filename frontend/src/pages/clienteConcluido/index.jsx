@@ -71,7 +71,7 @@ export default function ClienteConcluido(){
         let usu = localStorage.getItem('USUARIO')
         setToken(usu)
         
-        if(usu == 'undefined' || usu == 'null') {
+        if(usu == 'undefined' || usu == 'null' || !usu) {
             navigate('/loginUsuario')
         }
     }, [])
@@ -85,7 +85,7 @@ export default function ClienteConcluido(){
 
     async function consultar(){
         
-            const url = `http://localhost:4000/cliente/${id}`;
+            const url = `http://4.172.207.208:5008/cliente/${id}`;
             const resp = await axios.get(url, constatoken);
             const cliente = resp.data;
 

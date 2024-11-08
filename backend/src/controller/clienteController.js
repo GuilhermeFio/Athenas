@@ -70,10 +70,10 @@ Endpoints.put('/cliente/atualizaridrev/:id', autenticar, async (req,resp)=>{
 
     try {
         let idCli = req.params.id;
-        let clienteObj = req.body;
+        let reavaliacaoid = req.body;
        
 
-        let linhasAfetadas = await db.atualizarClienteIdReavaliacao(idCli, clienteObj);
+        let linhasAfetadas = await db.atualizarClienteIdReavaliacao(idCli, reavaliacaoid);
         if (linhasAfetadas >= 1) {
             resp.send();
         }

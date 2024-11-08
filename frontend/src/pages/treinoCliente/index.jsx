@@ -71,7 +71,7 @@ export default function InfoClientes (){
         let usu = localStorage.getItem('USUARIO')
         setToken(usu)
         
-        if(usu == 'undefined' || usu == 'null') {
+        if(usu == 'undefined' || usu == 'null' || !usu) {
             navigate('/loginUsuario')
         }
     }, [])
@@ -79,13 +79,15 @@ export default function InfoClientes (){
     useEffect(() => {
         if(token && id){
             consultar();
-        
+    
         }
     }, [token, id]);
 
+  
+
     async function consultar(){
         
-            const url = `http://localhost:4000/cliente/${id}`;
+            const url = `http://4.172.207.208:5008/cliente/${id}`;
             const resp = await axios.get(url, constatoken);
             const cliente = resp.data;
 
@@ -119,7 +121,7 @@ export default function InfoClientes (){
     }
 
     async function excluir(){
-        await axios.delete(`http://localhost:4000/cliente/deletar/${id}`, constatoken);
+        await axios.delete(`http://4.172.207.208:5008/cliente/deletar/${id}`, constatoken);
         alert(`Treino de ${nomeCliente} excluido com sucesso!`);
         navigate('/horariosTreinos')
     }
@@ -146,19 +148,24 @@ export default function InfoClientes (){
 
             };
 
-            const respReavaliacao = await axios.post(`http://localhost:4000/reavaliacao/adicionar`, reavaliacaoData, constatoken);
+            const respReavaliacao = await axios.post(`http://4.172.207.208:5008/reavaliacao/adicionar`, reavaliacaoData, constatoken);
             const reavaliacaoId = respReavaliacao.data.novoId;
+            alert(reavaliacaoId)
            
             const clienteData = {
                 "reavaliacao_id": reavaliacaoId,
             };
 
-            await axios.put(`http://localhost:4000/cliente/atualizaridrev/${id}`, clienteData, constatoken);
+            await axios.put(`http://4.172.207.208:5008/cliente/atualizaridrev/${id}`, clienteData, constatoken);
+           
            
             const treinoData = {
                 "concluido": true,
             };
-            await axios.put(`http://localhost:4000/treinos/atualizar/${id}`, treinoData, constatoken);
+            const url=`http://4.172.207.208:5008/treinos/atualizar/${id}`
+            await axios.put( url, constatoken, treinoData);
+
+
 
             alert('Reavaliação adicionada com sucesso!  IdReavaliacao:' + reavaliacaoId);
             navigate('/horariosTreinos')
@@ -349,6 +356,7 @@ export default function InfoClientes (){
                     <div className='botoes'>
                     <button onClick={addRev} className='concluir'> Concluir treino </button>
                     <button onClick={excluir} className='excluir'> Excluir treino </button>
+                    
                     </div>
                         
           </div>      
