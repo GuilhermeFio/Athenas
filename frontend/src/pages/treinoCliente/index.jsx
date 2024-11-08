@@ -175,7 +175,7 @@ export default function InfoClientes (){
   
           <div className='secaomae'>
   
-            <h2>TREINO DE {nomeCliente.toUpperCase()}</h2> 
+            <h2 className='titulo'>TREINO DE {nomeCliente.toUpperCase()}</h2> 
          
             <div className='secaoCliente'>
                 <img className= 'avatar' src={imagem}/>
@@ -186,15 +186,18 @@ export default function InfoClientes (){
                         <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} readOnly/>
                     </div>
 
-                    <div className='nascimento'>
-                        <h2>Data de Nascimento do Cliente:</h2>
-                        <input type='text' placeholder='Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} readOnly/>
+                    <div className="datidade">
+                        <div className='nascimento'>
+                            <h2>Data de Nascimento:</h2>
+                            <input type='text' placeholder='Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} readOnly/>
+                        </div>
+                    
+                        <div className='idade'>
+                            <h2>Idade do Cliente:</h2>
+                            <input type='text' placeholder='Idade do cliente' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} readOnly/>
+                        </div>
                     </div>
                     
-                    <div className='idade'>
-                        <h2>Idade do Cliente:</h2>
-                        <input type='text' placeholder='Idade do cliente' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} readOnly/>
-                    </div>
                      
                      <div className='telefone'>
                         <h2>Telefone do Cliente:</h2>
@@ -204,12 +207,12 @@ export default function InfoClientes (){
                      <div className="avas">
                         <div className='dataava'> 
                             <h2>Data da Avaliação:</h2>
-                            <input type='text' placeholder='Data da Avaliação Física' value={diaAvaliacao} onChange={e => setDiaAvaliacao(e.target.value)} readOnly/>
+                            <input type='text' placeholder='Data da Avaliação' value={diaAvaliacao} onChange={e => setDiaAvaliacao(e.target.value)} readOnly/>
                         </div>
 
                         <div className='datareava'>
                             <h2>Data da Reavaliação:</h2>
-                            <input type='text' placeholder='Data da Reavaliação Física' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} readOnly/>
+                            <input type='text' placeholder='Data da Reavaliação' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} readOnly/>
                         </div>
                      </div>
 
@@ -239,7 +242,7 @@ export default function InfoClientes (){
                         <h3>Idade Metabólica:</h3>
                         <input type='text' placeholder='Idade Metabólica' value={iddMetabolica} onChange={e => setIddMetabolica(e.target.value)} readOnly/>
   
-                        <h3>TMB:</h3>
+                        <h3>Taxa Metabólica Basal:</h3>
                         <input type='text' placeholder='Taxa Metabólica Basal (TMB)' value={taxaMetBasal} onChange={e => setTaxaMetBasal(e.target.value)} readOnly/>
   
                         <h3>Proteína:</h3>
@@ -309,7 +312,7 @@ export default function InfoClientes (){
                         <h3>Idade Metabólica:</h3>
                         <input type='text' placeholder='Idade Metabólica' value={iddMetabolica2} onChange={e => setIddMetabolica2(e.target.value)}/>
   
-                        <h3>TMB:</h3>
+                        <h3>Taxa Metabólica Basal:</h3>
                         <input type='text' placeholder='Taxa Metabólica Basal (TMB)' value={taxaMetBasal2} onChange={e => setTaxaMetBasal2(e.target.value)}/>
   
                         <h3>Proteína:</h3>
@@ -350,5 +353,5 @@ export default function InfoClientes (){
                         
           </div>      
         </div>
-      );
+    );
 }

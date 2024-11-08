@@ -24,7 +24,7 @@ export default function Menu (){
                 </div>
 
                 <div className="conclu">
-                    <img className='check' src='/assets/images/finpends.png'/>
+                    <img className='check' src='/assets/images/concluido.png'/>
                     <Link className='finalizados' to = {'/treinosConcluidos'}><p>Treinos Concluídos</p></Link>
                 </div>
                 

@@ -5,6 +5,7 @@ import HorarioTreinos from "./pages/horariosTreinos";
 import InfoClientes from "./pages/treinoCliente";
 import TreinosConcluidos from "./pages/treinosConcluidos";
 import AdicionarTreino from "./pages/novoTreino";
+import ClienteConcluido from "./pages/clienteConcluido";
 
 export default function Navegacao(){
     return (
@@ -16,6 +17,8 @@ export default function Navegacao(){
                 <Route path='/horariosTreinos' element={<HorarioTreinos/>}></Route>
                 <Route path='/treinoCliente' element={<InfoClientes/>}></Route>
                 <Route path='/treinoCliente/:id' element={<InfoClientes/>}></Route>
+                <Route path='/clienteConcluido' element={<ClienteConcluido/>}></Route>
+                <Route path='/clienteConcluido/:id' element={<ClienteConcluido/>}></Route>
                 <Route path='/treinosConcluidos' element={<TreinosConcluidos/>}></Route>
             </Routes>
         </BrowserRouter>

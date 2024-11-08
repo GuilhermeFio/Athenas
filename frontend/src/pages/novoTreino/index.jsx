@@ -159,14 +159,16 @@ export default function AdicionarTreino() {
                             <input type='text' placeholder='Digite aqui' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} />
                         </div>
 
-                        <div className='info'>
-                            <h2>Data de Nascimento do Cliente:</h2>
-                            <input type='date' placeholder='Digite aqui' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} />
-                        </div>
+                        <div className="datidade">
+                            <div className='info'>
+                                <h2>Data de Nascimento:</h2>
+                                <input type='date' placeholder='Digite aqui' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} />
+                            </div>
 
-                        <div className='info'>
-                            <h2>Idade do Cliente:</h2>
-                            <input type='text' placeholder='Digite aqui' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} />
+                            <div className='info'>
+                                <h2>Idade do Cliente:</h2>
+                                <input type='text' placeholder='Digite aqui' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} />
+                            </div>
                         </div>
                         
                         <div className='info'>

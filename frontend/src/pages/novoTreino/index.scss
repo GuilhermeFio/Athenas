@@ -6,8 +6,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 7vh;
-        padding: 4vh;
+        gap: 6vh;
+        padding: 5vh;
 
         .titulo{
             color: #FFFFFF;
@@ -58,11 +58,21 @@
                 display: flex;
                 flex-direction: column;
                 gap: 3vh;
+
+                .datidade{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 4vh;
+
+                    input{
+                        width: 35vh;
+                    }
+                }
                 
                 .avas{
                     display: flex;
                     flex-direction: row;
-                    gap: 6vh;
+                    gap: 4vh;
 
                     input{
                         width: 35vh;
@@ -76,10 +86,10 @@
 
                 input{
                     height: 6vh;
+                    width: 74vh;
                 }
             }
         }
-       
 
         .tabAvaliacao{
             display: flex;
@@ -92,9 +102,9 @@
             gap: 3vh;
             border-radius: 8px;
 
-
             h2{
                 font: 600 24px 'Roboto';
+                color: #000000;
             }
 
             h3{
@@ -131,7 +141,7 @@
         .detalhesTreino{
             display: flex;
             flex-direction: column;
-            gap: 2vh;
+            gap: 3vh;
 
             input{
                 width: 52vw;
@@ -151,6 +161,7 @@
 
                 h2{
                     font: 500 24px 'Roboto';
+                    color: #000000;
                 }
             }
 
@@ -165,6 +176,7 @@
 
                 h2{
                     font: 500 24px 'Roboto';
+                    color: #000000;
                 }
             }
         }
