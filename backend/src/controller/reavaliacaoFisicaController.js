@@ -7,20 +7,21 @@ import{autenticar} from '../utils/jwt.js'
 
 const Endpoints= Router();
 
-/*Endpoints.get('/reavaliacao/consultar/:idCliente', autenticar, async (req,resp) => {
+Endpoints.get('/reavaliacao/consultar/:id', autenticar, async (req,resp) => {
 
     try {
         
        let idCliente = req.params.id
        let registro = await db.consultarReavaliacao(idCliente)
        resp.send (registro) 
+      
    }
     catch (err) {
        resp.status(404).send({
            erro : err.message
        })
    }
- })*/
+ })
 
 
  Endpoints.post('/reavaliacao/adicionar', autenticar, async (req,resp) => {
@@ -31,8 +32,7 @@ const Endpoints= Router();
        let info = req.body
         info.idUsuario = req.user.id;
 
-       let registro = await db.inserirReavaliacaoFisica(info)
-       db.atualizarIdReavaliadcao(registro)
+       let registro = await db.adicionarReavaliacao(info)
        resp.send ({
         novoId: registro
        })
@@ -44,7 +44,6 @@ const Endpoints= Router();
        })
    }
  })
-
  
  /*Endpoints.put('/avaliacao/atualizar/:id', async (req,resp) => {
  

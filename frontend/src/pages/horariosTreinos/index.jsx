@@ -34,7 +34,7 @@ export default function HorarioTreinos() {
 
     async function consultar() {
        
-            const url = `http://4.172.207.208:5008/treinos`;
+            const url = `http://localhost:5008/treinos`;
             const resp = await axios.get(url, constatoken);
             setListaTreinos(resp.data);
            

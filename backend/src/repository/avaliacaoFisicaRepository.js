@@ -70,3 +70,17 @@ export async function consultarAvaliacao(idCliente){
      let registros= resposta[0];
      return registros;
 }
+
+/*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+export async function deletarAvaliacao(id){
+    const comando = `
+    delete from athenasdb.avaliacao_fisica
+    where avaliacao_id = ?
+    `
+
+    let resposta = await con.query(comando,[id])
+    let registros = resposta[0];
+
+    return registros.affectedRows
+}

@@ -39,22 +39,22 @@ export default function ClienteConcluido(){
     const[aguaCorp, setAguaCorp] = useState('');
 
     //REAVALIAÇÃO
-    //const[peso2, setPeso2] = useState('');
-    //const[imc2, setImc2] = useState('');
-    //const[freqCard2, setFreqCard2] = useState('');
-    //const[indcCoracao2, setIndcCoracao2] = useState('');
-    //const[taxaMuscular2, setTaxaMuscular2] = useState('');
-    //const[iddMetabolica2, setIddMetabolica2] = useState('');
-    //const[taxaMetBasal2, setTaxaMetBasal2] = useState('');
-    //const[proteina2, setProteina2] = useState('');
-    //const[massaLivGord2, setMassaLivGord2] = useState('');
-    //const[massaMusc2, setMassaMusc2] = useState('');
-    //const[massaMuscEsq2, setMassaMuscEsq2] = useState('');
-    //const[massaOssea2, setMassaOssea2] = useState('');
-    //const[gordCorp2, setGordCorp2] = useState('');
-    //const[gordSub2, setGordSub2] = useState('');
-    //const[gordVis2, setGordVis2] = useState('');
-    //const[aguaCorp2, setAguaCorp2] = useState('');
+    const[peso2, setPeso2] = useState('');
+    const[imc2, setImc2] = useState('');
+    const[freqCard2, setFreqCard2] = useState('');
+    const[indcCoracao2, setIndcCoracao2] = useState('');
+    const[taxaMuscular2, setTaxaMuscular2] = useState('');
+    const[iddMetabolica2, setIddMetabolica2] = useState('');
+    const[taxaMetBasal2, setTaxaMetBasal2] = useState('');
+    const[proteina2, setProteina2] = useState('');
+    const[massaLivGord2, setMassaLivGord2] = useState('');
+    const[massaMusc2, setMassaMusc2] = useState('');
+    const[massaMuscEsq2, setMassaMuscEsq2] = useState('');
+    const[massaOssea2, setMassaOssea2] = useState('');
+    const[gordCorp2, setGordCorp2] = useState('');
+    const[gordSub2, setGordSub2] = useState('');
+    const[gordVis2, setGordVis2] = useState('');
+    const[aguaCorp2, setAguaCorp2] = useState('');
 
     const[objetivos, setObjetivos] = useState('');
     const[exercicios, setExercicios] = useState('');
@@ -83,11 +83,14 @@ export default function ClienteConcluido(){
         }
     }, [token, id]);
 
+  
+
     async function consultar(){
         
-            const url = `http://4.172.207.208:5008/cliente/${id}`;
+            const url = `http://localhost:5008/cliente/concluido/${id}`;
             const resp = await axios.get(url, constatoken);
             const cliente = resp.data;
+
 
             setNomeCliente(cliente.nome);
             setDataNascimento(new Date(cliente.nascimento).toLocaleDateString());
@@ -114,9 +117,30 @@ export default function ClienteConcluido(){
             setGordVis (cliente.gorduraVisceral);
             setAguaCorp (cliente.aguaCorporal);
 
+
+            setPeso2 (cliente.pesoReavaliacao);
+            setImc2 (cliente.imc2);
+            setFreqCard2 (cliente.frequenciaCardiacaReavaliacao);
+            setIndcCoracao2 (cliente.indiceCoracaoReavaliacao);
+            setTaxaMuscular2 (cliente.taxaMuscularReavaliacao);
+            setIddMetabolica2 (cliente.idadeMetabolicaReavaliacao);
+            setTaxaMetBasal2 (cliente.taxaMetabolicaBasalReavaliacao);
+            setProteina2 (cliente.proteinaReavaliacao);
+            setMassaLivGord2 (cliente.massaLivreGorduraReavaliacao);
+            setMassaMusc2 (cliente.massaMuscularReavaliacao);
+            setMassaMuscEsq2 (cliente.massaMuscularEsqueleticaReavaliacao);
+            setMassaOssea2 (cliente.massaOsseaReavaliacao);
+            setGordCorp2 (cliente.gorduraCorporalReavaliacao);
+            setGordSub2  (cliente.gorduraSubcutaneaReavaliacao);
+            setGordVis2 (cliente.gorduraVisceralReavaliacao);
+            setAguaCorp2 (cliente.aguaCorporalReavaliacao);
+
             setObjetivos (cliente.objetivos);
             setExercicios (cliente.exercicios);
     }
+
+
+    
 
     return (
         <div className="pagina-cliente-concluido">
@@ -192,101 +216,101 @@ export default function ClienteConcluido(){
                         <tbody>
                             <tr>
                                 <td>Peso</td>
-                                <td type='text' value={peso} onChange={e => setPeso(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{peso}</td>
+                                <td>{peso2}</td>
                             </tr>
 
                             <tr>
                                 <td>IMC</td>
-                                <td type='text' placeholder='Índice de Massa Corporal' value={imc} onChange={e => setImc(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{imc} </td>
+                                <td>{imc2}</td>
                             </tr>
 
                             <tr>
                                 <td>Frequência Cardíaca</td>
-                                <td type='text' placeholder='Frequência Cardíaca' value={freqCard} onChange={e => setFreqCard(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{freqCard}</td>
+                                <td>{freqCard2}</td>
                             </tr>
 
                             <tr>
                                 <td>Índice de Coração</td>
-                                <td type='text' placeholder='Índice de Coração' value={indcCoracao} onChange={e => setIndcCoracao(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td >{indcCoracao}</td>
+                                <td>{indcCoracao2}</td>
                             </tr>
 
                             <tr>
                                 <td>Taxa Muscular</td>
-                                <td type='text' placeholder='Taxa Muscular' value={taxaMuscular} onChange={e => setTaxaMuscular(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{taxaMuscular}</td> 
+                                <td>{taxaMuscular2}</td>
                             </tr>
 
                             <tr>
                                 <td>Idade Metabólica</td>
-                                <td type='text' placeholder='Idade Metabólica' value={iddMetabolica} onChange={e => setIddMetabolica(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{iddMetabolica}</td>
+                                <td>{iddMetabolica2}</td>
                             </tr>
 
                             <tr>
                                 <td>Taxa Metabólica Basal</td>
-                                <td type='text' placeholder='Taxa Metabólica Basal (TMB)' value={taxaMetBasal} onChange={e => setTaxaMetBasal(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{taxaMetBasal}</td>
+                                <td>{taxaMetBasal2}</td>
                             </tr>
 
                             <tr>
                                 <td>Proteína</td>
-                                <td type='text' placeholder='' value={proteina} onChange={e => setProteina(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{proteina}</td>
+                                <td>{proteina2}</td>
                             </tr>
 
                             <tr>
                                 <td>Massa Livre de Gordura</td>
-                                <td type='text' placeholder='Massa Livre de Gordura' value={massaLivGord} onChange={e => setMassaLivGord(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{massaLivGord}</td>
+                                <td>{massaLivGord2}</td>
                             </tr>
 
                             <tr>
                                 <td>Massa Muscular</td>
-                                <td type='text' placeholder='Massa Muscular' value={massaMusc} onChange={e => setMassaMusc(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{massaMusc}</td>
+                                <td>{massaMusc2}</td>
                             </tr>
 
                             <tr>
                                 <td>Massa Muscular Esquelética</td>
-                                <td type='text' placeholder='Massa Muscular Esquelética' value={massaMuscEsq} onChange={e => setMassaMuscEsq (e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{massaMuscEsq}</td>
+                                <td>{massaMuscEsq2}</td>
                             </tr>
 
                             <tr>
                                 <td>Massa Óssea</td>
-                                <td type='text' placeholder='Massa Óssea' value={massaOssea} onChange={e => setMassaOssea(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{massaOssea}</td>
+                                <td>{massaOssea2}</td>
                             </tr>
 
                             <tr>
                                 <td>Gordura Corporal</td>
-                                <td type='text' placeholder='Gordura Corporal' value={gordCorp} onChange={e => setGordCorp(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{gordCorp}</td>
+                                <td>{gordCorp2}</td>
                             </tr>
 
                             <tr>
                                 <td>Gordura Subcutânea</td>
-                                <td type='text' placeholder='Gordura Subcutânea' value={gordSub} onChange={e => setGordSub(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{gordSub}</td>
+                                <td>{gordSub2}</td>
                             </tr>
 
                             <tr>
                                 <td>Gordura Visceral</td>
-                                <td type='text' placeholder='Gordura Visceral' value={gordVis} onChange={e => setGordVis(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{gordVis}</td>
+                                <td>{gordVis2}</td>
                             </tr>
 
                             <tr>
                                 <td>Água Corporal</td>
-                                <td type='text' placeholder='Água Corporal' value={aguaCorp} onChange={e => setAguaCorp(e.target.value)} readOnly/>
-                                <td>Reava</td>
+                                <td>{aguaCorp}</td>
+                                <td>{aguaCorp2}</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table>    
                 </div>
             </div>      
         </div>

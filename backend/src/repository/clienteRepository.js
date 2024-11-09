@@ -67,6 +67,9 @@ export async function infoCliente(idCliente){
 			nascimento,
 			idade,
 			telefone,
+			athenasdb.cliente.treino_id,
+    		athenasdb.cliente.avaliacao_id,
+
 			dt_avaliacao                    dataAvaliacao,
 			dt_reavaliacao                  dataReavaliacao,
 			img_cliente                     perfil,
@@ -90,11 +93,81 @@ export async function infoCliente(idCliente){
 				
 			ds_objetivos_cliente            objetivos,
 			exercicios_escolhidos           exercicios
+
+
+			
 		from athenasdb.cliente
 
 		inner join athenasdb.treinos_marcados on athenasdb.cliente.treino_id = athenasdb.treinos_marcados.treino_id
 		inner join athenasdb.avaliacao_fisica on athenasdb.cliente.avaliacao_id = athenasdb.avaliacao_fisica.avaliacao_id
 		where id_cliente=?;
+	`
+
+	let resposta= await con.query(comando, [idCliente])
+	let registros = resposta[0][0]
+
+	registros.perfil=registros.perfil?.toString();
+
+	return registros;
+}
+
+/*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+export async function clienteConcluido(idCliente){
+    const comando = `
+	select
+		c.nome,
+		c.nascimento,
+		c.idade,
+		c.telefone,
+		c.treino_id,
+		c.avaliacao_id,
+		tm.dt_avaliacao 					 dataAvaliacao,
+		tm.dt_reavaliacao 	 				 dataReavaliacao,
+		c.img_cliente AS perfil,
+
+		a.ds_peso 							 peso,
+		a.ds_imc 							 imc,
+		a.ds_frequencia_cardiaca   			 frequenciaCardiaca,
+		a.ds_indice_coracao 	 			 indiceCoracao,
+		a.ds_taxa_muscular 					 taxaMuscular,
+		a.ds_idade_metabolica 		 		 idadeMetabolica,
+		a.ds_taxa_metabolica_basal 	 		 taxaMetabolicaBasal,
+		a.ds_proteina 						 proteina,
+		a.ds_massa_livre_gordura 			 massaLivreGordura,
+		a.ds_massa_muscular 				 massaMuscular,
+		a.ds_massa_muscular_esqueletica 	 massaMuscularEsqueletica,
+		a.ds_massa_ossea 					 massaOssea,
+		a.ds_gordura_corporal 				 gorduraCorporal,
+		a.ds_gordura_subcutanea 			 gorduraSubcutanea,
+		a.ds_gordura_visceral 				 gorduraVisceral,
+		a.ds_agua_corporal 					 aguaCorporal,
+
+		tm.ds_objetivos_cliente 			 objetivos,
+		tm.exercicios_escolhidos 			 exercicios,
+
+		r.ds_peso  							 pesoReavaliacao,
+		r.ds_imc  							 imcReavaliacao,
+		r.ds_frequencia_cardiaca 		     frequenciaCardiacaReavaliacao,
+		r.ds_indice_coracao 				 indiceCoracaoReavaliacao,
+		r.ds_taxa_muscular 					 taxaMuscularReavaliacao,
+		r.ds_idade_metabolica 				 idadeMetabolicaReavaliacao,
+		r.ds_taxa_metabolica_basal 			 taxaMetabolicaBasalReavaliacao,
+		r.ds_proteina 						 proteinaReavaliacao,
+		r.ds_massa_livre_gordura 			 massaLivreGorduraReavaliacao,
+		r.ds_massa_muscular 				 massaMuscularReavaliacao,
+		r.ds_massa_muscular_esqueletica 	 massaMuscularEsqueleticaReavaliacao,
+		r.ds_massa_ossea 					 massaOsseaReavaliacao,
+		r.ds_gordura_corporal 				 gorduraCorporalReavaliacao,
+		r.ds_gordura_subcutanea 			 gorduraSubcutaneaReavaliacao,
+		r.ds_gordura_visceral 				 gorduraVisceralReavaliacao,
+		r.ds_agua_corporal 					 aguaCorporalReavaliacao
+
+	from athenasdb.cliente c
+	inner join athenasdb.treinos_marcados tm on c.treino_id = tm.treino_id
+	inner join athenasdb.avaliacao_fisica a on c.avaliacao_id = a.avaliacao_id
+	inner join athenasdb.reavaliacao_fisica r on c.reavaliacao_id = r.reavaliacao_id
+	where c.id_cliente = ?;
 	`
 
 	let resposta= await con.query(comando, [idCliente])

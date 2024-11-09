@@ -35,6 +35,23 @@ Endpoints.get('/cliente/:id', async (req,resp)=>{
         let idCliente= req.params.id;
         let registro= await db.infoCliente(idCliente);
         resp.send(registro);
+        
+    
+    } catch (err) {
+        resp.status(404).send({
+            erro : err.message
+        })
+    }
+    })
+
+Endpoints.get('/cliente/concluido/:id', async (req,resp)=>{
+
+    try {
+        
+        let idCliente= req.params.id;
+        let registro= await db.clienteConcluido(idCliente);
+        resp.send(registro);
+        
     
     } catch (err) {
         resp.status(404).send({

@@ -2,7 +2,7 @@ import './index.scss'
 import Menu from '../../components/abasMenu'
 import axios from 'axios'
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function AdicionarTreino() {
 
@@ -38,6 +38,8 @@ export default function AdicionarTreino() {
 
     const navigate = useNavigate()
 
+    const { id } = useParams();
+
     const constatoken = {
         headers: {
             'x-access-token': token
@@ -70,6 +72,10 @@ export default function AdicionarTreino() {
 
 
     async function salvar() {
+
+        let avaliacaoId = 0;
+        let treinoId = 0;
+
         try {
 
             const avaliacaoData = {
@@ -91,8 +97,8 @@ export default function AdicionarTreino() {
                 "aguaCorporal": aguaCorp,
 
             };
-            const respAvaliacao = await axios.post(`http://4.172.207.208:5008/avaliacao/adicionar`, avaliacaoData, constatoken);
-            const avaliacaoId = respAvaliacao.data.novoId;
+            const respAvaliacao = await axios.post(`http://localhost:5008/avaliacao/adicionar`, avaliacaoData, constatoken);
+             avaliacaoId = respAvaliacao.data.novoId;
 
 
 
@@ -104,8 +110,8 @@ export default function AdicionarTreino() {
                 "concluido": false
 
             };
-            const respTreino = await axios.post(`http://4.172.207.208:5008/treinos/adicionar`, treinoData, constatoken);
-            const treinoId = respTreino.data.novoId;
+            const respTreino = await axios.post(`http://localhost:5008/treinos/adicionar`, treinoData, constatoken);
+            treinoId = respTreino.data.novoId;
 
             const clienteData = {
                 "nome": nomeCliente,
@@ -117,7 +123,7 @@ export default function AdicionarTreino() {
                 "imagem": imgCliente,
             };
 
-            const respCliente = await axios.post(`http://4.172.207.208:5008/cliente/adicionar`, clienteData, constatoken);
+            const respCliente = await axios.post(`http://localhost:5008/cliente/adicionar`, clienteData, constatoken);
             const clienteId = respCliente.data.novoId;
 
             alert(`Dados do cliente ${nomeCliente} adicionados com sucesso!`);
@@ -125,6 +131,17 @@ export default function AdicionarTreino() {
 
         } catch (error) {
             alert('Erro ao adicionar os dados: ' + error.message);
+
+            try {
+                if (avaliacaoId >0) {
+                    await axios.delete(`http://localhost:5008/avaliacao/deletar/${avaliacaoId}`, constatoken);
+                }
+                if (treinoId>0) {
+                    await axios.delete(`http://localhost:5008/treinos/deletar/${treinoId}`, constatoken);
+                }
+            } catch (error) {
+                alert('Erro ao desfazer as alterações: ', error.message);
+            }
         }
     }
 

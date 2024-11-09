@@ -1,9 +1,9 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import './index.scss'
 import Menu from '../../components/abasMenu'
 import axios from 'axios'
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+
 
 export default function InfoClientes (){
 
@@ -19,6 +19,10 @@ export default function InfoClientes (){
     const[diaAvaliacao, setDiaAvaliacao] = useState('');
     const[diaReavaliacao, setDiaReavaliacao] = useState('');
     const[imagem, setImagem] = useState('')
+
+
+    const [idTreino, setIdTreino] = useState(0);
+    const [idAvaliacao, setIdAvaliacao] = useState(0);
 
     //AVALIAÇÃO | 
     const[peso, setPeso] = useState('');
@@ -59,13 +63,16 @@ export default function InfoClientes (){
     const[objetivos, setObjetivos] = useState('');
     const[exercicios, setExercicios] = useState('');
 
+
+    const {id} = useParams();
+
     const constatoken = {
         headers: {
           'x-access-token': token
         }
       };
 
-    const {id} = useParams();
+   
     
     useEffect(() =>{
         let usu = localStorage.getItem('USUARIO')
@@ -83,13 +90,18 @@ export default function InfoClientes (){
         }
     }, [token, id]);
 
-  
+
 
     async function consultar(){
         
-            const url = `http://4.172.207.208:5008/cliente/${id}`;
+            const url = `http://localhost:5008/cliente/${id}`;
             const resp = await axios.get(url, constatoken);
             const cliente = resp.data;
+
+            setIdTreino(cliente.treino_id);
+            setIdAvaliacao(cliente.avaliacao_id);
+
+
 
             setNomeCliente(cliente.nome);
             setDataNascimento(new Date(cliente.nascimento).toLocaleDateString());
@@ -121,13 +133,20 @@ export default function InfoClientes (){
     }
 
     async function excluir(){
-        await axios.delete(`http://4.172.207.208:5008/cliente/deletar/${id}`, constatoken);
+        
+        await axios.delete(`http://localhost:5008/avaliacao/deletar/${idAvaliacao}`, constatoken);
+        await axios.delete(`http://localhost:5008/treinos/deletar/${idTreino}`, constatoken);
+
+        await axios.delete(`http://localhost:5008/cliente/deletar/${id}`, constatoken);
         alert(`Treino de ${nomeCliente} excluido com sucesso!`);
         navigate('/horariosTreinos')
+        
+        
     }
 
     async function addRev(){
         try {
+            
             const reavaliacaoData = {
                 "peso": peso2,
                 "massaLivreGordura": massaLivGord2,
@@ -147,23 +166,27 @@ export default function InfoClientes (){
                 "aguaCorporal": aguaCorp2,
 
             };
-
-            const respReavaliacao = await axios.post(`http://4.172.207.208:5008/reavaliacao/adicionar`, reavaliacaoData, constatoken);
+            const respReavaliacao = await axios.post(`http://localhost:5008/reavaliacao/adicionar`, reavaliacaoData, constatoken);
+            alert('ta indo a reavalicao')
             const reavaliacaoId = respReavaliacao.data.novoId;
             alert(reavaliacaoId)
+           
            
             const clienteData = {
                 "reavaliacao_id": reavaliacaoId,
             };
 
-            await axios.put(`http://4.172.207.208:5008/cliente/atualizaridrev/${id}`, clienteData, constatoken);
+            await axios.put(`http://localhost:5008/cliente/atualizaridrev/${id}`, clienteData, constatoken);
+            alert('ta indo')
            
            
             const treinoData = {
                 "concluido": true,
             };
-            const url=`http://4.172.207.208:5008/treinos/atualizar/${id}`
-            await axios.put( url, constatoken, treinoData);
+
+            const url=`http://localhost:5008/treinos/atualizar/${idTreino}`
+            await axios.put( url, treinoData, constatoken);
+            alert('ta indo')
 
 
 

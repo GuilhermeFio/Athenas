@@ -45,7 +45,7 @@ Endpoints.get('/avaliacao/consultar/:idCliente', autenticar, async (req,resp) =>
  })
 
  
- Endpoints.put('/avaliacao/atualizar/:id', async (req,resp) => {
+ Endpoints.put('/avaliacao/atualizar/:id', autenticar, async (req,resp) => {
  
     try {
        let id = req.params.id
@@ -66,6 +66,25 @@ Endpoints.get('/avaliacao/consultar/:idCliente', autenticar, async (req,resp) =>
        })
    }
  })
+
+ Endpoints.delete('/avaliacao/deletar/:id', autenticar, async (req, resp) => {
+    try {
+        let id = req.params.id;
+        
+
+        let linhasAfetadas = await db.deletarAvaliacao(id);
+        
+
+        if (linhasAfetadas >= 1) {
+            resp.send(); 
+        } else {
+            resp.status(404).send({ erro: "Avaliação não encontrada ou já deletada" });
+        }
+    } catch (err) {
+       
+        resp.status(400).send({ erro: err.message });
+    }
+});
 
 
 
