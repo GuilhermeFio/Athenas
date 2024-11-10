@@ -14,7 +14,7 @@ function CardTreinoMarcado(props) {
                 {props.item.perfil ? (
                     <img src={props.item.perfil} alt="Foto do Cliente"/>
                 ) : (
-                    <p>Imagem não disponível</p>
+                    <img src='/assets/images/avatarfoto.png'/>
                 )}
                 <div className='infosCliente'>
                     <div>

@@ -66,12 +66,6 @@ export default function InfoClientes (){
 
     const {id} = useParams();
 
-    const constatoken = {
-        headers: {
-          'x-access-token': token
-        }
-      };
-
    
     
     useEffect(() =>{
@@ -95,7 +89,7 @@ export default function InfoClientes (){
     async function consultar(){
         
             const url = `http://localhost:5008/cliente/${id}`;
-            const resp = await axios.get(url, constatoken);
+            const resp = await axios.get(url);
             const cliente = resp.data;
 
             setIdTreino(cliente.treino_id);
@@ -134,13 +128,12 @@ export default function InfoClientes (){
 
     async function excluir(){
         
-        await axios.delete(`http://localhost:5008/avaliacao/deletar/${idAvaliacao}`, constatoken);
-        await axios.delete(`http://localhost:5008/treinos/deletar/${idTreino}`, constatoken);
+        await axios.delete(`http://localhost:5008/avaliacao/deletar/${idAvaliacao}?x-access-token=${token}`);
+        await axios.delete(`http://localhost:5008/treinos/deletar/${idTreino}?x-access-token=${token}`);
 
-        await axios.delete(`http://localhost:5008/cliente/deletar/${id}`, constatoken);
+        await axios.delete(`http://localhost:5008/cliente/deletar/${id}?x-access-token=${token}`);
         alert(`Treino de ${nomeCliente} excluido com sucesso!`);
         navigate('/horariosTreinos')
-        
         
     }
 
@@ -166,28 +159,24 @@ export default function InfoClientes (){
                 "aguaCorporal": aguaCorp2,
 
             };
-            const respReavaliacao = await axios.post(`http://localhost:5008/reavaliacao/adicionar`, reavaliacaoData, constatoken);
-            alert('ta indo a reavalicao')
+            const respReavaliacao = await axios.post(`http://localhost:5008/reavaliacao/adicionar?x-access-token=${token}`, reavaliacaoData);
+            
             const reavaliacaoId = respReavaliacao.data.novoId;
-            alert(reavaliacaoId)
-           
+          
            
             const clienteData = {
                 "reavaliacao_id": reavaliacaoId,
             };
 
-            await axios.put(`http://localhost:5008/cliente/atualizaridrev/${id}`, clienteData, constatoken);
-            alert('ta indo')
+            await axios.put(`http://localhost:5008/cliente/atualizaridrev/${id}?x-access-token=${token}`, clienteData);
            
            
             const treinoData = {
                 "concluido": true,
             };
 
-            const url=`http://localhost:5008/treinos/atualizar/${idTreino}`
-            await axios.put( url, treinoData, constatoken);
-            alert('ta indo')
-
+            const url=`http://localhost:5008/treinos/atualizar/${idTreino}?x-access-token=${token}`
+            await axios.put( url, treinoData);
 
 
             alert('Reavaliação adicionada com sucesso!  IdReavaliacao:' + reavaliacaoId);

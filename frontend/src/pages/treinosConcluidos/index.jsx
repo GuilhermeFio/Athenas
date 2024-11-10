@@ -1,5 +1,5 @@
 import './index.scss';
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 import Menu from '../../components/abasMenu'
 import CardTreinoConcluido from '../../components/cardTreinoConcluido'
 import { useEffect, useState } from 'react';
@@ -10,14 +10,6 @@ export default function TreinosConcluidos() {
         const [listaTC, setListaTC] = useState([]);
         const navigate = useNavigate();
 
-        const { id } = useParams();
-
-        const constatoken = {
-            headers: {
-              'x-access-token': token
-              
-            }
-          };
     
         useEffect(() =>{
             let usu = localStorage.getItem('USUARIO')
@@ -36,8 +28,8 @@ export default function TreinosConcluidos() {
     
         async function consultar() {
            
-                const url = `http://localhost:5008/treinos`;
-                const resp = await axios.get(url, constatoken);
+                const url = `http://localhost:5008/treinos?x-access-token=${token}`;
+                const resp = await axios.get(url);
                 setListaTC(resp.data);
                
         }

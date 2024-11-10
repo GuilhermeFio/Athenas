@@ -1,5 +1,5 @@
 import './index.scss';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Menu from '../../components/abasMenu';
 import CardTreinoMarcado from '../../components/cardTreinoMarcado';
 import axios from 'axios';
@@ -9,13 +9,7 @@ export default function HorarioTreinos() {
     const [token, setToken] = useState(null);
     const [listaTreinos, setListaTreinos] = useState([]);
     const navigate = useNavigate();
-    const { id } = useParams();
-    const constatoken = {
-        headers: {
-          'x-access-token': token
-          
-        }
-      };
+
 
     useEffect(() =>{
         let usu = localStorage.getItem('USUARIO')
@@ -34,8 +28,8 @@ export default function HorarioTreinos() {
 
     async function consultar() {
        
-            const url = `http://localhost:5008/treinos`;
-            const resp = await axios.get(url, constatoken);
+            const url = `http://localhost:5008/treinos?x-access-token=${token}`;
+            const resp = await axios.get(url);
             setListaTreinos(resp.data);
            
     }

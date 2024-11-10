@@ -5,15 +5,15 @@ function CardTreinoConcluido(props) {
     return (
 
        
-       
-       
             <div className='cartao'>
 
-                {props.item.concluido == true && ( <Link className='comp-card-treino-concluido' to={`/clienteConcluido/${props.item.id_cliente}`}>
+                {props.item.concluido == true && (
+
+                <Link className='comp-card-treino-concluido' to={`/clienteConcluido/${props.item.id_cliente}`}>
                 {props.item.perfil ? (
                     <img src={props.item.perfil} alt="Foto do Cliente"/>
                 ) : (
-                    <p>Imagem não disponível</p>
+                    <img src='/assets/images/avatarfoto.png'/>
                 )}
                 <div className='infosCliente'>
                     <div>

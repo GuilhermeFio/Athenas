@@ -2,7 +2,8 @@ import './index.scss'
 import Menu from '../../components/abasMenu'
 import axios from 'axios'
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
 
 export default function AdicionarTreino() {
 
@@ -36,16 +37,9 @@ export default function AdicionarTreino() {
     const [objetivos, setObjetivos] = useState('');
     const [exercicios, setExercicios] = useState('');
 
+
+
     const navigate = useNavigate()
-
-    const { id } = useParams();
-
-    const constatoken = {
-        headers: {
-            'x-access-token': token
-
-        }
-    };
 
 
     useEffect(() => {
@@ -97,9 +91,8 @@ export default function AdicionarTreino() {
                 "aguaCorporal": aguaCorp,
 
             };
-            const respAvaliacao = await axios.post(`http://localhost:5008/avaliacao/adicionar`, avaliacaoData, constatoken);
+            const respAvaliacao = await axios.post(`http://localhost:5008/avaliacao/adicionar?x-access-token=${token}`, avaliacaoData);
              avaliacaoId = respAvaliacao.data.novoId;
-
 
 
             const treinoData = {
@@ -110,7 +103,7 @@ export default function AdicionarTreino() {
                 "concluido": false
 
             };
-            const respTreino = await axios.post(`http://localhost:5008/treinos/adicionar`, treinoData, constatoken);
+            const respTreino = await axios.post(`http://localhost:5008/treinos/adicionar?x-access-token=${token}`, treinoData);
             treinoId = respTreino.data.novoId;
 
             const clienteData = {
@@ -123,8 +116,8 @@ export default function AdicionarTreino() {
                 "imagem": imgCliente,
             };
 
-            const respCliente = await axios.post(`http://localhost:5008/cliente/adicionar`, clienteData, constatoken);
-            const clienteId = respCliente.data.novoId;
+            const respCliente = await axios.post(`http://localhost:5008/cliente/adicionar?x-access-token=${token}`, clienteData);
+            
 
             alert(`Dados do cliente ${nomeCliente} adicionados com sucesso!`);
             navigate('/horariosTreinos')
@@ -134,16 +127,45 @@ export default function AdicionarTreino() {
 
             try {
                 if (avaliacaoId >0) {
-                    await axios.delete(`http://localhost:5008/avaliacao/deletar/${avaliacaoId}`, constatoken);
+                    await axios.delete(`http://localhost:5008/avaliacao/deletar/${avaliacaoId}?x-access-token=${token}`);
                 }
                 if (treinoId>0) {
-                    await axios.delete(`http://localhost:5008/treinos/deletar/${treinoId}`, constatoken);
+                    await axios.delete(`http://localhost:5008/treinos/deletar/${treinoId}?x-access-token=${token}`);
                 }
             } catch (error) {
                 alert('Erro ao desfazer as alterações: ', error.message);
             }
         }
     }
+
+    function formatarTelefone(tel) {
+        tel = tel.replace(/\D/g, "");
+        tel = tel.slice(0, 11);
+        tel = tel.replace(/^(\d{2})(\d)/g, "($1) $2");
+        tel = tel.replace(/(\d{4})(\d{4})$/, "$1-$2");
+        return tel;
+    }
+
+    function calcularIdade() {
+        const hoje = new Date();
+        const nascimento = new Date(dataNascimento);
+        let idade = hoje.getFullYear() - nascimento.getFullYear();
+        const mes = hoje.getMonth() - nascimento.getMonth();
+        
+        if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+            idade--;
+        }
+        return idade;
+    }
+    
+    useEffect(() => {
+        if (dataNascimento) {
+            setIdadeCliente(calcularIdade(dataNascimento));
+        }
+    }, [dataNascimento]);
+    
+    
+    
 
     return (
         <div className="pagina-add-treino">
@@ -159,7 +181,11 @@ export default function AdicionarTreino() {
                     <div className='avatar'>
                       
                             <div className='imagem'>
+                                {imgCliente == null ?(
+                                    <img id='cliente' src='assets/images/avatarfoto.png'/>
+                                ) : (
                                 <img id='cliente' src={imgCliente} alt="Foto" />
+                            )}
                             </div>
                         
 
@@ -179,18 +205,19 @@ export default function AdicionarTreino() {
                         <div className="datidade">
                             <div className='info'>
                                 <h2>Data de Nascimento:</h2>
-                                <input type='date' placeholder='Digite aqui' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} />
+                                <input type='date' placeholder='Digite aqui' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)}  max={new Date().toISOString().split("T")[0]} />
+
                             </div>
 
                             <div className='info'>
                                 <h2>Idade do Cliente:</h2>
-                                <input type='text' placeholder='Digite aqui' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} />
+                                <input type='text' placeholder='Idade' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} readOnly/>
                             </div>
                         </div>
                         
                         <div className='info'>
                             <h2>Telefone do Cliente:</h2>
-                            <input type='text' placeholder='Digite aqui' value={numCliente} onChange={e => setNumCliente(e.target.value)} />
+                            <input type='text' placeholder='Digite aqui' value={numCliente} onChange={e => setNumCliente(formatarTelefone(e.target.value))}/>
                         </div>
 
                         <div className="avas">

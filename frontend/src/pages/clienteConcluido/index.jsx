@@ -59,11 +59,7 @@ export default function ClienteConcluido(){
     const[objetivos, setObjetivos] = useState('');
     const[exercicios, setExercicios] = useState('');
 
-    const constatoken = {
-        headers: {
-          'x-access-token': token
-        }
-    };
+   
 
     const {id} = useParams();
     
@@ -87,8 +83,8 @@ export default function ClienteConcluido(){
 
     async function consultar(){
         
-            const url = `http://localhost:5008/cliente/concluido/${id}`;
-            const resp = await axios.get(url, constatoken);
+            const url = `http://localhost:5008/cliente/concluido/${id}?x-access-token=${token}`;
+            const resp = await axios.get(url);
             const cliente = resp.data;
 
 
