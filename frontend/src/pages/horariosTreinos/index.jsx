@@ -34,6 +34,8 @@ export default function HorarioTreinos() {
            
     }
 
+    
+
     return (
         <div className="pagina-horarios-treinos">
             <Menu />

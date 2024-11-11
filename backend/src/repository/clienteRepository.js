@@ -178,7 +178,7 @@ export async function clienteConcluido(idCliente){
 	return registros;
 }
 /********************************************************************************************************************************************************************************************************************************************/
-/*export async function atualizarCliente(id, clienteObj){
+export async function atualizarCliente(id, clienteObj){
 	const comando = `
 	   update athenasdb.cliente
 	   set nome = ?,
@@ -190,7 +190,7 @@ export async function clienteConcluido(idCliente){
 	let resposta = await con.query(comando, [clienteObj.nome, clienteObj.nascimento, clienteObj.idade, clienteObj.telefone, id])
 	let info = resposta[0];
 	return info.affectedRows;
-}*/
+}
 /********************************************************************************************************************************************************************************************************************************************/
 export async function atualizarClienteIdReavaliacao(id, reavaliacaoid){
 	const comando = `
@@ -199,6 +199,18 @@ export async function atualizarClienteIdReavaliacao(id, reavaliacaoid){
 	   where id_cliente = ?;
 	`
 	let resposta = await con.query(comando, [reavaliacaoid.reavaliacao_id, id])
+	let info = resposta[0];
+	return info.affectedRows;
+}
+
+/********************************************************************************************************************************************************************************************************************************************/
+export async function atualizarImg(id, clienteObj){
+	const comando = `
+	   update athenasdb.cliente
+	   set img_cliente = ?
+	   where id_cliente = ?;
+	`
+	let resposta = await con.query(comando, [clienteObj.imagem, id])
 	let info = resposta[0];
 	return info.affectedRows;
 }

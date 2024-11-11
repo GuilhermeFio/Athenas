@@ -1,8 +1,9 @@
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 import './index.scss'
 import Menu from '../../components/abasMenu'
 import axios from 'axios'
 import { useEffect, useState } from "react";
+import moment from 'moment'
 
 
 export default function InfoClientes (){
@@ -10,6 +11,8 @@ export default function InfoClientes (){
     const[token, setToken] = useState(null);
 
     const navigate = useNavigate();  
+
+    const {id} = useParams();
 
     //INFOCLIENTE
     const[nomeCliente, setNomeCliente] = useState('');
@@ -20,9 +23,11 @@ export default function InfoClientes (){
     const[diaReavaliacao, setDiaReavaliacao] = useState('');
     const[imagem, setImagem] = useState('')
 
-
+    //VARIÁVEIS QUE SERÃO REAPROVEITADAS NAS FUNÇÕES
     const [idTreino, setIdTreino] = useState(0);
     const [idAvaliacao, setIdAvaliacao] = useState(0);
+    const [vouEditar, SetVouEditar] = useState(false);
+    const [imgAlterada, setImgAlterada] = useState(false);
 
     //AVALIAÇÃO | 
     const[peso, setPeso] = useState('');
@@ -60,14 +65,13 @@ export default function InfoClientes (){
     const[gordVis2, setGordVis2] = useState('');
     const[aguaCorp2, setAguaCorp2] = useState('');
 
+    //TREINO
     const[objetivos, setObjetivos] = useState('');
     const[exercicios, setExercicios] = useState('');
 
 
-    const {id} = useParams();
-
    
-    
+    //VALIDAÇÃO PRA VER SE O USUÁRIO TA LOGADO
     useEffect(() =>{
         let usu = localStorage.getItem('USUARIO')
         setToken(usu)
@@ -77,28 +81,31 @@ export default function InfoClientes (){
         }
     }, [])
 
+
+    //RENDERIZAÇÃO PRA CHAMAR A FUNÇÃO DE CONSULTAR
     useEffect(() => {
         if(token && id){
             consultar();
-    
+            
         }
+        
     }, [token, id]);
 
 
-
+    //FUNÇÃO PRA PUXAR AS INFORMAÇÕES DO CLIENTE
     async function consultar(){
         
             const url = `http://localhost:5008/cliente/${id}`;
             const resp = await axios.get(url);
             const cliente = resp.data;
 
+            let data = moment(cliente.nascimento).format('DD/MM/YYYY')
+
             setIdTreino(cliente.treino_id);
+            
             setIdAvaliacao(cliente.avaliacao_id);
-
-
-
             setNomeCliente(cliente.nome);
-            setDataNascimento(new Date(cliente.nascimento).toLocaleDateString());
+            setDataNascimento(data);
             setIdadeCliente(cliente.idade);
             setNumCliente(cliente.telefone);
             setDiaAvaliacao(new Date(cliente.dataAvaliacao).toLocaleDateString());
@@ -126,20 +133,29 @@ export default function InfoClientes (){
             setExercicios (cliente.exercicios);
     }
 
+
+    //FUNÇÃO PRA EXCLUIR O TREINO
     async function excluir(){
         
         await axios.delete(`http://localhost:5008/avaliacao/deletar/${idAvaliacao}?x-access-token=${token}`);
-        await axios.delete(`http://localhost:5008/treinos/deletar/${idTreino}?x-access-token=${token}`);
-
-        await axios.delete(`http://localhost:5008/cliente/deletar/${id}?x-access-token=${token}`);
-        alert(`Treino de ${nomeCliente} excluido com sucesso!`);
-        navigate('/horariosTreinos')
         
+        await axios.delete(`http://localhost:5008/treinos/deletar/${idTreino}?x-access-token=${token}`);
+        
+
+        alert(`Treino excluido com sucesso!`);
+        navigate('/horariosTreinos')
+        await axios.delete(`http://localhost:5008/cliente/deletar/${id}?x-access-token=${token}`);
+        
+     
     }
 
+
+
+    //FUNÇÃO QUE VAI ADICIONAR AS INFORMAÇÕES DA REAVALIAÇÃO E VAI MARCAR O TREINO COMO CONCLUÍDO
     async function addRev(){
         try {
             
+            //ADICIONAR A REAVALIAÇÃO
             const reavaliacaoData = {
                 "peso": peso2,
                 "massaLivreGordura": massaLivGord2,
@@ -171,6 +187,7 @@ export default function InfoClientes (){
             await axios.put(`http://localhost:5008/cliente/atualizaridrev/${id}?x-access-token=${token}`, clienteData);
            
            
+            //MARCAR O TREINO COMO CONCLUÍDO
             const treinoData = {
                 "concluido": true,
             };
@@ -187,28 +204,188 @@ export default function InfoClientes (){
         }
     }
 
+
+    //FUNÇÃO QUE PERMITIRA O USUÁRIO EDITAR O NOME DO CLIENTE
+    async function editNom(){
+            SetVouEditar(1)
+            
+          
+            //É NECESSÁRIO COLOCAR A DATA NESSE FORMATO PRA SER ACEITO PELO BACKEND
+            setDataNascimento(moment(dataNascimento).format('YYYY-MM-DD'))
+
+
+          
+    }
+      //FUNÇÃO QUE PERMITIRA O USUÁRIO EDITAR A DATA DE NASCIMENTO DO CLIENTE
+    async function editNasc(){
+            SetVouEditar(2)
+            
+            setDataNascimento(moment(dataNascimento).format('YYYY-MM-DD'))
+             
+    }
+      //FUNÇÃO QUE PERMITIRA O USUÁRIO EDITAR O TELEFONE DO CLIENTE
+    async function editTel(){
+            SetVouEditar(3)
+            
+            setDataNascimento(moment(dataNascimento).format('YYYY-MM-DD'))
+            
+    }
+
+    //FUNÇÃO QUE VAI FAZER O UPDATE
+    async function concluirEdit(){
+        try {
+
+            
+           
+            const editCli = {
+                "nome": nomeCliente,
+                "nascimento": dataNascimento,
+                "idade": idadeCliente,
+                "telefone": numCliente
+            }
+
+            const url = `http://localhost:5008/cliente/atualizar/${id}?x-access-token=${token}`
+            await axios.put(url, editCli)
+            alert('Dado alterado com sucesso')
+            
+            setDataNascimento(moment(dataNascimento).format('DD/MM/YYYY'))
+            SetVouEditar(false)
+           
+
+        } catch (error) {
+            alert('Erro ao alterar os dados: ' + error.message); 
+        }
+    }
+
+    //ESSA FUNÇÃO É PRA CALCULAR A IDADE DE ACORDO COM A DATA DE NACIMENTO
+    function calcularIdade() {
+        const hoje = new Date();
+        const nascimento = new Date(dataNascimento);
+        let idade = hoje.getFullYear() - nascimento.getFullYear();
+        const mes = hoje.getMonth() - nascimento.getMonth();
+        
+        if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+            idade--;
+        }
+        return idade;
+    }
+    
+    //AQUI RENDERIZA O CAMPO DA IDADE DE ACORDO COM A DATA DE NASCIMENTO
+    useEffect(() => {
+        if (dataNascimento) {
+            setIdadeCliente(calcularIdade(dataNascimento));
+        }
+    }, [dataNascimento]);
+
+
+    //ESSA FUNÇÃO VAI PERMITIR SOMENTE QUE O USUÁRIO DIGITE O TELEFONE NO FORMATO '(XX)XXXXX-XXXX'
+    function formatarTelefone(tel) {
+        tel = tel.replace(/\D/g, ""); //AQUI IMPEDE QUE ELE COLOQUE DIGITOS QUE NÃO SEJA NUMEROS
+        tel = tel.slice(0, 11);       //AQUI IMPEDE QUE ELE PASSE DE 11 DIGITOS
+        tel = tel.replace(/^(\d{2})(\d)/g, "($1) $2"); //AQUI FAZ COM QUE OS DOIS PRIMEIROS NÚMEROS FIQUE EM PARENTESE
+        tel = tel.replace(/(\d{4})(\d{4})$/, "$1-$2"); //AQUI FAZ COM QUE TENHA UM TRAÇO ANTES DOS 4 ULTIMOS NUMEROS
+        return tel;
+    }
+
+    
+    function alterarImg(e) {
+        setImgAlterada(true)
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagem(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    async function updateImg(){
+        try {
+
+            const imgData = {
+                "imagem":imagem
+            }
+            
+            const url = `http://localhost:5008/cliente/atualizar/imagem/${id}?x-access-token=${token}`
+            await axios.put(url, imgData)
+            alert('Dado alterado com sucesso')
+
+            setImgAlterada(false)
+
+        } catch (error) {
+            alert('Erro ao alterar os dados: ' + error.message); 
+        }
+    }
+
+  
+
     return (
         <div className="pagina-treino-cliente">
   
           <Menu/>
   
           <div className='secaomae'>
+
+          <Link className='seta' to={'/horariosTreinos'}><i id='voltar' className="fa-solid fa-arrow-left"> </i> </Link>
   
             <h2 className='titulo'>TREINO DE {nomeCliente.toUpperCase()}</h2> 
          
             <div className='secaoCliente'>
-                <img className= 'avatar' src={imagem}/>
+            <div className='avatar'>
+                      
+                      <div className='imagem'>
+                          {imagem == null ?(
+                              <img id='cliente' src='/assets/images/avatarfoto.png'/>
+                          ) : (
+                          <img id='cliente' src={imagem} alt="Foto" />
+                      )}
+                      </div>
+                  
+
+                  <div className="sobreimg">
+
+                      <input type='file' accept='image/*' onChange={alterarImg} />
+                      {imgAlterada ? (
+                        <p onClick={updateImg}>SALVAR</p>
+                      ) : (
+                        <p onClick={() => setImagem(null)}>REMOVER IMAGEM <i class='fa-solid fa-trash botao' /></p>)}
+                      
+                  </div>
+              </div>
 
                 <div className="infosCliente">
                     <div className='nome'>
                         <h2>Nome do Cliente:</h2>
-                        <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} readOnly/>
+                        {vouEditar == 1 ? 
+                        ( 
+                        <div> 
+                            <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} /> 
+                             <img className='icon' src='/assets/images/checkicon.webp' onClick={concluirEdit}/> 
+                             </div> ) : 
+                             (
+                             <div> 
+                                <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} readOnly/> 
+                                <img className='icon' src='/assets/images/editicon.png' onClick={editNom} />
+                                 </div>  )
+                                 }
                     </div>
 
                     <div className="datidade">
                         <div className='nascimento'>
                             <h2>Data de Nascimento:</h2>
-                            <input type='text' placeholder='Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} readOnly/>
+                            {vouEditar == 2 ? 
+                            (
+                                 <div> 
+                                    <input type='date' placeholder='Data de Nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)}  max={new Date().toISOString().split("T")[0]}/> 
+                                      <img className='icon' src='/assets/images/checkicon.webp' onClick={concluirEdit}/>  
+                                     </div> ) : 
+                                     (
+                                     <div>
+                                         <input type='text' placeholder='Nome do cliente' value={dataNascimento}onChange={e => setDataNascimento(e.target.value)}  readOnly/> 
+                                         <img className='icon' src='/assets/images/editicon.png' onClick={editNasc} />
+                                         </div>  )
+                                         }
                         </div>
                     
                         <div className='idade'>
@@ -220,7 +397,18 @@ export default function InfoClientes (){
                      
                      <div className='telefone'>
                         <h2>Telefone do Cliente:</h2>
-                        <input type='text' placeholder='Telefone do cliente' value={numCliente} onChange={e => setNumCliente(e.target.value)} readOnly/>
+                        {vouEditar == 3 ? 
+                            (
+                                 <div> 
+                                    <input type='text' placeholder='Telefone do Cliente' value={numCliente} onChange={e => setNumCliente(formatarTelefone(e.target.value))} /> 
+                                    <img className='icon' src='/assets/images/checkicon.webp' onClick={concluirEdit}/>
+                                     </div> ) : 
+                                     (
+                                     <div>
+                                         <input type='text' placeholder='Telefone do Cliente' value={numCliente}onChange={e => setNumCliente(e.target.value)}  readOnly/> 
+                                         <img className='icon' src='/assets/images/editicon.png' onClick={editTel} />
+                                         </div>  )
+                                         }
                      </div>
                      
                      <div className="avas">

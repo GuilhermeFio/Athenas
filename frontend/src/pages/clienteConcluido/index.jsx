@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import './index.scss'
 import Menu from '../../components/abasMenu'
 import axios from 'axios'
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { useParams } from 'react-router-dom';
 
 export default function ClienteConcluido(){
@@ -58,6 +58,8 @@ export default function ClienteConcluido(){
 
     const[objetivos, setObjetivos] = useState('');
     const[exercicios, setExercicios] = useState('');
+
+    
 
    
 
@@ -115,7 +117,7 @@ export default function ClienteConcluido(){
 
 
             setPeso2 (cliente.pesoReavaliacao);
-            setImc2 (cliente.imc2);
+            setImc2 (cliente.imcReavaliacao);
             setFreqCard2 (cliente.frequenciaCardiacaReavaliacao);
             setIndcCoracao2 (cliente.indiceCoracaoReavaliacao);
             setTaxaMuscular2 (cliente.taxaMuscularReavaliacao);
@@ -153,7 +155,7 @@ export default function ClienteConcluido(){
                     <div className="infosCliente">
                         <div className='nome'>
                             <h2>Nome do Cliente:</h2>
-                            <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} readOnly/>
+                            <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} readOnly />
                         </div>
 
                         <div className="datidade">

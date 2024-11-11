@@ -61,13 +61,13 @@ Endpoints.get('/cliente/concluido/:id', async (req,resp)=>{
     })
 
     
-/*Endpoints.put('/cliente/atualizar/:id', async (req,resp)=>{
+Endpoints.put('/cliente/atualizar/:id', autenticar, async (req,resp)=>{
 
     try {
-        let id = req.params.id;
+        let idCli = req.params.id;
         let clienteObj = req.body;
 
-        let linhasAfetadas = await db.atualizarCliente(id, clienteObj);
+        let linhasAfetadas = await db.atualizarCliente(idCli, clienteObj);
         if (linhasAfetadas >= 1) {
             resp.send();
         }
@@ -80,7 +80,28 @@ Endpoints.get('/cliente/concluido/:id', async (req,resp)=>{
             erro: err.message
         })
     }
-    })*/
+    })
+
+Endpoints.put('/cliente/atualizar/imagem/:id', autenticar, async (req,resp)=>{
+
+    try {
+        let idCli = req.params.id;
+        let clienteObj = req.body;
+
+        let linhasAfetadas = await db.atualizarImg(idCli, clienteObj);
+        if (linhasAfetadas >= 1) {
+            resp.send();
+        }
+        else {
+            resp.status(404).send({ erro: 'Nenhum registro encontrado' })
+        }
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+    })
 
 
 Endpoints.put('/cliente/atualizaridrev/:id', autenticar, async (req,resp)=>{

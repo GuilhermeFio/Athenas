@@ -182,7 +182,7 @@ export default function AdicionarTreino() {
                       
                             <div className='imagem'>
                                 {imgCliente == null ?(
-                                    <img id='cliente' src='assets/images/avatarfoto.png'/>
+                                    <img id='cliente' src='/assets/images/avatarfoto.png'/>
                                 ) : (
                                 <img id='cliente' src={imgCliente} alt="Foto" />
                             )}
