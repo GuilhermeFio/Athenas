@@ -3,6 +3,7 @@ import Menu from '../../components/abasMenu'
 import axios from 'axios'
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
+import { validarCliente, validarTreino, validarAvaliacao } from './vallidation';
 
 
 export default function AdicionarTreino() {
@@ -94,6 +95,10 @@ export default function AdicionarTreino() {
             const respAvaliacao = await axios.post(`http://localhost:5008/avaliacao/adicionar?x-access-token=${token}`, avaliacaoData);
              avaliacaoId = respAvaliacao.data.novoId;
 
+             //vallidation
+
+            validarAvaliacao(avaliacaoData)
+
 
             const treinoData = {
                 "objetivos": objetivos,
@@ -101,10 +106,12 @@ export default function AdicionarTreino() {
                 "dataReavaliacao": diaReavaliacao,
                 "exercicios": exercicios,
                 "concluido": false
-
             };
             const respTreino = await axios.post(`http://localhost:5008/treinos/adicionar?x-access-token=${token}`, treinoData);
             treinoId = respTreino.data.novoId;
+
+            //vallidation
+           validarTreino(treinoData)
 
             const clienteData = {
                 "nome": nomeCliente,
@@ -117,12 +124,16 @@ export default function AdicionarTreino() {
             };
 
             const respCliente = await axios.post(`http://localhost:5008/cliente/adicionar?x-access-token=${token}`, clienteData);
-            
 
+            //vallidation
+
+            validarCliente(clienteData)
+        
             alert(`Dados do cliente ${nomeCliente} adicionados com sucesso!`);
             navigate('/horariosTreinos')
 
         } catch (error) {
+
             alert('Erro ao adicionar os dados: ' + error.message);
 
             try {

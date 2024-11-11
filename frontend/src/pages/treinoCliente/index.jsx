@@ -2,8 +2,9 @@ import { useNavigate, useParams, Link } from 'react-router-dom'
 import './index.scss'
 import Menu from '../../components/abasMenu'
 import axios from 'axios'
+import moment from 'moment';
 import { useEffect, useState } from "react";
-import moment from 'moment'
+import { validarReavaliacao } from './vallidation';
 
 
 export default function InfoClientes (){
@@ -99,7 +100,7 @@ export default function InfoClientes (){
             const resp = await axios.get(url);
             const cliente = resp.data;
 
-            let data = moment(cliente.nascimento).format('DD/MM/YYYY')
+            let data = moment (cliente.nascimento).format('DD/MM/YYYY')
 
             setIdTreino(cliente.treino_id);
             
@@ -176,6 +177,10 @@ export default function InfoClientes (){
 
             };
             const respReavaliacao = await axios.post(`http://localhost:5008/reavaliacao/adicionar?x-access-token=${token}`, reavaliacaoData);
+
+            //vallidation
+
+            validarReavaliacao(reavaliacaoData)
             
             const reavaliacaoId = respReavaliacao.data.novoId;
           
@@ -211,7 +216,7 @@ export default function InfoClientes (){
             
           
             //É NECESSÁRIO COLOCAR A DATA NESSE FORMATO PRA SER ACEITO PELO BACKEND
-            setDataNascimento(moment(dataNascimento).format('YYYY-MM-DD'))
+            setDataNascimento(moment (dataNascimento).format('YYYY-MM-DD'))
 
 
           
@@ -220,15 +225,14 @@ export default function InfoClientes (){
     async function editNasc(){
             SetVouEditar(2)
             
-            setDataNascimento(moment(dataNascimento).format('YYYY-MM-DD'))
+            setDataNascimento(moment (dataNascimento).format('YYYY-MM-DD'))
              
     }
       //FUNÇÃO QUE PERMITIRA O USUÁRIO EDITAR O TELEFONE DO CLIENTE
     async function editTel(){
             SetVouEditar(3)
             
-            setDataNascimento(moment(dataNascimento).format('YYYY-MM-DD'))
-            
+            setDataNascimento(moment (dataNascimento).format('YYYY-MM-DD'))
     }
 
     //FUNÇÃO QUE VAI FAZER O UPDATE
@@ -251,10 +255,9 @@ export default function InfoClientes (){
             setDataNascimento(moment(dataNascimento).format('DD/MM/YYYY'))
             SetVouEditar(false)
            
-
-        } catch (error) {
-            alert('Erro ao alterar os dados: ' + error.message); 
-        }
+            } catch (error) {
+                alert('Erro ao alterar os dados: ' + error.message); 
+            }
     }
 
     //ESSA FUNÇÃO É PRA CALCULAR A IDADE DE ACORDO COM A DATA DE NACIMENTO
@@ -555,7 +558,7 @@ export default function InfoClientes (){
             </div>
                     <div className='botoes'>
                     <button onClick={addRev} className='concluir'> Concluir treino </button>
-                    <button onClick={excluir} className='excluir'> Excluir treino </button>
+                    <button onClick={excluir} className='excluir'> Excluir treino </button> 
                     
                     </div>
                         
