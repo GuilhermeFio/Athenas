@@ -191,6 +191,8 @@ export default function AdicionarTreino() {
 
                     <div className='avatar'>
                       
+                            <p>PROPORÇÃO RECOMENDADA - 1:1</p>
+
                             <div className='imagem'>
                                 {imgCliente == null ?(
                                     <img id='cliente' src='/assets/images/avatarfoto.png'/>
@@ -203,7 +205,7 @@ export default function AdicionarTreino() {
                         <div className="sobreimg">
 
                             <input type='file' accept='image/*' onChange={alterarImg} />
-                            <p>REMOVER IMAGEM <i class='fa-solid fa-trash botao' onClick={() => setImgCliente(null)} /></p>
+                            <p>REMOVER <i class='fa-solid fa-trash botao' onClick={() => setImgCliente(null)} /></p>
                         </div>
                     </div>
 

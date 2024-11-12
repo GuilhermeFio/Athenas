@@ -51,12 +51,11 @@ export default function TreinosConcluidos() {
             <div className="secaomae">
                 <div className="secao1">
                     <h1>TREINOS CONCLUÍDOS</h1>
-                   
                 </div>
                 <div className="secaotreinos">
                     <div className="treinosConcluídos">
                         {listaTC.length === 0 ? (
-                            <p>Os treinos Concluídos aparecerão aqui.</p>
+                            <p className='cond'>Os treinos concluídos aparecerão aqui.</p>
                         ) : (
                             listaTC.map(item => (
                                 <CardTreinoConcluido item={item} />

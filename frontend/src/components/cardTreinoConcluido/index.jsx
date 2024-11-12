@@ -18,15 +18,15 @@ function CardTreinoConcluido(props) {
                 <div className='infosCliente'>
                     <div>
                         <h3>Nome do Cliente:</h3>
-                        <h3>{props.item.nome}</h3>
+                        <p>{props.item.nome}</p>
                     </div>
                     <div>
                         <h3>Data da Avaliação:</h3>
-                        <h3>{new Date(props.item.dataAvaliacao).toLocaleString()}</h3>
+                        <p>{new Date(props.item.dataAvaliacao).toLocaleString()}</p>
                     </div>
                     <div>
                         <h3>Data da Reavaliação:</h3>
-                        <h3>{new Date(props.item.dataReavaliacao).toLocaleString()}</h3>
+                        <p>{new Date(props.item.dataReavaliacao).toLocaleString()}</p>
                     </div>
                 </div>
                 </Link>) }

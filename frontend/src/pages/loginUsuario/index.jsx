@@ -36,15 +36,13 @@ export default function Login() {
 
       <main>
         <section className="secao1 secao" >
-
-          <Link to={'/'}><i id='voltar' className="fa-solid fa-arrow-left"> </i> </Link>
-
+          
           <div className='login'>
             <h1> Acesse sua área de trabalho abaixo: </h1>
 
             <div className='informacoes'>
 
-              <input id='email' type='text' placeholder='E-mail' value={email} onChange={(e) =>setEmail(e.target.value)}/>
+              <input id='email' type='text' placeholder='Usuário' value={email} onChange={(e) =>setEmail(e.target.value)}/>
 
               <input id='senha' type='text' placeholder='Senha' value={senha} onChange={(e) =>setSenha(e.target.value)} />
 

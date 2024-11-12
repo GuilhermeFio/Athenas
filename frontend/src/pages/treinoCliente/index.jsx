@@ -330,12 +330,12 @@ export default function InfoClientes (){
   
           <div className='secaomae'>
 
-          <Link className='seta' to={'/horariosTreinos'}><i id='voltar' className="fa-solid fa-arrow-left"> </i> </Link>
-  
             <h2 className='titulo'>TREINO DE {nomeCliente.toUpperCase()}</h2> 
          
             <div className='secaoCliente'>
             <div className='avatar'>
+
+                    <p>PROPORÇÃO RECOMENDADA - 1:1</p>
                       
                       <div className='imagem'>
                           {imagem == null ?(
@@ -352,7 +352,7 @@ export default function InfoClientes (){
                       {imgAlterada ? (
                         <p onClick={updateImg}>SALVAR</p>
                       ) : (
-                        <p onClick={() => setImagem(null)}>REMOVER IMAGEM <i class='fa-solid fa-trash botao' /></p>)}
+                        <p onClick={() => setImagem(null)}>REMOVER <i class='fa-solid fa-trash botao' /></p>)}
                       
                   </div>
               </div>

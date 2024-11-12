@@ -3,32 +3,58 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 4vh;
+    gap: 1vh;
+
+    h1{
+        color: #ffffff;
+        font: 600 3.5vh 'Roboto';
+    }
+
+    h2{
+        color: #ffffff;
+        font: 500 3vh 'Roboto';
+    }
 
     .secaomae{
+        display: flex;
+        flex-direction: column;
+        gap: 4vh;
+        padding: 4vh;
 
         .secao1{
             display: flex;
             flex-direction: column;
-            padding: 20px;
-            h1{
-                color: #fff;
-                font: 700 3.5vh 'Roboto';
-                
-            }
+            justify-content: center;
+            gap: 2vh;
         }
+
+        .secaotreinos{
+            display: flex;
+            flex-direction: column;
+            gap: 4vh;
+            
             .treinosConcluídos{
-                border: 1px solid black;
                 display: flex;
                 flex-direction: row;
+                gap: 4vh;
                 flex-wrap: wrap;
-                text-align: center;
-                gap: 2em;
-                justify-content: space-between;
+
+                .cond{
+                    color: #FFFFFF;
+                    font: 400 1em 'Roboto';
+                }
+
                 p{
-                    color: #fff;
-                    font: 400 2.5vh 'Roboto';
+                    color: #494545;
+                    font: 400 1em 'Roboto';
+                }
+
+                h3{
+                    color: #000;
+                    font: 500 1.3em 'Roboto';
                 }
             }
+        }
+            
     }
 }

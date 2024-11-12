@@ -18,7 +18,7 @@
     .secaomae{
         display: flex;
         flex-direction: column;
-        gap: 2.5vh;
+        gap: 4vh;
         padding: 4vh;
 
         .secao1{
@@ -27,7 +27,6 @@
             justify-content: center;
             gap: 2vh;
 
-     
             .irAddTreino{
                 display: flex;
                 flex-direction: row;
@@ -47,18 +46,17 @@
             display: flex;
             flex-direction: column;
             gap: 4vh;
-            
-            .titulo{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-            }
 
             .treinosMarcados{
                 display: flex;
                 flex-direction: row;
-                gap: 10px;
+                gap: 4vh;
                 flex-wrap: wrap;
+
+                .cond{
+                    color: #FFFFFF;
+                    font: 400 1em 'Roboto';
+                }
 
                 p{
                     color: #494545;

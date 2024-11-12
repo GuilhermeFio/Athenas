@@ -52,7 +52,7 @@ export default function HorarioTreinos() {
                 <div className="secaotreinos">
                     <div className="treinosMarcados">
                         {listaTreinos.length === 0 ? (
-                            <p>Os treinos marcados aparecerão aqui.</p>
+                            <p className='cond'>Os treinos marcados aparecerão aqui.</p>
                         ) : (
                             listaTreinos.map(item => (
                                 <CardTreinoMarcado item={item} />

@@ -23,9 +23,15 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                align-items: center;
                 background-color: #d8d8d8;
                 border-radius: 8px;
-                width: 27vw;
+                width: 29vw;
+                gap: 1vh;
+
+                p{
+                    font: 400 16px 'Roboto';
+                }
 
                 .imagem{
                     display: flex;
@@ -42,15 +48,20 @@
                     gap: 1vh;
                     justify-content: center;
                     align-items: center;
-                }
-                
-                input{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    align-items: center;
-                    width: 13vw;
-                  
+
+                    input{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        width: 14.7vw;
+                    }
+
+                    p{
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1vh;
+                    }
                 }
             }
 
