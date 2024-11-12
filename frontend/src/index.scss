@@ -9,68 +9,6 @@
 
 .pagina {
 
-    .cabecalho {
-
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 35vw;
-        background-color: #fff;
-        box-shadow: 1px 1px 2px #000;
-
-        .logo {
-
-            width: 9vh;
-
-        }
-
-
-        .opcoes {
-
-            display: flex;
-            flex-direction: row;
-            gap: 7vw;
-            justify-content: space-evenly;
-            font-family: 'Kanit';
-            margin-left: 25vw;
-
-            .login {
-
-                display: flex;
-                flex-direction: row;
-                gap: 10vh;
-                color: #ce3131;
-
-                #user {
-
-                    margin-top: 10px;
-                }
-
-            }
-
-            p {
-
-                font-size: 24px;
-                color: #000;
-
-            }
-
-        }
-
-
-        #config {
-
-            margin-left: 550px;
-            margin-top: 45px;
-
-        }
-
-
-
-    }
-
-
     .secao {
 
         display: flex;

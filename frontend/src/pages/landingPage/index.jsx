@@ -13,11 +13,10 @@ function Landing() {
         <div className='link-toggle'>
                         ≡
         </div>
-        <div className='opcoes'>
-          <p> <a href='#s3'> Personal Trainer </a> </p>
-          <p> <a href='#s4'> Sobre o Athenas </a> </p>
-          <p> <a href='#s5'> Contato </a> </p>
-        </div>
+        <p> <a href='#s3'> Personal Trainer </a> </p>
+        <p> <a href='#s4'> Sobre o Athenas </a> </p>
+        <p> <a href='#s5'> Contato </a> </p>
+        
       </header>
 
       <main>
@@ -25,10 +24,12 @@ function Landing() {
           <img className='fundo' src='/assets/images/young-happy-sportswoman-getting-ready-workout-tying-shoelace-fitness-center.jpg' />
 
           <div className='texto1'>
-            <h1> Bem-vinda à Athenas</h1>
-            <p> Um ajudante pessoal para todas as suas necessidades </p>
+            <h1> Bem-vinda a Athenas</h1>
 
-            <button className='Login-button'> <Link to={'/loginUsuario'}> <p className='Acesse'> Acesse sua conta </p> </Link> </button>
+            <div className="intro">
+              <p> Um ajudante pessoal para todas as suas necessidades </p>
+              <button className='Login-button'> <Link to={'/loginUsuario'}> <p className='Acesse'> Acesse sua conta </p> </Link> </button>
+            </div>
           </div>
         </section>
 
@@ -65,7 +66,7 @@ function Landing() {
             <img className='ImgPersonal' src='assets/images/Autonomo.jpg' />
           </div>  
 
-          <div className='Formacoes'>
+          <div className='formacoes'>
             <div className="titulo">
               <img src='assets/images/medalha.png'/>
               <h2>FORMAÇÕES</h2>
@@ -159,8 +160,7 @@ function Landing() {
 
         <section className='secao5 secao' id='s5'>
 
-          <h1> Escolha a opção que mais lhe agrada para nos contatar
-            caso tenha alguma dúvida em relação ao seu site: </h1>
+          <h1> Escolha uma das opções abaixo para nos contatar caso tenha alguma dúvida em relação ao seu site: </h1>
 
           <div className='OpcoesContato'>
 
@@ -191,7 +191,7 @@ function Landing() {
                 <img src='assets/images/global.png' />
                 <h2> Website:</h2>
               </div>
-              <h3> www.devfox.com </h3>
+              <h3> http://4.172.207.208:3016 </h3>
 
             </div>
 

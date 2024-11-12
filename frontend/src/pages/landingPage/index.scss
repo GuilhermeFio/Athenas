@@ -15,84 +15,90 @@ html    {
 
     .cabecalho {
         display: flex;
-        padding: 2vh;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1vw;
+        padding-left: 4vh;
+        padding-right: 4vh;
+        background-color: #fff;
+        box-shadow: 1px 1px 2px #000;
 
-        .opcoes{
-
-            display: flex;
+        .logo {
+            width: 9vh;
         }
 
-         a{
-           color: #000;
-                }
+        a{
+            color: #000;
+        }
 
-      .link-toggle{
-        display: none;
-      }          
+        p {
+            font-family: 'Kanit';
+            font-size: 24px;
+            color: #000;
+        }
+
+        .link-toggle{
+            display: none;
+        }          
     }
 
     .secao1 {
-
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
 
         .fundo {
-
             max-width: 100%;
-
         }
 
         .texto1 {
-
             display: flex;
             flex-direction: column;
             justify-content: center;
             position: absolute;
        
-
             h1 {
-
                 font-family: 'Oswald';
                 font-size: 7vh;
                 color: #ffffff;
                 text-shadow: 1px 1px 2px #000;
                 text-align: center;
-
             }
 
-            p {
+            .intro{
+                display: flex;
+                flex-direction: column;
+                gap: 2vh;
 
-                font-family: 'Kanit';
-                font-size: 3vh;
-                color: #ffffff;
-                text-shadow: 1px 1px 2px #000;
+                 p {
+                    font-family: 'Kanit';
+                    font-size: 3vh;
+                    color: #ffffff;
+                    text-shadow: 1px 1px 2px #000;
+                }
+                
+                .Login-button {
+                    border-radius: 20px;
+                    background-color: #fff;
+                    max-width: 165px;
+                    padding: 12px;
+                    margin-left: 170px;
+                    border: none;
+                    font-family: 'Kanit';
 
+                    .Acesse {
+                        font-family: 'Roboto';
+                        color: #000;
+                        text-decoration: none;
+                    }
+                }
             }
-        }
-
-        .Login-button {
-
-            border-radius: 20px;
-            background-color: #fff;
-            max-width: 165px;
-            padding: 12px;
-            margin-left: 170px;
-            border: none;
-            font-family: 'Kanit';
-
-
-            .Acesse {
-                font-family: 'Roboto';
-                color: #000;
-                text-decoration: none;
-            }
-
+           
         }
 
     }
-
 
     .secao2 {
 
@@ -100,7 +106,8 @@ html    {
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-        padding: 10vh;
+        padding: 5vh;
+        gap: 7vh;
 
         .img2 {
             width: 60vh;
@@ -111,8 +118,6 @@ html    {
             display: flex;
             flex-direction: column;
             gap: 2vh;
-
-
 
             h2 {
                 font-family: 'Inter';
@@ -137,7 +142,7 @@ html    {
                     font-family: 'Inter';
                     font-weight: 500;
                     font-size: 3vh;
-                    margin-bottom: 15px;
+                    margin-bottom: 3vh;
 
                 }
 
@@ -167,7 +172,12 @@ html    {
             .infoPersonal{
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 gap: 6vh;
+
+                p{
+                    border-radius: 20px;
+                }
             }
 
             h2 {
@@ -193,7 +203,7 @@ html    {
             }
         }
 
-        .Formacoes {
+        .formacoes {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -219,14 +229,14 @@ html    {
             .itens{ //formacoes
                 display: flex;
                 flex-direction: row;
-                gap: 1vw;
+                gap: 3vw;
 
                 &>div {
                     background-color: #CADFFF;
                     box-shadow: 1px 1px 2px #000;
                     padding: 2vh;
                     border-radius: 20px;
-                    width: 24vw;
+                    width: 27vw;
 
                     h2 {
                         text-align: center;
@@ -282,6 +292,7 @@ html    {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
+                gap: 17vh;
 
             }
 
@@ -462,6 +473,9 @@ html    {
             gap: 12vw;
 
             .Whatsapp {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5vh;
 
                 .titulo1 {
 
@@ -487,7 +501,7 @@ html    {
 
                     font-family: 'Inter';
                     font-weight: 600;
-                    font-size: 3vh;
+                    font-size: 2.7vh;
                 }
 
             }
@@ -519,7 +533,7 @@ html    {
 
                     font-family: 'Inter';
                     font-weight: 600;
-                    font-size: 3vh;
+                    font-size: 2.7vh;
                 }
 
             }
@@ -527,6 +541,10 @@ html    {
 
 
             .Web {
+
+                display: flex;
+                flex-direction: column;
+                gap: 0.5vh;
 
                 .titulo3 {
 
@@ -553,7 +571,7 @@ html    {
 
                     font-family: 'Inter';
                     font-weight: 600;
-                    font-size: 3vh;
+                    font-size: 2.3vh;
                 }
 
             }
