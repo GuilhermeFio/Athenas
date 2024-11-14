@@ -67,6 +67,20 @@ export async function atualizarTreino(id, treinos){
     let resposta= await con.query(comando, [treinos.objetivos, treinos.exercicios, id]);
     let registros= resposta[0];
     return registros.affectedRows; 
+
+}
+
+
+export async function atualizarDtRevTreino(id, treinos){
+    const comando=  `
+        update athenasdb.treinos_marcados
+        set  dt_reavaliacao =?
+        where treino_id= ?;
+    `
+    
+    let resposta= await con.query(comando, [treinos.dataReavaliacao, id]);
+    let registros= resposta[0];
+    return registros.affectedRows; 
 } 
 /**************************************************************************************************************************************************************************/
 export async function deletarTreino(id){

@@ -63,7 +63,7 @@ function Landing() {
               <h2> Atuando desde 2011</h2>
               <p> Atua na questão de melhorar a saúde das pessoas, visando conseguir trazer mais tempo de vida e qualidade à elas. </p>
             </div>
-            <img className='ImgPersonal' src='assets/images/Autonomo.jpg' />
+            <img className='ImgPersonal' src='assets/images/angelica.webp' />
           </div>  
 
           <div className='formacoes'>

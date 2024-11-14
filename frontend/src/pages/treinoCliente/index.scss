@@ -29,6 +29,7 @@
                 border-radius: 8px;
                 width: 29vw;
                 gap: 1vh;
+                padding: 1em;
 
                 p{
                     font: 400 16px 'Roboto';
@@ -38,6 +39,7 @@
                 .imagem{
                     display: flex;
                     justify-content: center;
+                  
 
                     #cliente{
                        width: 21vw;
@@ -52,6 +54,16 @@
                     justify-content: center;
                     align-items: center;
                     gap: 1vh;
+
+                    .butao{
+
+                        width: 10vw;
+                        display: flex;
+                        justify-content: center;
+                        border: solid 1px black;
+                        padding: 0.3em;
+                        border-radius: 3.5px;
+                    }
 
                     p{
                         display: flex;
@@ -112,7 +124,7 @@
                         .icon{
                             width: 2.0em;
                             position: absolute;
-                            right: 2em;
+                            right: 3em;
                         }
                         }
 
@@ -176,7 +188,7 @@
                         .icon{
                             width: 2.0em;
                             position: absolute;
-                            right: 2em;
+                            right: 3em;
                         }
                         }
                     }
@@ -204,6 +216,10 @@
             padding: 10px;
             gap: 3vh;
             border-radius: 8px;
+
+            .butonedit{
+                font:500 1em 'Roboto';
+            }
 
             h2{
                 font: 600 24px 'Roboto';
