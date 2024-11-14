@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import { validarCliente, validarTreino, validarAvaliacao } from './vallidation';
 import moment from 'moment';
+import toast, {Toaster} from 'react-hot-toast';
 
 
 export default function AdicionarTreino() {
@@ -132,12 +133,15 @@ export default function AdicionarTreino() {
 
             validarCliente(clienteData)
         
-            alert(`Dados do cliente ${nomeCliente} adicionados com sucesso!`);
-            navigate('/horariosTreinos')
+            toast.success(`Dados do(a) cliente ${nomeCliente} adicionados com sucesso! Redirecionando para a página de treinos marcados...`);
+
+            setTimeout(() => {
+                navigate('/horariosTreinos')
+            }, 2500);
 
         } catch (error) {
 
-            alert('Erro ao adicionar os dados: ' + error.message);
+            toast.error('Erro ao adicionar os dados: ' + error.message);
 
             try {
                 if (avaliacaoId >0) {
@@ -147,7 +151,7 @@ export default function AdicionarTreino() {
                     await axios.delete(`http://localhost:5008/treinos/deletar/${treinoId}?x-access-token=${token}`);
                 }
             } catch (error) {
-                alert('Erro ao desfazer as alterações: ', error.message);
+                toast.error('Erro ao desfazer as alterações: ', error.message);
             }
         }
     }
@@ -328,6 +332,9 @@ export default function AdicionarTreino() {
                 <button onClick={salvar} className='botaoAdd'>ADICIONAR TREINO</button>
 
             </div>
+
+            <Toaster/>
+
         </div>
     );
 }

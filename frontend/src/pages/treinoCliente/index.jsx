@@ -5,7 +5,7 @@ import axios from 'axios'
 import moment from 'moment';
 import { useEffect, useState } from "react";
 import { validarReavaliacao } from './vallidation';
-
+import toast, {Toaster} from 'react-hot-toast';
 
 export default function InfoClientes() {
 
@@ -149,7 +149,7 @@ export default function InfoClientes() {
         await axios.delete(`http://localhost:5008/treinos/deletar/${idTreino}?x-access-token=${token}`);
 
 
-        alert(`Treino excluido com sucesso!`);
+        toast.success(`Treino excluido com sucesso!`);
         navigate('/horariosTreinos')
         await axios.delete(`http://localhost:5008/cliente/deletar/${id}?x-access-token=${token}`);
 
@@ -207,11 +207,14 @@ export default function InfoClientes() {
             await axios.put(url, treinoData);
 
 
-            alert('Reavaliação adicionada com sucesso!  IdReavaliacao:' + reavaliacaoId);
-            navigate('/horariosTreinos')
+            toast.success(`Treino do(a) cliente ${nomeCliente} concluído com sucesso! Redirecionando para a página de treinos concluídos...`);
+
+            setTimeout(() => {
+                navigate('/treinosConcluidos')
+            }, 2500);
 
         } catch (error) {
-            alert('Erro ao adicionar os dados: ' + error.message);
+            toast.error('Erro ao adicionar os dados: ' + error.message);
         }
     }
 
@@ -256,13 +259,13 @@ export default function InfoClientes() {
 
             const url = `http://localhost:5008/cliente/atualizar/${id}?x-access-token=${token}`
             await axios.put(url, editCli)
-            alert('Dado alterado com sucesso')
+            toast.success('Dado alterado com sucesso')
 
             setDataNascimento(moment(dataNascimento).format('DD/MM/YYYY'))
             SetVouEditar(false)
 
         } catch (error) {
-            alert('Erro ao alterar os dados: ' + error.message);
+            toast.error('Erro ao alterar os dados: ' + error.message);
         }
     }
 
@@ -290,13 +293,13 @@ export default function InfoClientes() {
 
             const url = `http://localhost:5008/treinos/atualizarInfo/${id}?x-access-token=${token}`
             await axios.put(url, editTreino)
-            alert('Dado alterado com sucesso')
+            toast.success('Dado alterado com sucesso')
 
 
             setEditinfoTre(false)
 
         } catch (error) {
-            alert('Erro ao alterar os dados: ' + error.message);
+            toast.error('Erro ao alterar os dados: ' + error.message);
         }
     }
 
@@ -320,14 +323,14 @@ export default function InfoClientes() {
 
             const url = `http://localhost:5008/treinos/atualizardtrev/${id}?x-access-token=${token}`
             await axios.put(url, editReavaliacao)
-            alert('Dado alterado com sucesso')
+            toast.success('Dado alterado com sucesso')
 
 
             setEditdtRev(false)
             setDiaReavaliacao(moment(diaReavaliacao).format('DD/MM/YYYY HH:mm'))
 
         } catch (error) {
-            alert('Erro ao alterar os dados: ' + error.message);
+            toast.error('Erro ao alterar os dados: ' + error.message);
         }
     }
 
@@ -363,12 +366,12 @@ export default function InfoClientes() {
 
             const url = `http://localhost:5008/avaliacao/atualizar/${idAvaliacao}?x-access-token=${token}`
             await axios.put(url, Avadata)
-            alert('Dados alterado com sucesso')
+            toast.success('Dados alterado com sucesso')
 
             setEditandoAva(false)
 
         } catch (error) {
-            alert('Erro ao alterar os dados: ' + error.message);
+            toast.error('Erro ao alterar os dados: ' + error.message);
         }
 
     }
@@ -427,12 +430,12 @@ export default function InfoClientes() {
 
             const url = `http://localhost:5008/cliente/atualizar/imagem/${id}?x-access-token=${token}`
             await axios.put(url, imgData)
-            alert('Dado alterado com sucesso')
+            toast.success('Dado alterado com sucesso')
 
             setImgAlterada(false)
 
         } catch (error) {
-            alert('Erro ao alterar os dados: ' + error.message);
+            toast.error('Erro ao alterar os dados: ' + error.message);
         }
     }
 
@@ -772,6 +775,9 @@ export default function InfoClientes() {
                 </div>
 
             </div>
+
+            <Toaster/>
+
         </div>
     );
 }

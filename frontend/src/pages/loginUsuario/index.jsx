@@ -3,7 +3,7 @@ import './index.scss'
 import axios from 'axios'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import toast, {Toaster} from 'react-hot-toast';
 
 export default function Login() {
 
@@ -22,7 +22,7 @@ export default function Login() {
     let resp = await axios.post(url,usuario)
 
     if (resp.data.erro != undefined){
-      alert(resp.data.erro)
+      toast.error(resp.data.erro)
     }
     else {
       localStorage.setItem('USUARIO', resp.data.token)
@@ -55,6 +55,8 @@ export default function Login() {
         </section>
         
       </main>
+      
+      <Toaster/>
 
     </div>
   );
