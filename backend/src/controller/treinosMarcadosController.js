@@ -114,6 +114,28 @@ Endpoints.get('/treinos/:id', async (req,resp) => {
    }
  })
 
+ Endpoints.put('/treinos/atualizarInfo/:id',autenticar, async (req,resp) => {
+ 
+    try {
+       let id = req.params.id
+       let treinos = req.body
+ 
+       let linhasAfetadas = await db.atualizarTreino(id, treinos);
+       if (linhasAfetadas >=1){
+           resp.send();
+       }
+       else {
+           resp.status(404).send({erro: 'Nenhum registro encontrado'})
+       }
+             
+   }
+    catch (err) {
+       resp.status(404).send({
+           erro : err.message
+       })
+   }
+ })
+
 
  
 

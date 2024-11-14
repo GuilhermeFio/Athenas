@@ -67,6 +67,8 @@ Endpoints.get('/avaliacao/consultar/:idCliente', autenticar, async (req,resp) =>
    }
  })
 
+ 
+
  Endpoints.delete('/avaliacao/deletar/:id', autenticar, async (req, resp) => {
     try {
         let id = req.params.id;

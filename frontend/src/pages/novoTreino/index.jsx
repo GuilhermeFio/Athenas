@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import { validarCliente, validarTreino, validarAvaliacao } from './vallidation';
+import moment from 'moment';
 
 
 export default function AdicionarTreino() {
@@ -37,6 +38,8 @@ export default function AdicionarTreino() {
 
     const [objetivos, setObjetivos] = useState('');
     const [exercicios, setExercicios] = useState('');
+
+    const [pomure, setPomure] = useState(false);
 
 
 
@@ -175,6 +178,11 @@ export default function AdicionarTreino() {
         }
     }, [dataNascimento]);
     
+    function mudaroinput(e){
+        setDiaAvaliacao(e.target.value)
+        setPomure(true)
+        
+    }
     
     
 
@@ -236,12 +244,13 @@ export default function AdicionarTreino() {
                         <div className="avas">
                             <div className='info'>
                                 <h2>Data da Avaliação:</h2>
-                                <input type='datetime-local' placeholder='Digite aqui' value={diaAvaliacao} onChange={e => setDiaAvaliacao(e.target.value)} />
+                                <input type='datetime-local' placeholder='Digite aqui' value={diaAvaliacao} onChange={mudaroinput} />
                             </div>
 
                             <div className='info'>
                                 <h2>Data da Reavaliação:</h2>
-                                <input type='datetime-local' placeholder='Digite aqui' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} />
+                                {pomure == true ? (<input type='datetime-local' placeholder='Digite aqui' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} min={moment(diaAvaliacao).format('YYYY-MM-DDTHH:mm')}/>) : (<input type='datetime-local' placeholder='Digite aqui' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} readOnly/>)}
+                                
                             </div>
                         </div>
                         

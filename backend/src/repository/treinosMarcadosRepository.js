@@ -55,6 +55,19 @@ export async function marcarTreinoConcluido(id, treinos){
     let registros= resposta[0];
     return registros.affectedRows; 
 } 
+
+export async function atualizarTreino(id, treinos){
+    const comando=  `
+        update athenasdb.treinos_marcados
+        set  ds_objetivos_cliente = ?,
+             exercicios_escolhidos = ?
+        where treino_id= ?;
+    `
+    
+    let resposta= await con.query(comando, [treinos.objetivos, treinos.exercicios, id]);
+    let registros= resposta[0];
+    return registros.affectedRows; 
+} 
 /**************************************************************************************************************************************************************************/
 export async function deletarTreino(id){
     const comando= `

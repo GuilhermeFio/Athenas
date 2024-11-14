@@ -2,10 +2,21 @@ import { Link } from 'react-router-dom';
 import './index.scss';
 
 function CardTreinoConcluido(props) {
+
+    
+    let div = 0
+    if(props.item.concluido == true){
+        div = 0
+    }
+    else{
+        div = 1
+    }
+
+
     return (
 
        
-            <div className='cartao'>
+            <div className={'cartao'+div}>
 
                 {props.item.concluido == true && (
 
