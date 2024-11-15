@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import { validarCliente, validarTreino, validarAvaliacao } from './vallidation';
 import moment from 'moment';
+
 import toast, {Toaster} from 'react-hot-toast';
 
 export default function AdicionarTreino() {
