@@ -100,7 +100,7 @@ export default function InfoClientes() {
     //FUNÇÃO PRA PUXAR AS INFORMAÇÕES DO CLIENTE
     async function consultar() {
 
-        const url = `http://localhost:5008/cliente/${id}`;
+        const url = `http://4.172.207.208:5008/cliente/${id}`;
         const resp = await axios.get(url);
         const cliente = resp.data;
 
@@ -144,14 +144,14 @@ export default function InfoClientes() {
     //FUNÇÃO PRA EXCLUIR O TREINO
     async function excluir() {
 
-        await axios.delete(`http://localhost:5008/avaliacao/deletar/${idAvaliacao}?x-access-token=${token}`);
+        await axios.delete(`http://4.172.207.208:5008/avaliacao/deletar/${idAvaliacao}?x-access-token=${token}`);
 
-        await axios.delete(`http://localhost:5008/treinos/deletar/${idTreino}?x-access-token=${token}`);
+        await axios.delete(`http://4.172.207.208:5008/treinos/deletar/${idTreino}?x-access-token=${token}`);
 
 
         toast.success(`Treino excluido com sucesso!`);
         navigate('/horariosTreinos')
-        await axios.delete(`http://localhost:5008/cliente/deletar/${id}?x-access-token=${token}`);
+        await axios.delete(`http://4.172.207.208:5008/cliente/deletar/${id}?x-access-token=${token}`);
 
 
     }
@@ -182,7 +182,7 @@ export default function InfoClientes() {
                 "aguaCorporal": aguaCorp2,
 
             };
-            const respReavaliacao = await axios.post(`http://localhost:5008/reavaliacao/adicionar?x-access-token=${token}`, reavaliacaoData);
+            const respReavaliacao = await axios.post(`http://4.172.207.208:5008/reavaliacao/adicionar?x-access-token=${token}`, reavaliacaoData);
 
             //vallidation
 
@@ -195,7 +195,7 @@ export default function InfoClientes() {
                 "reavaliacao_id": reavaliacaoId,
             };
 
-            await axios.put(`http://localhost:5008/cliente/atualizaridrev/${id}?x-access-token=${token}`, clienteData);
+            await axios.put(`http://4.172.207.208:5008/cliente/atualizaridrev/${id}?x-access-token=${token}`, clienteData);
 
 
             //MARCAR O TREINO COMO CONCLUÍDO
@@ -203,7 +203,7 @@ export default function InfoClientes() {
                 "concluido": true,
             };
 
-            const url = `http://localhost:5008/treinos/atualizar/${idTreino}?x-access-token=${token}`
+            const url = `http://4.172.207.208:5008/treinos/atualizar/${idTreino}?x-access-token=${token}`
             await axios.put(url, treinoData);
 
 
@@ -257,7 +257,7 @@ export default function InfoClientes() {
                 "telefone": numCliente
             }
 
-            const url = `http://localhost:5008/cliente/atualizar/${id}?x-access-token=${token}`
+            const url = `http://4.172.207.208:5008/cliente/atualizar/${id}?x-access-token=${token}`
             await axios.put(url, editCli)
             toast.success('Dado alterado com sucesso')
 
@@ -291,7 +291,7 @@ export default function InfoClientes() {
                 "exercicios": exercicios,
             }
 
-            const url = `http://localhost:5008/treinos/atualizarInfo/${id}?x-access-token=${token}`
+            const url = `http://4.172.207.208:5008/treinos/atualizarInfo/${id}?x-access-token=${token}`
             await axios.put(url, editTreino)
             toast.success('Dado alterado com sucesso')
 
@@ -321,7 +321,7 @@ export default function InfoClientes() {
                 "dataReavaliacao": diaReavaliacao,
             }
 
-            const url = `http://localhost:5008/treinos/atualizardtrev/${id}?x-access-token=${token}`
+            const url = `http://4.172.207.208:5008/treinos/atualizardtrev/${id}?x-access-token=${token}`
             await axios.put(url, editReavaliacao)
             toast.success('Dado alterado com sucesso')
 
@@ -364,7 +364,7 @@ export default function InfoClientes() {
 
             }
 
-            const url = `http://localhost:5008/avaliacao/atualizar/${idAvaliacao}?x-access-token=${token}`
+            const url = `http://4.172.207.208:5008/avaliacao/atualizar/${idAvaliacao}?x-access-token=${token}`
             await axios.put(url, Avadata)
             toast.success('Dados alterado com sucesso')
 
@@ -428,7 +428,7 @@ export default function InfoClientes() {
                 "imagem": imagem
             }
 
-            const url = `http://localhost:5008/cliente/atualizar/imagem/${id}?x-access-token=${token}`
+            const url = `http://4.172.207.208:5008/cliente/atualizar/imagem/${id}?x-access-token=${token}`
             await axios.put(url, imgData)
             toast.success('Dado alterado com sucesso')
 
