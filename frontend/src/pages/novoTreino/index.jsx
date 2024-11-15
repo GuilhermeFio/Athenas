@@ -7,7 +7,6 @@ import { validarCliente, validarTreino, validarAvaliacao } from './vallidation';
 import moment from 'moment';
 import toast, {Toaster} from 'react-hot-toast';
 
-
 export default function AdicionarTreino() {
 
     const [token, setToken] = useState(null);
