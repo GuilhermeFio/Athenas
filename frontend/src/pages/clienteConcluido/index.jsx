@@ -4,6 +4,8 @@ import Menu from '../../components/abasMenu'
 import axios from 'axios'
 import { useEffect, useState} from "react";
 import { useParams } from 'react-router-dom';
+import moment from 'moment';
+
 
 export default function ClienteConcluido(){
 
@@ -89,13 +91,17 @@ export default function ClienteConcluido(){
             const resp = await axios.get(url);
             const cliente = resp.data;
 
+            let data = moment(cliente.nascimento).format('DD/MM/YYYY')
+            let dataAva = moment(cliente.dataAvaliacao).format('DD/MM/YYYY HH:mm')
+            let dataRev = moment(cliente.dataReavaliacao).format('DD/MM/YYYY HH:mm')
+
 
             setNomeCliente(cliente.nome);
-            setDataNascimento(new Date(cliente.nascimento).toLocaleDateString());
+            setDataNascimento(data);
             setIdadeCliente(cliente.idade);
             setNumCliente(cliente.telefone);
-            setDiaAvaliacao(new Date(cliente.dataAvaliacao).toLocaleDateString());
-            setDiaReavaliacao(new Date(cliente.dataReavaliacao).toLocaleDateString());
+            setDiaAvaliacao(dataAva);
+            setDiaReavaliacao(dataRev);
             setImagem(cliente.perfil)
 
             setPeso (cliente.peso);
