@@ -221,6 +221,7 @@ export default function AdicionarTreino() {
                         </div>
                     </div>
 
+
                     <div className="infosCliente">
                         <div className='info'>
                             <h2>Nome do Cliente:</h2>

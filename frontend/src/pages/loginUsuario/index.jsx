@@ -11,8 +11,16 @@ export default function Login() {
 
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
+  const [showPass, setShowPass] = useState(null)
 
   const navigate = useNavigate()
+
+  function mostrarSenha(){
+    setShowPass(true)
+  }
+  function esconderSenha(){
+    setShowPass(false)
+  }
 
   async function entrar(){
     const usuario = {
@@ -45,8 +53,17 @@ export default function Login() {
             <div className='informacoes'>
 
               <input id='email' type='text' placeholder='Usuário' value={email} onChange={(e) =>setEmail(e.target.value)}/>
-
-              <input id='senha' type='text' placeholder='Senha' value={senha} onChange={(e) =>setSenha(e.target.value)} />
+              {showPass ? (
+              <div>
+                <input id='senha' type='text' placeholder='Senha' value={senha} onChange={(e) =>setSenha(e.target.value)} />
+                <img src='assets/images/eye-off.png' onClick={esconderSenha} />
+              </div>
+              ) : (
+              <div>
+                <input id='senha' type='password' placeholder='Senha' value={senha} onChange={(e) =>setSenha(e.target.value)} />
+                <img src='assets/images/eye.png' onClick={mostrarSenha}/>
+              </div>)}
+              
 
               <button onClick={entrar}> Fazer login </button>
 

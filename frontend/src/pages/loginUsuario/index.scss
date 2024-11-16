@@ -5,23 +5,25 @@
 
     .secao1 {
         background-image: url('../../../public/assets/images/fundoLogin.jpg');
-        background-size: 100%;
+        background-size: 100vw 100vh;
         background-repeat: no-repeat;
-        position: fixed;
-        height: 100%;
-        width: 100%;
+        padding: 8vw;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        
 
         .login {
 
             display: flex;
             flex-direction: column;
             gap: 4vh;
-            padding: 1vh;
-            position: absolute;
-            right: 5%;
-            top: 25%;
-            right: 9%;
-
+            
+       
+            
             h1 {
 
                 color: #fff;
@@ -40,18 +42,78 @@
                 justify-content: center;
                 align-items: center;
                 gap: 3vh;
-            
+
+                input{
+                    max-width: 35vw;
+                
+                }
+
+                div{
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+    
+                        img{
+                            position: absolute;
+                            right: 1.4em;
+                            width: 2em;
+                        }    
+                }
+                
                 button {
 
                     color: #fff;
                     font: 600 3vh 'Inter';
                     background-color: #434343;
-                    margin-left: 0.5vmax;
-                    width: 20vw;
+                    min-width: 15vw;
                 }
 
                 button:hover {
                     color: #929292;
+                }
+            }
+        }
+    }
+
+
+    @media screen and (max-width: 768px) {
+        .secao1{
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+        
+            .login {
+                
+                gap: 12vh;
+                
+                h1 {
+    
+                    width: 80vw;   
+    
+                }
+    
+                .informacoes {
+    
+                    input{
+                        max-width: 75vw;
+                    }
+                
+                    button {
+
+                        font: 600 3vh 'Inter';
+                        background-color: #434343;
+                        min-width: 60vw;
+                        max-width: 75vw;
+                    }
+    
+                    button:hover {
+                        color: #929292;
+                    }
                 }
             }
         }

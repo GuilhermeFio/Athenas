@@ -11,7 +11,7 @@
         padding-top: 15px;
         padding-bottom: 15px;
         padding-left: 30px;
-        padding-right: 30px;
+        padding-right: 30px; 
 
         .usuario{
             display: flex;
@@ -31,9 +31,21 @@
             align-items: center;
             gap: 7px;
 
-            .horas{
-                width: 25px;
+            .treinosmarcados{
+                display: flex;
+                flex-direction: row;
+                gap: 1em;
+
+                .horas{
+                    width: 30px;
+                }
+    
+                p{
+                    color: #000;
+                    text-decoration: none;
+                }
             }
+            
         }
 
         .conclu{
@@ -43,31 +55,16 @@
             align-items: center;
             gap: 7px;
 
-            .check{
-                width: 25px;
-            }
-        }
-
-        .logout{
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 7px;
-
-            .sair{
-                width: 40px;
-            }
-        }
-
-        .treinosmarcados{
-            p{
-                color: #000;
-                text-decoration: none;
-            }
-        }
-        
             .finalizados{
+
+                display: flex;
+                flex-direction: row;
+                gap: 1em;
+
+                .check{
+                    width: 30px;
+                }
+
                 p{
                     color: #000;
                     text-decoration: none;
@@ -75,8 +72,70 @@
         
             }
 
+            
+        }
+
+        .logout{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+
+            .sair{
+                width: 40px;
+            }
+        }
+
         p{
             font: 500 26px 'Roboto';
         }
+    }
+
+    @media screen and (max-width: 768px){
+
+        .horarios{
+            
+            .treinosmarcados{
+                
+                .horas{
+                    width: 30px;
+                }
+    
+                p{
+                    display: none;
+                }
+            }
+            
+        }
+
+        .conclu{
+       
+            .finalizados{
+
+                .check{
+                    width: 30px;
+                }
+
+                p{
+                    display: none;
+                }
+        
+            }
+
+            
+        }
+
+        .logout{
+           
+            .sair{
+                width: 40px;
+            }
+
+            p{
+                display: none;
+            }
+        }
+        
     }
 }

@@ -18,14 +18,14 @@ export default function Menu (){
                     <img className='user' src='/assets/images/logo_1.png'/>
                 </div>
 
-                <div className="horarios">
+                <div className="horarios"><Link className='treinosmarcados' to = {'/horariosTreinos'}>
                     <img className='horas' src='/assets/images/relogio.png'/>
-                    <Link className='treinosmarcados' to = {'/horariosTreinos'}><p>Treinos Marcados</p></Link>
+                    <p>Treinos Marcados</p></Link>
                 </div>
 
-                <div className="conclu">
+                <div className="conclu"><Link className='finalizados' to = {'/treinosConcluidos'}>
                     <img className='check' src='/assets/images/concluido.png'/>
-                    <Link className='finalizados' to = {'/treinosConcluidos'}><p>Treinos Concluídos</p></Link>
+                    <p>Treinos Concluídos</p></Link>
                 </div>
                 
                 <div className="logout">

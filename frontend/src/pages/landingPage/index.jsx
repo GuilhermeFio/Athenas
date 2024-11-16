@@ -35,7 +35,8 @@ function Landing() {
 
         <section className='secao2 secao' id='s2'>
 
-          <img className='img2' src='/assets/images/Img-secao2.jpg' />
+          <img className='img2' src='/assets/images/Img-secao2.jpg' />      
+         
 
           <div className='texto2'>
 
@@ -44,7 +45,7 @@ function Landing() {
 
             <ul className='tarefasPersonal'>
 
-              <li> Aumentar o conhecimento do cliente sobre condicionamento físico em geral;</li>
+              <li className='item1'> Aumentar o conhecimento do cliente sobre condicionamento físico em geral;</li>
               <li> Ajudar no aperfeiçoamento da execução de exercícios;</li>
               <li>Indicar profissionais para orientações nutricionais;</li>
               <li> Aumentar a confiança e a motivação do cliente durante os treinos.</li>
@@ -153,14 +154,12 @@ function Landing() {
 
           </div>
 
-
-
-
         </section>
 
         <section className='secao5 secao' id='s5'>
-
-          <h1> Escolha uma das opções abaixo para nos contatar caso tenha alguma dúvida em relação ao seu site: </h1>
+             
+          <h1 className='textoPadrão'> Escolha uma das opções abaixo para nos contatar caso tenha alguma dúvida em relação ao seu site: </h1>
+          <h1 className='textoReduzido'> Entre em contato conosco em caso de dúvida: </h1>
 
           <div className='OpcoesContato'>
 
@@ -171,32 +170,28 @@ function Landing() {
                 <h2> WhatsApp:</h2>
               </div>
               
-              <h3> +55 11 95775-0999</h3>
-
+              <h3> +55 11 95775-0999 </h3> <hr />
+           
             </div>
-
+            
             <div className='Email'>
-
               <div className='titulo2'>
                 <img src='assets/images/email.png' />
                 <h2> E-Mail:</h2>
               </div>
-              <h3> suportedevfox@gmail.com </h3>
-
+              <h3> suportedevfox@gmail.com </h3> <hr />
             </div>
-
+  
             <div className='Web'>
-
               <div className='titulo3'>
                 <img src='assets/images/global.png' />
                 <h2> Website:</h2>
               </div>
-              <h3> http://4.172.207.208:3016 </h3>
-
+              <h3> http://4.172.207.208:3016 </h3> <hr />
+            
             </div>
-
+           
           </div>
-
           <h1 className='atend'> Atendimento: De segunda à sábado, das 9:30 às 18:30 </h1>
         </section>
       </main>
