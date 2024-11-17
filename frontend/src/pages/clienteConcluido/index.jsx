@@ -4,7 +4,7 @@ import Menu from '../../components/abasMenu'
 import axios from 'axios'
 import { useEffect, useState} from "react";
 import { useParams } from 'react-router-dom';
-import moment from 'moment';
+import {format} from 'date-fns'
 
 
 export default function ClienteConcluido(){
@@ -91,9 +91,9 @@ export default function ClienteConcluido(){
             const resp = await axios.get(url);
             const cliente = resp.data;
 
-            let data = moment(cliente.nascimento).format('DD/MM/YYYY')
-            let dataAva = moment(cliente.dataAvaliacao).format('DD/MM/YYYY HH:mm')
-            let dataRev = moment(cliente.dataReavaliacao).format('DD/MM/YYYY HH:mm')
+            let data = format(cliente.nascimento, 'dd/MM/yyyy')
+            let dataAva = format(cliente.dataAvaliacao, 'dd/MM/yyyy HH:mm')
+            let dataRev = format(cliente.dataReavaliacao, 'dd/MM/yyyy HH:mm')
 
 
             setNomeCliente(cliente.nome);
@@ -159,38 +159,38 @@ export default function ClienteConcluido(){
                     <img className= 'avatar' src={imagem}/>
 
                     <div className="infosCliente">
-                        <div className='nome'>
+                        <div className='info'>
                             <h2>Nome do Cliente:</h2>
-                            <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} readOnly />
+                            <input className='nome' type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} readOnly />
                         </div>
 
                         <div className="datidade">
-                            <div className='nascimento'>
+                            <div className='info'>
                                 <h2>Data de Nascimento:</h2>
-                                <input type='text' placeholder='Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} readOnly/>
+                                <input className='datanasc' type='text' placeholder= 'Data de nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} readOnly/>
                             </div>
                         
-                            <div className='idade'>
+                            <div className='info'>
                                 <h2>Idade do Cliente:</h2>
-                                <input type='text' placeholder='Idade do cliente' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} readOnly/>
+                                <input className='idade' type='text' placeholder= 'Idade do cliente' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} readOnly/>
                             </div>
                         </div>
                         
                         
-                        <div className='telefone'>
+                        <div className='info'>
                             <h2>Telefone do Cliente:</h2>
-                            <input type='text' placeholder='Telefone do cliente' value={numCliente} onChange={e => setNumCliente(e.target.value)} readOnly/>
+                            <input className='telefone' type='text' placeholder='Telefone do cliente' value={numCliente} onChange={e => setNumCliente(e.target.value)} readOnly/>
                         </div>
                         
                         <div className="avas">
-                            <div className='dataava'> 
+                            <div className='info'> 
                                 <h2>Data da Avaliação:</h2>
-                                <input type='text' placeholder='Data da Avaliação' value={diaAvaliacao} onChange={e => setDiaAvaliacao(e.target.value)} readOnly/>
+                                <input className='dataAva' type='text' placeholder='Data da Avaliação' value={diaAvaliacao} onChange={e => setDiaAvaliacao(e.target.value)} readOnly/>
                             </div>
 
-                            <div className='datareava'>
+                            <div className='info'>
                                 <h2>Data da Reavaliação:</h2>
-                                <input type='text' placeholder='Data da Reavaliação' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} readOnly/>
+                                <input className='dataRev' type='text' placeholder='Data da Reavaliação' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} readOnly/>
                             </div>
                         </div>
                     </div>
@@ -199,123 +199,107 @@ export default function ClienteConcluido(){
                 <div className="detalhesTreino">
                     <div className="objetivosTreino">
                         <h2>OBJETIVOS DO CLIENTE:</h2>
-                        <input className='objetivos' type='text' placeholder='Objetivos do Cliente' value={objetivos} onChange={e => setObjetivos(e.target.value)} readOnly/>
+                        <textarea className='objetivo' type='text' placeholder='Objetivos do Cliente' value={objetivos} onChange={e => setObjetivos(e.target.value)} readOnly/>
                     </div>
                     <div className="exerciciosTreino">
                         <h2>EXERCÍCIOS SELECIONADOS:</h2>
-                        <input className='exercicios' type='text' placeholder='Exercícios Selecionados' value={exercicios} onChange={e => setExercicios(e.target.value)} readOnly/>
+                        <textarea className='exercicio' type='text' placeholder='Exercícios Selecionados' value={exercicios} onChange={e => setExercicios(e.target.value)} readOnly/>
                     </div>
                 </div>
 
                 <div className="tabela">
-                    <table>
-                        <thead className='nomes'>
-                            <tr>
-                                <td>ATRIBUTO</td>
-                                <td>AVALIAÇÃO</td>
-                                <td>REAVALIAÇÃO</td>
-                            </tr>
-                        </thead>
-                        
-                        <tbody>
-                            <tr>
-                                <td>Peso</td>
-                                <td>{peso}</td>
-                                <td>{peso2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>IMC</td>
-                                <td>{imc} </td>
-                                <td>{imc2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Frequência Cardíaca</td>
-                                <td>{freqCard}</td>
-                                <td>{freqCard2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Índice de Coração</td>
-                                <td >{indcCoracao}</td>
-                                <td>{indcCoracao2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Taxa Muscular</td>
-                                <td>{taxaMuscular}</td> 
-                                <td>{taxaMuscular2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Idade Metabólica</td>
-                                <td>{iddMetabolica}</td>
-                                <td>{iddMetabolica2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Taxa Metabólica Basal</td>
-                                <td>{taxaMetBasal}</td>
-                                <td>{taxaMetBasal2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Proteína</td>
-                                <td>{proteina}</td>
-                                <td>{proteina2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Massa Livre de Gordura</td>
-                                <td>{massaLivGord}</td>
-                                <td>{massaLivGord2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Massa Muscular</td>
-                                <td>{massaMusc}</td>
-                                <td>{massaMusc2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Massa Muscular Esquelética</td>
-                                <td>{massaMuscEsq}</td>
-                                <td>{massaMuscEsq2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Massa Óssea</td>
-                                <td>{massaOssea}</td>
-                                <td>{massaOssea2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Gordura Corporal</td>
-                                <td>{gordCorp}</td>
-                                <td>{gordCorp2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Gordura Subcutânea</td>
-                                <td>{gordSub}</td>
-                                <td>{gordSub2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Gordura Visceral</td>
-                                <td>{gordVis}</td>
-                                <td>{gordVis2}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Água Corporal</td>
-                                <td>{aguaCorp}</td>
-                                <td>{aguaCorp2}</td>
-                            </tr>
-                        </tbody>
-                    </table>    
-                </div>
+    <table>
+        <thead className="nomes">
+            <tr>
+                <td>ATRIBUTO</td>
+                <td>AVALIAÇÃO</td>
+                <td>REAVALIAÇÃO</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Peso</td>
+                <td>{peso}</td>
+                <td>{peso2}</td>
+            </tr>
+            <tr>
+                <td>IMC</td>
+                <td>{imc}</td>
+                <td>{imc2}</td>
+            </tr>
+            <tr>
+                <td>Frequência Cardíaca</td>
+                <td>{freqCard}</td>
+                <td>{freqCard2}</td>
+            </tr>
+            <tr>
+                <td>Índice de Coração</td>
+                <td>{indcCoracao}</td>
+                <td>{indcCoracao2}</td>
+            </tr>
+            <tr>
+                <td>Taxa Muscular</td>
+                <td>{taxaMuscular}</td>
+                <td>{taxaMuscular2}</td>
+            </tr>
+            <tr>
+                <td>Idade Metabólica</td>
+                <td>{iddMetabolica}</td>
+                <td>{iddMetabolica2}</td>
+            </tr>
+            <tr>
+                <td>Taxa Metabólica Basal</td>
+                <td>{taxaMetBasal}</td>
+                <td>{taxaMetBasal2}</td>
+            </tr>
+            <tr>
+                <td>Proteína</td>
+                <td>{proteina}</td>
+                <td>{proteina2}</td>
+            </tr>
+            <tr>
+                <td>Massa Livre de Gordura</td>
+                <td>{massaLivGord}</td>
+                <td>{massaLivGord2}</td>
+            </tr>
+            <tr>
+                <td>Massa Muscular</td>
+                <td>{massaMusc}</td>
+                <td>{massaMusc2}</td>
+            </tr>
+            <tr>
+                <td>Massa Muscular Esquelética</td>
+                <td>{massaMuscEsq}</td>
+                <td>{massaMuscEsq2}</td>
+            </tr>
+            <tr>
+                <td>Massa Óssea</td>
+                <td>{massaOssea}</td>
+                <td>{massaOssea2}</td>
+            </tr>
+            <tr>
+                <td>Gordura Corporal</td>
+                <td>{gordCorp}</td>
+                <td>{gordCorp2}</td>
+            </tr>
+            <tr>
+                <td>Gordura Subcutânea</td>
+                <td>{gordSub}</td>
+                <td>{gordSub2}</td>
+            </tr>
+            <tr>
+                <td>Gordura Visceral</td>
+                <td>{gordVis}</td>
+                <td>{gordVis2}</td>
+            </tr>
+            <tr>
+                <td>Água Corporal</td>
+                <td>{aguaCorp}</td>
+                <td>{aguaCorp2}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
             </div>      
         </div>
     )

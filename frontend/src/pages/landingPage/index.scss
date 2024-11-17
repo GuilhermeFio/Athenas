@@ -1,3 +1,5 @@
+
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
@@ -603,16 +605,22 @@ html    {
             display: flex;
             flex-direction: row;
             width: 192vw;
+            justify-content: center;
+            padding: 1em;
+
+            .logo{
+                width: 6.3em;
+            }
             
             p{
                 display: none;
             }
         
-        .link-toggle{
+        /*.link-toggle{
             display: flex;
             top:1vh;
             font-size: 10vh;
-        }
+        }*/
 
         }    
     
@@ -912,7 +920,7 @@ html    {
       }
   }
 
-    /*@media only screen and (max-width: 768px){
+   /* @media only screen and (max-width: 768px){
       .cabecalho{
           flex-direction: column;
 

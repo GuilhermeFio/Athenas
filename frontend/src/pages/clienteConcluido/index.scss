@@ -17,27 +17,55 @@
         .secaoCliente{
             display: flex;
             flex-direction: row;
+            gap: 4vw;
+            flex-wrap: wrap;
+           
+            
             align-items: center;
-            gap: 6vh;
+            justify-content: center;
 
-            .avatar{
-                border-radius: 8px;
-                height: 46vh;
-                
+            .avatar{  
+                max-width: 17em
             }
 
             .infosCliente{
                 display: flex;
                 flex-direction: column;
                 gap: 3vh;
+                padding: 1em;
+
+                .info{
+                    width: 100%;
+                    
+                    .nome{
+                        width: 100%;
+
+                    }
+                    .telefone{
+                        width: 100%;
+
+                    }
+                }
 
                 .datidade{
                     display: flex;
                     flex-direction: row;
                     gap: 4vh;
+                    width: 100%;
 
-                    input{
-                        width: 25vh;
+                    .info{
+                        width: 100%;
+
+                        .datanasc{
+                            width: 100%;
+
+                        }
+
+                        .idade{
+                             width: 100%;
+
+                        }
+                     
                     }
                 }
                 
@@ -45,20 +73,28 @@
                     display: flex;
                     flex-direction: row;
                     gap: 4vh;
+                    width: 100%;
+    
 
-                    input{
-                        width: 25vh;
+                    .info{
+                        width: 100%;
+
+                        .dataAva{
+                            width: 100%;
+
+                        }
+
+                        .dataRev{
+                            width: 100%;
+
+                        }
+                      
                     }
                 }
 
                 h2{
                     font: 600 23px 'Roboto';
                     color: #FFFFFF;
-                }
-
-                input{
-                    height: 6vh;
-                    width: 54vh;
                 }
             }
         }
@@ -69,7 +105,8 @@
             gap: 3vh;
 
             input{
-                width: 52vw;
+                width: 30em;
+                max-width: 80vw;
                 border-radius: 3px;
                 outline: none;
                 padding: 10px;
@@ -78,11 +115,20 @@
             .objetivosTreino{
                 display: flex;
                 flex-direction: column;
-                width: 54vw;
                 background-color: #d8d8d8;
                 border-radius: 8px;
                 padding: 15px;
                 gap: 10px;
+                
+                .objetivo{
+                    min-height: 4em;
+                    font: 500 1.5em 'Roboto';
+                    width: 30em;
+                    max-width: 80vw;
+                    border-radius: 3px;
+                    outline: none;
+                    padding: 10px;
+                }
 
                 h2{
                     font: 500 24px 'Roboto';
@@ -93,11 +139,20 @@
             .exerciciosTreino{
                 display: flex;
                 flex-direction: column;
-                width: 54vw;
                 background-color: #d8d8d8;
                 border-radius: 8px;
                 padding: 15px;
                 gap: 10px;
+
+                .exercicio{
+                    min-height: 4em;
+                    font: 500 1.5em 'Roboto';
+                    width: 30em;
+                    max-width: 80vw;
+                    border-radius: 3px;
+                    outline: none;
+                    padding: 10px;
+                }
 
                 h2{
                     font: 500 24px 'Roboto';
@@ -106,35 +161,74 @@
             }
         }
 
-        .tabela{
-            table {
-                background-color: #000000;
-                width: 105vh;
-            
-                .nomes {
-                    text-align: center;
-                    padding: 5px;
-
-                    td {
-                        font: 500 24px 'Roboto';
-                        color: #000000;
-                        text-align: left;
-                        padding: 5px;
-                        border-top: 1px solid #000;
-                        background-color: #d8d8d8;
-                    }
-
-                }
-            
-                td {
-                    font: 500 24px 'Roboto';
-                    color: #000000;
-                    text-align: left;
-                    padding: 5px;
-                    border-top: 1px solid #000;
-                    background-color: #FFFFFF;
-                }
-            }
+        .tabela {
+            width: 50em; 
+            max-width: 80vw;
+            overflow-x: auto; 
+        }
+        
+        .tabela table {
+            width: 100%; 
+            border-collapse: collapse; 
+            background-color: #000;
+            min-width: 600px; 
+        }
+        
+        .tabela .nomes td {
+            font: 500 1.5rem 'Roboto'; 
+            color: #000;
+            text-align: left;
+            padding: 0.5rem; 
+            border-top: 1px solid #000;
+            background-color: #d8d8d8;
+            border: #000 solid 2px;
+        }
+        
+        .tabela td {
+            font: 500 1.5rem 'Roboto';
+            border: #000 1px solid;
+            color: #000;
+            text-align: left;
+            padding: 0.5rem;
+            border-top: 1px solid #000;
+            background-color: #FFFFFF;
+            word-wrap: break-word; 
         }
     }
 }
+
+@media (max-width: 768px) {
+    .tabela table td {
+        font-size: 1rem; 
+        padding: 0.25rem; 
+    }
+}
+
+@media screen and (max-width: 600px) {
+       
+    .avatar{  
+        height: 20em;
+    }
+    .infosCliente{
+
+     .datidade{
+         flex-wrap: wrap;
+     }
+     
+     .avas{
+         flex-wrap: wrap;
+     }
+ }
+
+ .objetivo{
+    height: 10em;
+ }
+
+ .exercicio{
+    height: 10em;
+
+ }
+
+ }
+    
+

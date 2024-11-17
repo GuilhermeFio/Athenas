@@ -292,7 +292,7 @@ export default function InfoClientes() {
                 "exercicios": exercicios,
             }
 
-            const url = `http://4.172.207.208:5008/treinos/atualizarInfo/${id}?x-access-token=${token}`
+            const url = `http://4.172.207.208:5008/treinos/atualizarInfo/${idTreino}?x-access-token=${token}`
             await axios.put(url, editTreino)
             toast.success('Dado alterado com sucesso')
 
@@ -325,7 +325,6 @@ export default function InfoClientes() {
             const url = `http://4.172.207.208:5008/treinos/atualizardtrev/${id}?x-access-token=${token}`
             await axios.put(url, editReavaliacao)
             toast.success('Dado alterado com sucesso')
-
 
             setEditdtRev(false)
             setDiaReavaliacao(moment(diaReavaliacao).format('DD/MM/YYYY HH:mm'))
@@ -471,7 +470,7 @@ export default function InfoClientes() {
 
                             <input type='file' accept='image/*' onChange={alterarImg} />
                             {imgAlterada ? (
-                                <p onClick={updateImg}>SALVAR</p>
+                                <button className='butao' onClick={updateImg}>SALVAR</button>
                             ) : (
                                 <button className='butao'><p onClick={() => setImagem(null)}>REMOVER <i class='fa-solid fa-trash botao' /></p></button>)}
 
@@ -484,12 +483,12 @@ export default function InfoClientes() {
                             {vouEditar == 1 ?
                                 (
                                     <div>
-                                        <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} />
+                                        <input className='nomecli' type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} />
                                         <img className='icon' src='/assets/images/checkicon.webp' onClick={concluirEdit} />
                                     </div>) :
                                 (
                                     <div>
-                                        <input type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} readOnly />
+                                        <input className='nomecli' type='text' placeholder='Nome do cliente' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} readOnly />
                                         <img className='icon' src='/assets/images/editicon.png' onClick={editNom} />
                                     </div>)
                             }
@@ -501,12 +500,12 @@ export default function InfoClientes() {
                                 {vouEditar == 2 ?
                                     (
                                         <div>
-                                            <input type='date' placeholder='Data de Nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} max={new Date().toISOString().split("T")[0]} />
+                                            <input className='dtnasc' type='date' placeholder='Data de Nascimento' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} max={new Date().toISOString().split("T")[0]} />
                                             <img className='icon' src='/assets/images/checkicon.webp' onClick={concluirEdit} />
                                         </div>) :
                                     (
                                         <div>
-                                            <input type='text' placeholder='Nome do cliente' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} readOnly />
+                                            <input className='dtnasc' type='text' placeholder='Nome do cliente' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} readOnly />
                                             <img className='icon' src='/assets/images/editicon.png' onClick={editNasc} />
                                         </div>)
                                 }
@@ -514,7 +513,7 @@ export default function InfoClientes() {
 
                             <div className='idade'>
                                 <h2>Idade do Cliente:</h2>
-                                <input type='text' placeholder='Idade do cliente' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} readOnly />
+                                <input className='idadecli' type='text' placeholder='Idade do cliente' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} readOnly />
                             </div>
                         </div>
 
@@ -524,12 +523,12 @@ export default function InfoClientes() {
                             {vouEditar == 3 ?
                                 (
                                     <div>
-                                        <input type='text' placeholder='Telefone do Cliente' value={numCliente} onChange={e => setNumCliente(formatarTelefone(e.target.value))} />
+                                        <input className='telefonecli' type='text' placeholder='Telefone do Cliente' value={numCliente} onChange={e => setNumCliente(formatarTelefone(e.target.value))} />
                                         <img className='icon' src='/assets/images/checkicon.webp' onClick={concluirEdit} />
                                     </div>) :
                                 (
                                     <div>
-                                        <input type='text' placeholder='Telefone do Cliente' value={numCliente} onChange={e => setNumCliente(e.target.value)} readOnly />
+                                        <input className='telefonecli' type='text' placeholder='Telefone do Cliente' value={numCliente} onChange={e => setNumCliente(e.target.value)} readOnly />
                                         <img className='icon' src='/assets/images/editicon.png' onClick={editTel} />
                                     </div>)
                             }
@@ -539,8 +538,7 @@ export default function InfoClientes() {
                             <div className='dataava'>
                                 <h2>Data da Avaliação:</h2>
 
-                                <input type='text' placeholder='Data da Avaliação' value={diaAvaliacao} onChange={e => setDiaAvaliacao(e.target.value)} readOnly />
-
+                                <input className='dtava' type='text' placeholder='Data da Avaliação' value={diaAvaliacao} onChange={e => setDiaAvaliacao(e.target.value)} readOnly />
 
                             </div>
 
@@ -548,16 +546,13 @@ export default function InfoClientes() {
                                 <h2>Data da Reavaliação:</h2>
                                 {editdtRev ? (
                                     <div>
-                                        <input type='datetime-local' placeholder='Data da Reavaliação' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} min={moment(diaAvaliacao).format('YYYY-MM-DDTHH:mm')} />
+                                        <input className= 'dtrev' type='datetime-local' placeholder='Data da Reavaliação' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} min={moment(diaAvaliacao).format('YYYY-MM-DDTHH:mm')} />
                                         <img className='icon' src='/assets/images/checkicon.webp' onClick={concluirdtRev} />
                                         </div>) : 
                                         (<div>
-                                            <input type='text' placeholder='Data da Reavaliação' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} readOnly />
+                                            <input className='dtrev' type='text' placeholder='Data da Reavaliação' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} readOnly />
                                             <img className='icon' src='/assets/images/editicon.png' onClick={editRev} />
                                             </div>) }
-                                
-
-
 
                             </div>
                         </div>
@@ -688,11 +683,11 @@ export default function InfoClientes() {
                     <div className="objetivosTreino">
                         <h2>OBJETIVOS DO CLIENTE:</h2>
                         {editinfoTre == 3 ? (<div>
-                            <input className='objetivos' type='text' placeholder='Objetivos do Cliente' value={objetivos} onChange={e => setObjetivos(e.target.value)} />
+                            <textarea className='objetivos' type='text' placeholder='Objetivos do Cliente' value={objetivos} onChange={e => setObjetivos(e.target.value)} />
                             <img className='icon' src='/assets/images/checkicon.webp' onClick={concluirEditTre} />
                         </div>) :
                             (<div>
-                                <input className='objetivos' type='text' placeholder='Objetivos do Cliente' value={objetivos} onChange={e => setObjetivos(e.target.value)} readOnly />
+                                <textarea className='objetivos' type='text' placeholder='Objetivos do Cliente' value={objetivos} onChange={e => setObjetivos(e.target.value)} readOnly />
                                 <img className='icon' src='/assets/images/editicon.png' onClick={editObj} />
                             </div>)}
 
@@ -701,10 +696,10 @@ export default function InfoClientes() {
                     <div className="exerciciosTreino">
                         <h2>EXERCÍCIOS SELECIONADOS:</h2>
                         {editinfoTre == 4 ? (<div>
-                            <input className='exercicios' type='text' placeholder='Exercícios Selecionados' value={exercicios} onChange={e => setExercicios(e.target.value)} />
+                            <textarea className='exercicios' type='text' placeholder='Exercícios Selecionados' value={exercicios} onChange={e => setExercicios(e.target.value)} />
                             <img className='icon' src='/assets/images/checkicon.webp' onClick={concluirEditTre} />
                         </div>) :
-                            (<div><input className='exercicios' type='text' placeholder='Exercícios Selecionados' value={exercicios} onChange={e => setExercicios(e.target.value)} readOnly />
+                            (<div><textarea className='exercicios' type='text' placeholder='Exercícios Selecionados' value={exercicios} onChange={e => setExercicios(e.target.value)} readOnly />
                                 <img className='icon' src='/assets/images/editicon.png' onClick={editTre} />
                             </div>)}
 

@@ -1,7 +1,7 @@
 // frontend - components/cardsTreino/index.jsx
 import { Link } from 'react-router-dom';
 import './index.scss';
-import moment from 'moment';
+import {format} from 'date-fns'
 
 function CardTreinoMarcado(props) {
 
@@ -34,11 +34,11 @@ function CardTreinoMarcado(props) {
                     </div>
                     <div>
                         <h3>Data da Avaliação:</h3>
-                        <p>{moment(props.item.dataAvaliacao).format('DD/MM/YYYY HH:mm')}</p>
+                        <p>{format(props.item.dataAvaliacao, 'dd/MM/yyyy HH:mm')}</p>
                     </div>
                     <div>
                         <h3>Data da Reavaliação:</h3>
-                        <p>{moment(props.item.dataReavaliacao).format('DD/MM/YYYY HH:mm')}</p>
+                        <p>{format(props.item.dataReavaliacao, 'dd/MM/yyyy HH:mm')}</p>
                     </div>
                     <div>
                         <h3>Telefone do Cliente:</h3>

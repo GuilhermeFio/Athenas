@@ -41,6 +41,7 @@ export default function AdicionarTreino() {
     const [exercicios, setExercicios] = useState('');
 
     const [pomure, setPomure] = useState(false);
+    const [poRemo, setPoRemo] = useState(false);
 
 
 
@@ -67,6 +68,7 @@ export default function AdicionarTreino() {
             };
             reader.readAsDataURL(file);
         }
+        setPoRemo(true)
     }
 
 
@@ -217,7 +219,8 @@ export default function AdicionarTreino() {
                         <div className="sobreimg">
 
                             <input type='file' accept='image/*' onChange={alterarImg} />
-                            <p>REMOVER <i class='fa-solid fa-trash botao' onClick={() => setImgCliente(null)} /></p>
+                            {poRemo && (<button onClick={() => [setImgCliente(null), setPoRemo(null)]} >REMOVER <i class='fa-solid fa-trash botao' /></button>) }
+                            
                         </div>
                     </div>
 
@@ -225,36 +228,36 @@ export default function AdicionarTreino() {
                     <div className="infosCliente">
                         <div className='info'>
                             <h2>Nome do Cliente:</h2>
-                            <input type='text' placeholder='Digite aqui' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} />
+                            <input className='nome' type='text' placeholder='Digite aqui' value={nomeCliente} onChange={e => setNomeCliente(e.target.value)} />
                         </div>
 
                         <div className="datidade">
                             <div className='info'>
                                 <h2>Data de Nascimento:</h2>
-                                <input type='date' placeholder='Digite aqui' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)}  max={new Date().toISOString().split("T")[0]} />
+                                <input className='datanasc' type='date' placeholder='Digite aqui' value={dataNascimento} onChange={e => setDataNascimento(e.target.value)}  max={new Date().toISOString().split("T")[0]} />
 
                             </div>
 
                             <div className='info'>
                                 <h2>Idade do Cliente:</h2>
-                                <input type='text' placeholder='Idade' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} readOnly/>
+                                <input className='idade' type='text' placeholder='Idade' value={idadeCliente} onChange={e => setIdadeCliente(e.target.value)} readOnly/>
                             </div>
                         </div>
                         
                         <div className='info'>
                             <h2>Telefone do Cliente:</h2>
-                            <input type='text' placeholder='Digite aqui' value={numCliente} onChange={e => setNumCliente(formatarTelefone(e.target.value))}/>
+                            <input className='telefone' type='text' placeholder='Digite aqui' value={numCliente} onChange={e => setNumCliente(formatarTelefone(e.target.value))}/>
                         </div>
 
                         <div className="avas">
                             <div className='info'>
                                 <h2>Data da Avaliação:</h2>
-                                <input type='datetime-local' placeholder='Digite aqui' value={diaAvaliacao} onChange={mudaroinput} />
+                                <input className='dataAva' type='datetime-local' placeholder='Digite aqui' value={diaAvaliacao} onChange={mudaroinput} />
                             </div>
 
                             <div className='info'>
                                 <h2>Data da Reavaliação:</h2>
-                                {pomure == true ? (<input type='datetime-local' placeholder='Digite aqui' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} min={moment(diaAvaliacao).format('YYYY-MM-DDTHH:mm')}/>) : (<input type='datetime-local' placeholder='Digite aqui' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} readOnly/>)}
+                                {pomure == true ? (<input className='dataRev' type='datetime-local' placeholder='Digite aqui' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} min={moment(diaAvaliacao).format('YYYY-MM-DDTHH:mm')}/>) : (<input className='dataRev' type='datetime-local' placeholder='Digite aqui' value={diaReavaliacao} onChange={e => setDiaReavaliacao(e.target.value)} readOnly/>)}
                                 
                             </div>
                         </div>
@@ -322,11 +325,11 @@ export default function AdicionarTreino() {
                 <div className="detalhesTreino">
                     <div className="objetivosTreino">
                         <h2>OBJETIVOS DO CLIENTE:</h2>
-                        <input type='text' placeholder='Digite aqui' value={objetivos} onChange={e => setObjetivos(e.target.value)} />
+                        <textarea className='objetivo' type='text' placeholder='Digite aqui' value={objetivos} onChange={e => setObjetivos(e.target.value)} />
                     </div>
                     <div className="exerciciosTreino">
                         <h2>EXERCÍCIOS SELECIONADOS:</h2>
-                        <input type='text' placeholder='Digite aqui' value={exercicios} onChange={e => setExercicios(e.target.value)} />
+                        <textarea className='exercicio' type='text' placeholder='Digite aqui' value={exercicios} onChange={e => setExercicios(e.target.value)} />
                     </div>
                 </div>
 
