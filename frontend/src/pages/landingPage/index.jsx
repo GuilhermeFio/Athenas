@@ -20,16 +20,16 @@ function Landing() {
 
         <img className='logo' src='/assets/images/logo_1.png' />
         {menuAberto ? ( 
-          <div className={'abrigatogle'+toglescss} onClick={showmenu}>
+          <div className={'abrigatogle'+toglescss} >
           <div className='part1'>
             
-            <h2> <a href='#s3'> Personal Trainer </a> </h2>
-            <h2> <a href='#s4'> Sobre o Athenas </a> </h2>
-            <h2> <a href='#s5'> Contato </a> </h2>
+            <h2 onClick={showmenu}> <a href='#s3'> Personal Trainer </a> </h2>
+            <h2 onClick={showmenu}> <a href='#s4'> Sobre o Athenas </a> </h2>
+            <h2 onClick={showmenu}> <a href='#s5'> Contato </a> </h2>
             </div> 
             
             <div className='part2'>
-              <button className='link-toggle'> ≡ </button>
+              <button className='link-toggle' onClick={showmenu}> ≡ </button>
 
               <div>
                 <h2>S</h2>
@@ -45,7 +45,7 @@ function Landing() {
         ≡
 </button></div>)}
         
-        <p> <a href='#s3'> Personal Trainer </a> </p>
+        <p > <a href='#s3'> Personal Trainer </a> </p>
         <p> <a href='#s4'> Sobre o Athenas </a> </p>
         <p> <a href='#s5'> Contato </a> </p>
         
