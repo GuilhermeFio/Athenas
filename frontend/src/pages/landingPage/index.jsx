@@ -1,8 +1,14 @@
 import './index.scss';
 import { Link } from 'react-router-dom'
 import Footer from '../../components/footerMenu';
+import { useState } from 'react';
 
 function Landing() {
+  const [menuAberto, setMenuAberto] = useState(false)
+
+  function showmenu(){
+    setMenuAberto(!menuAberto)
+  }
   return (
 
     <div className="landing-page pagina">
@@ -10,9 +16,17 @@ function Landing() {
       <header className='cabecalho'>
 
         <img className='logo' src='/assets/images/logo_1.png' />
-        <div className='link-toggle'>
-                        ≡
+        {menuAberto ? ( <div className='abrigatogle' onClick={showmenu}>
+          <button className='link-toggle'> ≡ </button>
+          <h2> <a href='#s3'> Personal Trainer </a> </h2>
+        <h2> <a href='#s4'> Sobre o Athenas </a> </h2>
+        <h2> <a href='#s5'> Contato </a> </h2>
+
         </div>
+        ) : (<div className='abrigatogle'><button onClick={showmenu} className='link-toggle'>
+        ≡
+</button></div>)}
+        
         <p> <a href='#s3'> Personal Trainer </a> </p>
         <p> <a href='#s4'> Sobre o Athenas </a> </p>
         <p> <a href='#s5'> Contato </a> </p>
