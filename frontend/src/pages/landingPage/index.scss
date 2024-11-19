@@ -147,6 +147,8 @@ html    {
         align-items: center;
         padding: 5vh;
         gap: 7vh;
+        position: relative;
+        height: 100vh;
 
         .img2 {
             width: 60vh;
@@ -157,6 +159,9 @@ html    {
             display: flex;
             flex-direction: column;
             gap: 2vh;
+            position: absolute;
+            right: 1em;
+            top: 2em;
             
 
             h2 {
@@ -685,6 +690,15 @@ html    {
         padding: 4em;
         gap: 5em;
         
+    }
+}
+
+.secao2{
+    
+    justify-content: center;
+    align-items: center;
+    .img2{
+        display: none;
     }
 }
 
