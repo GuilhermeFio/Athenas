@@ -5,6 +5,9 @@ import { useState } from 'react';
 
 function Landing() {
   const [menuAberto, setMenuAberto] = useState(false)
+  
+  let toglescss = 'aberto'
+  let toglescssoff = 'fechado' 
 
   function showmenu(){
     setMenuAberto(!menuAberto)
@@ -16,14 +19,29 @@ function Landing() {
       <header className='cabecalho'>
 
         <img className='logo' src='/assets/images/logo_1.png' />
-        {menuAberto ? ( <div className='abrigatogle' onClick={showmenu}>
-          <button className='link-toggle'> ≡ </button>
-          <h2> <a href='#s3'> Personal Trainer </a> </h2>
-        <h2> <a href='#s4'> Sobre o Athenas </a> </h2>
-        <h2> <a href='#s5'> Contato </a> </h2>
+        {menuAberto ? ( 
+          <div className={'abrigatogle'+toglescss} onClick={showmenu}>
+          <div className='part1'>
+            
+            <h2> <a href='#s3'> Personal Trainer </a> </h2>
+            <h2> <a href='#s4'> Sobre o Athenas </a> </h2>
+            <h2> <a href='#s5'> Contato </a> </h2>
+            </div> 
+            
+            <div className='part2'>
+              <button className='link-toggle'> ≡ </button>
 
+              <div>
+                <h2>S</h2>
+                <h2>E</h2>
+                <h2>Ç</h2>
+                <h2>Õ</h2>
+                <h2>E</h2>
+                <h2>S</h2>
+              </div>
+              </div>
         </div>
-        ) : (<div className='abrigatogle'><button onClick={showmenu} className='link-toggle'>
+        ) : (<div className={'abrigatogle'+toglescssoff}><button onClick={showmenu} className='link-toggle'>
         ≡
 </button></div>)}
         
