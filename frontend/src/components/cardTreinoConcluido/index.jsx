@@ -34,12 +34,12 @@ function CardTreinoConcluido(props) {
                     </div>
                     <div>
                         <h3>Data da Avaliação:</h3>
-                        <p>{format(props.item.dataAvaliacao, 'dd/MM/yyyy HH:mm')}</p>
+                        <p>{format(props.item.dataAvaliacao, 'dd/MM/yyyy')}</p>
                     </div>
                    
                     <div>
                         <h3>Data da Reavaliação:</h3>
-                        <p>{format(props.item.dataReavaliacao, 'dd/MM/yyyy HH:mm')}</p>
+                        <p>{format(props.item.dataReavaliacao, 'dd/MM/yyyy')}</p>
                     </div>
                 </div>
                 </Link>) }
