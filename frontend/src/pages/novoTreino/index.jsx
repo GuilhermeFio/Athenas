@@ -100,8 +100,7 @@ export default function AdicionarTreino() {
             };
             const respAvaliacao = await axios.post(`http://localhost:5008/avaliacao/adicionar?x-access-token=${token}`, avaliacaoData);
              avaliacaoId = respAvaliacao.data.novoId;
-
-             //vallidation
+             
 
             validarAvaliacao(avaliacaoData)
 
@@ -116,7 +115,7 @@ export default function AdicionarTreino() {
             const respTreino = await axios.post(`http://localhost:5008/treinos/adicionar?x-access-token=${token}`, treinoData);
             treinoId = respTreino.data.novoId;
 
-            //vallidation
+            
            validarTreino(treinoData)
 
             const clienteData = {
@@ -131,7 +130,6 @@ export default function AdicionarTreino() {
 
             const respCliente = await axios.post(`http://localhost:5008/cliente/adicionar?x-access-token=${token}`, clienteData);
 
-            //vallidation
 
             validarCliente(clienteData)
         

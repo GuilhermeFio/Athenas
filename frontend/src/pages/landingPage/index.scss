@@ -670,10 +670,6 @@ html    {
              }
 
         }
-
-        
-
-   
 }
 
 .secao1{
@@ -682,7 +678,6 @@ html    {
     gap: 5em;
     .fundo{
         display: none;
-
     }
 
     .texto1{
@@ -716,9 +711,48 @@ html    {
     }
 }
 
+.secao4{
+    .container{
+        .Planejamento{
 
+            .titulo1{
+                img{
+                    width: 20px;
+                }
+            }
+        p{
+            width: 37vw;
+            font-size: 1em ;
+        }
+        
+    }
+    
+    .Suporte{
+        p{
+            width: 37vw;
+            font-size: 1em ;
+        }
+    }
+
+    .Segurança{
+        p{
+            width: 37vw;
+            font-size: 1em ;
+        }
+    }
+    }   
+          
+}
+
+.secao5{
+        .OpcoesContato{
+          justify-content: center;
+        }
+}
 
 }
+
+
 @media screen and (min-width: 768px) {
         
     .cabecalho{
@@ -752,8 +786,16 @@ html    {
         }
     }
 }
-
-
 }
-    
+
+@media screen and (max-width: 1200px){
+    .secao2{
+        .img2{
+            display:  none;
+        }
+        .texto2{
+            bottom: 50px;
+        }
+    } 
+}  
 }
