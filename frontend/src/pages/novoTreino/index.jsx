@@ -98,7 +98,7 @@ export default function AdicionarTreino() {
                 "aguaCorporal": aguaCorp,
 
             };
-            const respAvaliacao = await axios.post(`http://localhost:5008/avaliacao/adicionar?x-access-token=${token}`, avaliacaoData);
+            const respAvaliacao = await axios.post(`http://4.172.207.208:5008/avaliacao/adicionar?x-access-token=${token}`, avaliacaoData);
              avaliacaoId = respAvaliacao.data.novoId;
              
 
@@ -112,7 +112,7 @@ export default function AdicionarTreino() {
                 "exercicios": exercicios,
                 "concluido": false
             };
-            const respTreino = await axios.post(`http://localhost:5008/treinos/adicionar?x-access-token=${token}`, treinoData);
+            const respTreino = await axios.post(`http://4.172.207.208:5008/treinos/adicionar?x-access-token=${token}`, treinoData);
             treinoId = respTreino.data.novoId;
 
             
@@ -128,7 +128,7 @@ export default function AdicionarTreino() {
                 "imagem": imgCliente,
             };
 
-            const respCliente = await axios.post(`http://localhost:5008/cliente/adicionar?x-access-token=${token}`, clienteData);
+            const respCliente = await axios.post(`http://4.172.207.208:5008/cliente/adicionar?x-access-token=${token}`, clienteData);
 
 
             validarCliente(clienteData)
@@ -145,10 +145,10 @@ export default function AdicionarTreino() {
 
             try {
                 if (avaliacaoId >0) {
-                    await axios.delete(`http://localhost:5008/avaliacao/deletar/${avaliacaoId}?x-access-token=${token}`);
+                    await axios.delete(`http://4.172.207.208:5008/avaliacao/deletar/${avaliacaoId}?x-access-token=${token}`);
                 }
                 if (treinoId>0) {
-                    await axios.delete(`http://localhost:5008/treinos/deletar/${treinoId}?x-access-token=${token}`);
+                    await axios.delete(`http://4.172.207.208:5008/treinos/deletar/${treinoId}?x-access-token=${token}`);
                 }
             } catch (error) {
                 toast.error('Erro ao desfazer as alterações: ', error.message);

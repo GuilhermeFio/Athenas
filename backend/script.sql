@@ -16,8 +16,8 @@ select * from athenasdb.login;
 create table athenasdb.treinos_marcados(
     treino_id int primary key auto_increment,
     ds_objetivos_cliente varchar(100) not null,
-    dt_avaliacao datetime not null,
-    dt_reavaliacao datetime not null,
+    dt_avaliacao date not null,
+    dt_reavaliacao date not null,
     exercicios_escolhidos varchar(220) not null,
     bt_concluido boolean,
     id_login int,

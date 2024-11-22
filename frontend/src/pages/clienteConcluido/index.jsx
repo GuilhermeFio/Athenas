@@ -87,7 +87,7 @@ export default function ClienteConcluido(){
 
     async function consultar(){
         
-            const url = `http://localhost:5008/cliente/concluido/${id}?x-access-token=${token}`;
+            const url = `http://4.172.207.208:5008/cliente/concluido/${id}?x-access-token=${token}`;
             const resp = await axios.get(url);
             const cliente = resp.data;
 
